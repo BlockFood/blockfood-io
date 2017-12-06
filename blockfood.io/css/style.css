@@ -14,7 +14,7 @@
 * ======================================================= */
 body {
   font-family: "Open Sans", sans-serif;
-  font-size:   16px;
+  font-size:   18px;
   line-height: 28px;
   font-weight: 300;
   color:       #85919d;
@@ -343,8 +343,8 @@ section {
 }
 
 #bfio-header svg.bf-logo {
-  position: relative;
-  top:      -35px;
+  position:   relative;
+  top:        -35px;
   transition: 0.5s all;
 }
 
@@ -354,9 +354,7 @@ section {
   }
 }
 
-
 #bfio-hero .cloud {
-  stroke:   #F5E7B8;
   position: absolute;
   z-index:  -1;
 
@@ -647,10 +645,6 @@ section {
   }
 }
 
-.placeholder {
-  background: yellow;
-  border:     1px dotted black;
-}
 
 .bfio-characteristics {
   position: relative;
@@ -702,8 +696,20 @@ section {
   bottom:    -150px;
 }
 
-.cloud-container.decoration .cloud {
+.yellow.cloud {
   stroke: #F5E7B8;
+}
+.purple.cloud {
+  stroke: #4B3F80;
+}
+.orange.cloud {
+  stroke: #E6501E;
+}
+
+.animation-container {
+  width:  100%;
+  border: 2px solid red;
+  min-height: 600px;
 }
 
 #bfio-team .bfio-lead {
@@ -821,6 +827,12 @@ section {
 .bfio-feature .title {
   font-weight: bold;
   font-size:   18px;
+}
+
+#bfio-features .btn {
+  font-size: inherit;
+  margin-left: 10px;
+  padding-bottom: 16px;
 }
 
 .bfio-feature .description {
@@ -1637,6 +1649,16 @@ section {
 
 .bfio-country {
   width: 30px;
+}
+
+#bfio-roadmap .title {
+  padding: 132px 0;
+}
+
+#bfio-roadmap .roadmap-year {
+  color: white;
+  padding: 132px 0;
+
 }
 
 .bfio-role {
