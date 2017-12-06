@@ -8,7 +8,7 @@
 
 /* =======================================================
 *
-* 	Template Style 
+* 	Template Style
 *	Edit this section
 *
 * ======================================================= */
@@ -28,14 +28,14 @@ body.bfio-overflow {
 }
 
 a {
-  color:              #806bd9;
+  color:              #4b3f80;
   -webkit-transition: 0.5s;
   -o-transition:      0.5s;
   transition:         0.5s;
 }
 
 a:hover, a:active, a:focus {
-  color:           #806bd9;
+  color:           #4b3f80;
   outline:         none;
   text-decoration: none;
 }
@@ -99,24 +99,24 @@ section {
 }
 
 .btn-primary {
-  background: #806bd9;
+  background: #4b3f80;
   color:      #fff;
-  border:     2px solid #806bd9;
+  border:     2px solid #4b3f80;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background:   #806bd9 !important;
-  border-color: #806bd9 !important;
+  background:   #4b3f80 !important;
+  border-color: #4b3f80 !important;
 }
 
 .btn-primary.btn-outline {
   background: transparent;
-  color:      #806bd9;
-  border:     2px solid #806bd9;
+  color:      #4b3f80;
+  border:     2px solid #4b3f80;
 }
 
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #806bd9;
+  background: #4b3f80;
   color:      #fff;
 }
 
@@ -233,7 +233,7 @@ section {
 .form-control:active, .form-control:focus {
   outline:      none;
   box-shadow:   none;
-  border-color: #806bd9;
+  border-color: #4b3f80;
 }
 
 #bfio-whitepaper {
@@ -275,7 +275,7 @@ section {
 }
 
 #bfio-header #bfio-logo a span {
-  color: #806bd9;
+  color: #4b3f80;
 }
 
 #bfio-header nav {
@@ -1058,7 +1058,7 @@ section {
 }
 
 #bfio-info {
-  background: #806bd9;
+  background: #4b3f80;
 }
 
 #bfio-info .bfio-label {
@@ -1091,7 +1091,7 @@ section {
 }
 
 #bfio-pricing .price-box.popular {
-  border: 2px solid #806bd9;
+  border: 2px solid #4b3f80;
 }
 
 #bfio-pricing .price-box.popular .popular-text {
@@ -1101,7 +1101,7 @@ section {
   margin-top:            -2em;
   position:              absolute;
   padding:               4px 20px;
-  background:            #806bd9;
+  background:            #4b3f80;
   color:                 #fff;
   -webkit-border-radius: 4px;
   -moz-border-radius:    4px;
@@ -1116,7 +1116,7 @@ section {
   left:             50%;
   margin-left:      -10px;
   border-top:       10px solid black;
-  border-top-color: #806bd9;
+  border-top-color: #4b3f80;
   border-left:      10px solid transparent;
   border-right:     10px solid transparent;
 }
@@ -1281,7 +1281,7 @@ section {
 
 .bfio-social li a:hover {
   text-decoration: none !important;
-  color:           #806bd9 !important;
+  color:           #4b3f80 !important;
 }
 
 .bfio-person {
@@ -1386,7 +1386,7 @@ section {
 }
 
 #bfio-offcanvas ul li.active a {
-  color: #806bd9;
+  color: #4b3f80;
 }
 
 .bfio-nav-toggle {
