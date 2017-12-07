@@ -645,7 +645,6 @@ section {
   }
 }
 
-
 .bfio-characteristics {
   position: relative;
 }
@@ -699,15 +698,17 @@ section {
 .yellow.cloud {
   stroke: #F5E7B8;
 }
+
 .purple.cloud {
   stroke: #4B3F80;
 }
+
 .orange.cloud {
   stroke: #ff9900;
 }
 
 .animation-container {
-  width:  100%;
+  width:      100%;
   min-height: 600px;
 }
 
@@ -729,7 +730,6 @@ section {
   line-height: 32px;
   font-weight: 300;
 }
-
 
 #bfio-team .bfio-project-item .bfio-text {
   padding:    30px 10px 10px 20px;
@@ -754,33 +754,36 @@ section {
 }
 
 #bfio-team .bfio-project-item.image-popup {
-  background: rgba(255,255,255,0.5);
-  border: 2px dashed #4b3f80;
+  background:    rgba(255, 255, 255, 0.5);
+  border:        2px dashed #4b3f80;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
 #bfio-team .description {
-  transform: scale(0);
-  height: 0px;
-  overflow: hidden;
+  transform:  scale(0);
+  height:     0px;
+  overflow:   hidden;
   transition: 1s all;
 }
+
 #bfio-team .toggle {
   cursor: pointer;
 }
+
 #bfio-team .with-description .description {
   transform: scale(1);
-  height: 370px;
+  height:    370px;
 }
+
 #bfio-team .with-description .toggle {
   display: none;
 }
 
 #bfio-team .photo {
-  border-top-left-radius: 8px;
+  border-top-left-radius:  8px;
   border-top-right-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.2);
+  border:                  1px solid rgba(0, 0, 0, 0.2);
 }
 
 .bfio-feature .bfio-icon .icon {
@@ -791,8 +794,8 @@ section {
 .bfio-feature {
   text-align:    center;
   border-radius: 20px;
-  margin-top:    50px;
-  margin-bottom: 50px;
+  margin-top:    20px;
+  margin-bottom: 20px;
   color:         white;
 }
 
@@ -802,14 +805,18 @@ section {
 }
 
 #bfio-features .btn {
-  font-size: inherit;
-  margin-left: 10px;
+  font-size:      inherit;
+  margin-left:    10px;
   padding-bottom: 16px;
 }
 
 .bfio-feature .description {
   font-size: 75%;
-  margin:    0 42px;
+}
+
+.bfio-feature .description-container {
+  display: inline-block;
+  width: 220px;
 }
 
 .bfio-feature svg.cloud {
@@ -826,11 +833,6 @@ section {
   animation-timing-function: ease-in-out;
 }
 
-@media screen and (max-width: 768px) {
-  .bfio-feature .description {
-    margin: 0 28vw;
-  }
-}
 
 #bfio-testimonials.boredr-top {
   border-top: 1px solid #f0f2f3;
@@ -953,7 +955,7 @@ section {
 }
 
 #bfio-subscribe {
-  padding:    3em 0;
+  padding: 3em 0;
 }
 
 #bfio-subscribe h3 {
@@ -976,12 +978,11 @@ section {
   }
 }
 
-
 #bfio-subscribe .subscribe-btn {
-  border-top-left-radius: 0;
+  border-top-left-radius:    0;
   border-bottom-left-radius: 0;
-  margin: 0;
-  width: 126px;
+  margin:                    0;
+  width:                     126px;
 }
 
 #bfio-subscribe .subscribe-email {
@@ -1575,7 +1576,7 @@ section {
 }
 
 .bfio-country {
-  width: 30px;
+  width:  30px;
   border: 1px solid black;
 }
 
@@ -1584,24 +1585,44 @@ section {
 }
 
 #bfio-roadmap .year {
-  color: #484c50;
-  font-size: 40px;
+  color:       #484c50;
+  font-size:   40px;
   font-weight: bold;
-  position: relative;
-  top: -112px;
-  text-align: center;
+  position:    relative;
+  top:         -30px;
+  text-align:  center;
 }
+
 #bfio-roadmap .month {
-  font-size: 30px;
+  font-size:     30px;
   margin-bottom: 10px;
 }
+
 #bfio-roadmap .line {
   margin-left: 10px;
 }
-#bfio-roadmap .roadmap-year {
-  color: black;
-  padding: 80px 80px;
 
+#bfio-roadmap .roadmap-year {
+  color:   black;
+  padding: 90px 90px;
+}
+
+@media screen and (max-width: 992px) {
+  #bfio-roadmap .roadmap-year {
+    padding: 120px 90px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #bfio-roadmap .roadmap-year {
+    padding: 70px 210px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #bfio-roadmap .roadmap-year {
+    padding: 50px 50px;
+  }
 }
 
 .bfio-role {
