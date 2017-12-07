@@ -703,12 +703,11 @@ section {
   stroke: #4B3F80;
 }
 .orange.cloud {
-  stroke: #E6501E;
+  stroke: #ff9900;
 }
 
 .animation-container {
   width:  100%;
-  border: 2px solid red;
   min-height: 600px;
 }
 
@@ -1655,9 +1654,24 @@ section {
   padding: 132px 0;
 }
 
+#bfio-roadmap .year {
+  color: #484c50;
+  font-size: 40px;
+  font-weight: bold;
+  position: relative;
+  top: -112px;
+  text-align: center;
+}
+#bfio-roadmap .month {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+#bfio-roadmap .line {
+  margin-left: 10px;
+}
 #bfio-roadmap .roadmap-year {
-  color: white;
-  padding: 132px 0;
+  color: black;
+  padding: 80px 80px;
 
 }
 
