@@ -1004,6 +1004,7 @@ section {
 
 #bfio-subscribe .subscribe-email {
   width: calc(100% - 126px);
+  border-right: none;
 }
 
 #bfio-subscribe .btn {
