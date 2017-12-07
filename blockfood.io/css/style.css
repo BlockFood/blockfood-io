@@ -736,7 +736,7 @@ section {
 
 #bfio-team .cloud-container.decoration.bottom-right {
   bottom: 290px;
-  right: -260px;
+  right:  -260px;
 }
 
 .yellow.cloud {
@@ -1153,6 +1153,8 @@ section {
 
 #bfio-footer {
   padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 #bfio-footer a {
@@ -1231,6 +1233,15 @@ section {
 #bfio-footer .links {
   border-top:  1px solid #f0f2f3;
   padding-top: 30px;
+}
+
+#bfio-footer .cloud-container {
+  width: 580px;
+  height: 410px;
+  max-width: 100%;
+  top: auto;
+  bottom: -220px;
+  left: 50%;
 }
 
 .bfio-social {
