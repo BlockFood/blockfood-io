@@ -385,12 +385,15 @@ section {
 .animate-cloud-top.speed-1 {
   animation-duration: 1s;
 }
+
 .animate-cloud-top.speed-2 {
   animation-duration: 2s;
 }
+
 .animate-cloud-top.speed-3 {
   animation-duration: 3s;
 }
+
 .animate-cloud-top.speed-4 {
   animation-duration: 4s;
 }
@@ -772,16 +775,15 @@ section {
   border:        2px dashed #4b3f80;
   border-radius: 10px;
   margin-bottom: 20px;
-  cursor: pointer;
+  cursor:        pointer;
 }
 
 #bfio-team .description {
-  transform:  scale(0);
-  height:     0px;
-  overflow:   hidden;
-  transition: 1s all;
+  height:        0;
+  overflow:      hidden;
+  transition:    1s all;
   margin-bottom: 0;
-  cursor: pointer;
+  opacity:       0;
 }
 
 #bfio-team .toggle {
@@ -789,12 +791,7 @@ section {
 }
 
 #bfio-team .with-description .description {
-  transform: scale(1);
-  height:    370px;
-}
-
-#bfio-team .with-description .toggle {
-  display: none;
+  opacity: 1;
 }
 
 #bfio-team .photo {
@@ -833,7 +830,7 @@ section {
 
 .bfio-feature .description-container {
   display: inline-block;
-  width: 220px;
+  width:   220px;
 }
 
 .bfio-feature svg.cloud {
@@ -849,7 +846,6 @@ section {
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-
 
 #bfio-testimonials.boredr-top {
   border-top: 1px solid #f0f2f3;
@@ -975,26 +971,6 @@ section {
   padding: 3em 0;
 }
 
-#bfio-subscribe h3 {
-  float:         left;
-  width:         30%;
-  top:           10px;
-  font-size:     26px;
-  margin-bottom: 0;
-  position:      relative;
-}
-
-#bfio-subscribe h3 label {
-  font-weight: 300;
-}
-
-@media screen and (max-width: 992px) {
-  #bfio-subscribe h3 {
-    width:         100%;
-    margin-bottom: 30px;
-  }
-}
-
 #bfio-subscribe .subscribe-btn {
   border-top-left-radius:    0;
   border-bottom-left-radius: 0;
@@ -1003,7 +979,7 @@ section {
 }
 
 #bfio-subscribe .subscribe-email {
-  width: calc(100% - 126px);
+  width:        calc(100% - 126px);
   border-right: none;
 }
 
@@ -1013,6 +989,10 @@ section {
 
 #bfio-subscribe .btn.follow {
   padding-top: 14px;
+}
+
+#bfio-subscribe .subscribe-form {
+  padding-bottom: 40px;
 }
 
 #bfio-info {
@@ -1219,6 +1199,11 @@ section {
   #bfio-footer .bfio-copyright .bfio-right {
     float: left;
   }
+}
+
+#bfio-footer .links {
+  border-top:  1px solid #f0f2f3;
+  padding-top: 30px;
 }
 
 .bfio-social {
@@ -1621,16 +1606,17 @@ section {
 }
 
 #bfio-roadmap .roadmap-year {
-  color:   black;
+  color:      black;
   margin-top: 60px;
 }
 
 #bfio-roadmap .roadmap-container {
-  width: 200px;
+  width:      200px;
   min-height: 200px;
-  display: inline-block;
+  display:    inline-block;
   text-align: left;
 }
+
 @media screen and (max-width: 992px) {
   #bfio-roadmap .roadmap-year {
     padding: 120px 90px;
@@ -1650,7 +1636,7 @@ section {
 }
 
 .bfio-role {
-  font-weight: bold;
+  font-weight:   bold;
   margin-bottom: 10px;
 }
 
