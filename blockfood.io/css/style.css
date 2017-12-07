@@ -712,6 +712,33 @@ section {
   bottom:    -150px;
 }
 
+.cloud-container.decoration.bottom-right {
+  left:      auto;
+  top:       auto;
+
+  transform: none;
+  width:     510px;
+  height:    290px;
+
+  bottom:    0;
+  right:     0;
+}
+
+#bfio-team .cloud-container.decoration.right {
+  right: -340px;
+  top:   460px;
+}
+
+#bfio-team .cloud-container.decoration.left {
+  top:  110px;
+  left: -260px;
+}
+
+#bfio-team .cloud-container.decoration.bottom-right {
+  bottom: 290px;
+  right: -260px;
+}
+
 .yellow.cloud {
   stroke: #F5E7B8;
 }
