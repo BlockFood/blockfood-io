@@ -376,10 +376,23 @@ section {
 }
 
 .animate-cloud-top {
-  animation-duration:        5s;
+  animation-duration:        2s;
   animation-name:            cloud-like-1;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
+}
+
+.animate-cloud-top.speed-1 {
+  animation-duration: 1s;
+}
+.animate-cloud-top.speed-2 {
+  animation-duration: 2s;
+}
+.animate-cloud-top.speed-3 {
+  animation-duration: 3s;
+}
+.animate-cloud-top.speed-4 {
+  animation-duration: 4s;
 }
 
 .animate-cloud-left {
@@ -636,12 +649,12 @@ section {
 }
 
 section {
-  padding: 7em 0;
+  padding: 3em 0;
 }
 
 @media screen and (max-width: 768px) {
   section {
-    padding: 3em 0;
+    padding: 2em 0;
   }
 }
 
@@ -657,6 +670,7 @@ section {
   left:      50%;
   top:       50%;
   transform: translateX(-50%) translateY(-50%) scale(1.2);
+  min-width: 760px;
 }
 
 .cloud-container .cloud {
@@ -758,6 +772,7 @@ section {
   border:        2px dashed #4b3f80;
   border-radius: 10px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 #bfio-team .description {
@@ -765,6 +780,8 @@ section {
   height:     0px;
   overflow:   hidden;
   transition: 1s all;
+  margin-bottom: 0;
+  cursor: pointer;
 }
 
 #bfio-team .toggle {
@@ -1604,9 +1621,15 @@ section {
 
 #bfio-roadmap .roadmap-year {
   color:   black;
-  padding: 90px 90px;
+  margin-top: 60px;
 }
 
+#bfio-roadmap .roadmap-container {
+  width: 200px;
+  min-height: 200px;
+  display: inline-block;
+  text-align: left;
+}
 @media screen and (max-width: 992px) {
   #bfio-roadmap .roadmap-year {
     padding: 120px 90px;
@@ -1627,6 +1650,7 @@ section {
 
 .bfio-role {
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 html, body, #bfio-page {
