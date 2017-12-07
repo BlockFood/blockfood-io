@@ -150,7 +150,17 @@
 
 		} , { offset: '95%' } );
 	};
-	
+
+
+	var toggleDescription = function() {
+		$('#bfio-team .bfio-project-item').each( function(a, e) {
+			var parent = $(e)
+
+            $(e).on('click', function() {
+				parent.toggleClass('with-description')
+			})
+		})
+	}
 	
 
 	// Document on load.
@@ -162,7 +172,7 @@
 		offcanvasMenu();
 		burgerMenu();
 		goToTop();
-
+        toggleDescription();
 		// Animate
 		// contentWayPoint();
 
