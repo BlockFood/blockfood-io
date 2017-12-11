@@ -354,24 +354,77 @@ section {
   }
 }
 
-#bfio-hero .cloud {
-  position: absolute;
-  z-index:  -1;
+#bfio-hero .title .cloud-container {
+  right:     -50px;
+  top:       -32px;
+  width:     382px;
+  height:    360px;
+  left:      auto;
+  transform: scale(1.4);
+}
 
-  right:    -60px;
-  top:      -110px;
-  width:    850px;
-  height:   500px;
+@media screen and (max-width: 1200px) {
+  #bfio-hero .title .cloud-container {
+    right: -110px;
+  }
 }
 
 @media screen and (max-width: 992px) {
-  #bfio-hero .cloud {
+  #bfio-hero .title .bfio-right-position {
+    margin-bottom: 20px;
+  }
+  #bfio-hero .title .cloud-container {
+    width:       100%;
+    height:      250px;
+    top:         -20px;
+    left:        50%;
+    margin-left: -50%;
+    min-width:   320px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #bfio-hero .title .cloud-container {
     width:       100%;
     height:      390px;
     top:         -90px;
     left:        50%;
     margin-left: -50%;
     min-width:   320px;
+  }
+}
+
+#bfio-hero .animation .cloud-container {
+  left:   160px;
+  top:    120px;
+  width:  780px;
+  height: 320px;
+}
+
+@media screen and (max-width: 1200px) {
+  #bfio-hero .animation .cloud-container {
+    left:   110px;
+    top:    120px;
+    width:  780px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #bfio-hero .animation .cloud-container {
+    left:   160px;
+    top:    120px;
+    width:  780px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #bfio-hero .animation .cloud-container {
+    left:   110px;
+    top:    120px;
+    width:  780px;
+    height: 320px;
   }
 }
 
@@ -436,12 +489,10 @@ section {
   background-repeat:     no-repeat;
   position:              relative;
   width:                 100%;
-  height:                630px;
 }
 
 @media screen and (max-width: 480px) {
   #bfio-hero {
-    height: 450px;
   }
 }
 
@@ -1153,8 +1204,8 @@ section {
 
 #bfio-footer {
   padding-bottom: 0;
-  position: relative;
-  overflow: hidden;
+  position:       relative;
+  overflow:       hidden;
 }
 
 #bfio-footer a {
@@ -1236,12 +1287,12 @@ section {
 }
 
 #bfio-footer .cloud-container {
-  width: 580px;
-  height: 410px;
+  width:     580px;
+  height:    410px;
   max-width: 100%;
-  top: auto;
-  bottom: -220px;
-  left: 50%;
+  top:       auto;
+  bottom:    -220px;
+  left:      50%;
 }
 
 .bfio-social {

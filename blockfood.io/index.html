@@ -28,6 +28,7 @@
     <link rel='stylesheet' href='css/bootstrap.css'>
     <link rel='stylesheet' href='css/style.css'>
 
+    <script src='https://code.createjs.com/createjs-2015.11.26.min.js'></script>
 
     <script src='js/modernizr-2.6.2.min.js'></script>
     <!--[if lt IE 9]>
@@ -259,18 +260,37 @@
 
 <div id='bfio-page'>
 
-
     <section id='bfio-hero' class='hero js-fullheight' data-next='yes'>
         <div class='bfio-overlay'></div>
         <div class='container'>
-            <div class='bfio-intro js-fullheight'>
+            <div class='bfio-intro js-fullheight title'>
                 <div class='bfio-intro-text'>
                     <div class='bfio-right-position'>
-                        <svg class='cloud animate-cloud-top yellow'>
-                            <use xlink:href='#cloud_07'/>
-                        </svg>
+                        <div class='cloud-container'>
+                            <svg class='cloud animate-cloud-top yellow'>
+                                <use xlink:href='#cloud_07'/>
+                            </svg>
+                        </div>
                         <h2>BlockFood</h2>
                         <h3>Give the sharing economy back to the people with Smart Contracts and Ethereum</h3>
+                    </div>
+                </div>
+            </div>
+            <div class='bfio-intro js-fullheight animation'>
+                <div class='bfio-intro-text'>
+                    <div class='bfio-left-position'>
+                        <div class='cloud-container'>
+                            <svg class='cloud animate-cloud-top yellow'>
+                                <use xlink:href='#cloud_04'/>
+                            </svg>
+                        </div>
+                        <div id='animation_01_container' style='width:400px; height:300px'>
+                            <canvas id='animation_01' width='400' height='300'
+                                    style='position: absolute; display: block;'></canvas>
+                            <div id='animation_01_overlay'
+                                 style='pointer-events:none; overflow:hidden; width:400px; height:300px; position: absolute; left: 0px; top: 0px; display: block;'>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -282,12 +302,12 @@
         </div>
     </section>
 
-    <section id='bfio-projects' class='light'>
+    <section id='bfio-projects'>
         <a name='about'></a>
         <div class='container'>
             <div class='row row-bottom-padded-md'>
 
-                <div class='cloud-container decoration left'>
+                <div class='cloud-container decoration right'>
                     <svg class='cloud animate-cloud-left yellow'>
                         <use xlink:href='#cloud_02'/>
                     </svg>
@@ -401,7 +421,7 @@
         </div>
     </section>
 
-    <section id='bfio-features' class='dark'>
+    <section id='bfio-features'>
         <div class='container'>
             <div class='row row-bottom-padded-md'>
                 <div class='col-md-6 col-md-offset-3 text-center'>
@@ -434,7 +454,7 @@
         </div>
     </section>
 
-    <section id='bfio-roadmap' class='light'>
+    <section id='bfio-roadmap'>
         <a name='roadmap'></a>
         <div class='container'>
             <div class='row'>
@@ -516,8 +536,7 @@
         </div>
     </section>
 
-
-    <section id='bfio-team' class='light'>
+    <section id='bfio-team'>
         <div class='container'>
             <div class='row text-center row-bottom-padded-md'>
                 <div class='cloud-container decoration left'>
@@ -734,7 +753,7 @@
         </div>
     </section>
 
-    <section id='bfio-subscribe' class='light'>
+    <section id='bfio-subscribe'>
         <a name='roadmap'></a>
         <div class='container'>
             <div class='row row-bottom-padded-sm'>
@@ -764,7 +783,7 @@
         </div>
     </section>
 
-    <footer id='bfio-footer' class='dark'>
+    <footer id='bfio-footer'>
         <div class='cloud-container decoration left'>
             <svg class='cloud animate-cloud-left yellow'>
                 <use xlink:href='#cloud_07'/>
@@ -840,6 +859,7 @@
             </div>
         </div>
     </footer>
+
 </div>
 
 
@@ -850,6 +870,7 @@
 <script src='js/jquery.flexslider-min.js'></script>
 <script src='js/jquery.magnific-popup.min.js'></script>
 
+<script src='js/animation_01.js'></script>
 
 <script src='js/main.js'></script>
 
