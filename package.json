@@ -14,7 +14,9 @@
   "devDependencies": {},
   "scripts": {
     "start": "node script/dev.js",
-    "build": "node script/build.js"
+    "build": "node script/build.js",
+    "predeploy": "npm run build",
+    "deploy": "node script/deploy.js"
   },
   "repository": {
     "type": "git",
