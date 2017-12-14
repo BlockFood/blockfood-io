@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "^4.16.2",
     "fs-extra-promise": "^1.0.1",
+    "ftp-deploy": "^1.2.2",
     "htmlmin": "0.0.7",
     "mustache": "^2.3.0",
     "open": "0.0.5"
