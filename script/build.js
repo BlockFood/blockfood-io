@@ -1,5 +1,6 @@
 const Mustache = require('mustache')
 const fs = require('fs-extra-promise')
+const minify = require('htmlmin')
 
 const template = fs.readFileSync(__dirname + '/../blockfood.io/_template.html', 'utf-8')
 
@@ -15,7 +16,8 @@ const getHtmlFiles = () => blockfoodIoFolderContent
     }))
     .map(f => {
         const htmlFile = Object.assign({}, f)
-        htmlFile.rendered = Mustache.render(template, { content: f.content })
+        console.log(`\tRender ${f.name}...`)
+        htmlFile.rendered = minify(Mustache.render(template, { content: f.content }))
         return htmlFile
     })
 
@@ -28,6 +30,7 @@ const getOtherFiles = () => blockfoodIoFolderContent
 
 const build = async () => {
 
+    console.log(`Start build`)
     const htmlFiles = getHtmlFiles()
 
     await fs.removeAsync(__dirname + '/../build/')
@@ -40,9 +43,13 @@ const build = async () => {
     const otherFiles = getOtherFiles()
 
     await Promise.all(otherFiles.map(
-        otherFile => fs.copyAsync(otherFile.path, __dirname + '/../build/' + otherFile.name)
+        otherFile => {
+            console.log(`\tCopy ${otherFile.name}...`)
+            return fs.copyAsync(otherFile.path, __dirname + '/../build/' + otherFile.name)
+        }
     ))
 
+    console.log(`Build success`)
 }
 
 build()

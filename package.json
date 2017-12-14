@@ -6,12 +6,14 @@
   "dependencies": {
     "express": "^4.16.2",
     "fs-extra-promise": "^1.0.1",
+    "htmlmin": "0.0.7",
     "mustache": "^2.3.0",
     "open": "0.0.5"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node script/dev.js"
+    "start": "node script/dev.js",
+    "build": "node script/build.js"
   },
   "repository": {
     "type": "git",
