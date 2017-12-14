@@ -8,7 +8,13 @@ It is accessible on [BlockFood.io](https://blockfood.io).
 
 ### Prerequisites
 
-- Node.js 8+
+1. Install Node.js 8+
+
+2. At the root of the project, run:
+
+```bash
+npm install
+```
 
 ### Launch
 
