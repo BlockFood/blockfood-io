@@ -8,16 +8,31 @@ It is accessible on [BlockFood.io](https://blockfood.io).
 
 ### Prerequisites
 
-- Have a local http server
-
-```bash
-npm i -g live-server
-```
+- Node.js 8+
 
 ### Launch
 
-From the project root, launch your local http server (live-server for instance):
+1. Run:
 
 ```bash
-live-server
+npm start
+```
+
+### Build
+
+1. Run:
+
+```bash
+npm run build
+```
+
+### Deploy
+
+1. Copy ```deploy-config_empty.js``` to ```deploy-config.js```
+
+2. Enter information in ```deploy-config.js```
+
+3. Run:
+```bash
+npm run deploy
 ```
