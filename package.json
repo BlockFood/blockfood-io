@@ -1,0 +1,26 @@
+{
+  "name": "blockfood-io",
+  "version": "1.0.0",
+  "description": "This website is the central point of information regarding the BlockFood project.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "fs-extra-promise": "^1.0.1",
+    "mustache": "^2.3.0",
+    "open": "0.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node script/dev.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlockFood/blockfood-io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlockFood/blockfood-io/issues"
+  },
+  "homepage": "https://github.com/BlockFood/blockfood-io#readme"
+}

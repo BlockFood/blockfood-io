@@ -526,5 +526,5 @@ lib.properties = {
 
 
 
-})(lib = lib||{}, images = images||{}, createjs = createjs||{}, ss = ss||{}, AdobeAn = AdobeAn||{});
-var lib, images, createjs, ss, AdobeAn;
+})(animation1 = animation1||{}, images = images||{}, createjs = createjs||{}, ss = ss||{}, AdobeAn = AdobeAn||{});
+var animation1, images, createjs, ss, AdobeAn;

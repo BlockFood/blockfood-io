@@ -174,23 +174,23 @@
         })
     }
 
-    var startAnimation = function() {
+    var startAnimation = function(animation, animationId, animationName) {
         var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
         init()
         function init() {
-            canvas = document.getElementById("animation_01");
-            anim_container = document.getElementById("animation_01_container");
-            dom_overlay_container = document.getElementById("animation_01_overlay");
+            canvas = document.getElementById(animationId);
+            anim_container = document.getElementById(animationId + "_container");
+            dom_overlay_container = document.getElementById(animationId + "_overlay");
             handleComplete();
         }
         function handleComplete() {
             //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-            exportRoot = new lib.Anime_short();
+            exportRoot = new animation[animationName]();
             stage = new createjs.Stage(canvas);
             stage.addChild(exportRoot);
             //Registers the "tick" event listener.
             fnStartAnimation = function() {
-                createjs.Ticker.setFPS(lib.properties.fps);
+                createjs.Ticker.setFPS(animation.properties.fps);
                 createjs.Ticker.addEventListener("tick", stage);
             }
             //Code to support hidpi screens and responsive scaling.
@@ -199,7 +199,7 @@
                 window.addEventListener('resize', resizeCanvas);
                 resizeCanvas();
                 function resizeCanvas() {
-                    var w = lib.properties.width, h = lib.properties.height;
+                    var w = animation.properties.width, h = animation.properties.height;
                     var iw = window.innerWidth, ih=window.innerHeight;
                     var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
                     if(isResp) {
@@ -233,7 +233,24 @@
             makeResponsive(true,'both',false,1);
             fnStartAnimation();
         }
+    }
 
+    var timeline = function() {
+        $('.cntl').cntl({})
+    }
+
+    var toggleHeader = function() {
+        $(window).on('scroll', toggleClass)
+        toggleClass()
+
+        function toggleClass() {
+            var windowTop = $(window).scrollTop()
+            if (windowTop === 0) {
+                $(document.body).removeClass('scrolled')
+            } else {
+                $(document.body).addClass('scrolled')
+            }
+        }
     }
 
 
@@ -247,7 +264,10 @@
         burgerMenu()
         goToTop()
         toggleDescription()
-        startAnimation()
+        startAnimation(animation1, "animation_01", "Anime_short")
+        startAnimation(animation2, "animation_02", "Anime_long")
+        timeline()
+        toggleHeader()
         // Animate
         // contentWayPoint();
 
