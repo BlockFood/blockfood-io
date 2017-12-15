@@ -2,7 +2,7 @@
   "name": "blockfood-io",
   "version": "1.0.0",
   "description": "This website is the central point of information regarding the BlockFood project.",
-  "main": "index.js",
+  "main": "script/index.js",
   "dependencies": {
     "express": "^4.16.2",
     "fs-extra-promise": "^1.0.1",
