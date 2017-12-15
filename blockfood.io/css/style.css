@@ -141,10 +141,13 @@ section {
   padding-bottom: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  #bfio-header {
-    padding-top: 30px;
-  }
+body.scrolled #bfio-header {
+  padding-top:    10px;
+  padding-bottom: 10px;
+}
+
+body.scrolled #bfio-header #bfio-logo a {
+  transform: translateX(-50%) scale(0.6);
 }
 
 #bfio-header #bfio-logo {
@@ -157,14 +160,16 @@ section {
   z-index:    1;
 }
 
-
-#bfio-header svg.bf-logo {
-  position:   relative;
+#bfio-header #bfio-logo a {
+  position:   absolute;
   top:        -35px;
   transition: 0.5s all;
+  transform:  translateX(-50%);
 }
 
-
+#bfio-header #bfio-logo a svg {
+  max-width: 100%;
+}
 
 #bfio-header nav {
   position: relative;
@@ -176,7 +181,6 @@ section {
   z-index:  2;
   position: relative;
 }
-
 
 #bfio-header nav ul li {
   display: inline;
@@ -216,17 +220,21 @@ section {
 }
 
 @media screen and (max-width: 1200px) {
-  #bfio-header svg.bf-logo {
-    transform: scale(0.8);
+  #bfio-header #bfio-logo a {
+    transform: translateX(-50%) scale(0.8);
   }
 
   #bfio-header nav ul li a {
-    font-size:   16px;
+    font-size: 16px;
   }
 }
 
-
 @media screen and (max-width: 992px) {
+  #bfio-header {
+    padding-top:    20px;
+    padding-bottom: 20px;
+  }
+
   #bfio-header nav ul.left-menu li {
     margin-right: 10px;
   }
@@ -235,24 +243,34 @@ section {
     margin-left: 10px;
   }
 
-  #bfio-header svg.bf-logo {
-    transform: scale(0.6);
+  #bfio-header #bfio-logo a {
+    transform: translateX(-50%) scale(0.6);
   }
-
-
 }
 
 @media screen and (max-width: 768px) {
+  #bfio-header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
   #bfio-header nav ul {
     display: none;
   }
-  #bfio-header svg.bf-logo {
-    transform: scale(0.6);
+
+  #bfio-header #bfio-logo a {
+    transform: translateX(-50%) scale(0.8);
+  }
+
+  body.scrolled #bfio-header {
+    padding-top:    20px;
+    padding-bottom: 30px;
+  }
+
+  body.scrolled #bfio-header #bfio-logo a {
+    transform: translate(-50%, -20px) scale(0.5);
   }
 }
-
-
-
 
 #bfio-hero .title .cloud-container {
   right:     -50px;
@@ -293,6 +311,7 @@ section {
     margin-left: -50%;
     min-width:   320px;
   }
+
 }
 
 #bfio-hero .animation .cloud-container {
@@ -640,6 +659,12 @@ section {
   top:       -110px;
   left:      auto;
 }
+@media screen and (max-width: 992px) {
+  .cloud-container.decoration.right {
+    display: none;
+  }
+}
+
 
 .cloud-container.decoration.bottom {
   left:      -310px;
@@ -811,7 +836,7 @@ section {
 }
 
 #bfio-features #animation_02_container {
-  margin-top: -75px;
+  margin-top:    -75px;
   margin-bottom: 150px;
 }
 
