@@ -253,21 +253,28 @@
         }
     }
 
+    const lets = fn => {
+        try {
+            fn()
+        } catch(e) {
+            console.log(fn.name + ' failed')
+        }
+    }
 
     // Document on load.
     $(function () {
-        gotToNextSection()
-        loaderPage()
-        ScrollNext()
-        mobileMenuOutsideClick()
-        offcanvasMenu()
-        burgerMenu()
-        goToTop()
-        toggleDescription()
-        startAnimation(animation1, "animation_01", "Anime_short")
-        startAnimation(animation2, "animation_02", "Anime_long")
-        timeline()
-        toggleHeader()
+        lets(gotToNextSection)
+        lets(loaderPage)
+        lets(ScrollNext)
+        lets(mobileMenuOutsideClick)
+        lets(offcanvasMenu)
+        lets(burgerMenu)
+        lets(goToTop)
+        lets(toggleDescription)
+        lets(function startAnimation1() { startAnimation(animation1, "animation_01", "Anime_short") })
+        lets(function startAnimation2() { startAnimation(animation2, "animation_02", "Anime_long") })
+        lets(timeline)
+        lets(toggleHeader)
         // Animate
         // contentWayPoint();
 
