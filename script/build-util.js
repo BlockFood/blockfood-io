@@ -5,11 +5,28 @@ const path = require('path')
 
 const sourceFolder = path.join(__dirname, '/../blockfood.io')
 
-const template = fs.readFileSync(path.join(sourceFolder, '_template.html'), 'utf-8')
+const htmlTemplate = fs.readFileSync(path.join(sourceFolder, '_template.html'), 'utf-8')
 
 const sourceFolderContent = fs.readdirSync(sourceFolder)
 
-const templateHtmlFile = content => minify(Mustache.render(template, { content }))
+const templateHtmlFile = (content,
+                          urls = {
+                              index: 'https://blockfood.io/',
+                              terms: 'https://blockfood.io/terms',
+                              privacy: 'https://blockfood.io/privacy',
+                              disclaimer: 'https://blockfood.io/disclaimer',
+                              whitepaper: 'https://whitepaper.blockfood.io/',
+                          },
+                          social = {
+                              url: 'https://blockfood.io/',
+                              name: 'BlockFood - Give the sharing economy back to the people',
+                              description: 'World\'s first decentralized food ordering platform',
+                          },
+                          template = htmlTemplate) => {
+    return minify(Mustache.render(template, {
+        content, urls, social
+    }))
+}
 
 const getHtmlFiles = () => sourceFolderContent
     .filter(f => /\.html$/.test(f))
@@ -25,7 +42,6 @@ const getHtmlFiles = () => sourceFolderContent
         htmlFile.rendered = templateHtmlFile(f.content)
         return htmlFile
     })
-
 
 const buildHtmlFiles = async (buildPath) => {
     const htmlFiles = getHtmlFiles()

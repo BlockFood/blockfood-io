@@ -3,6 +3,7 @@ const open = require('open')
 const fs = require('fs')
 const Mustache = require('mustache')
 
+const { templateHtmlFile } = require('./build-util')
 
 
 const link = page => `<a href='blockfood.io/${page}' style='font-size:18px'>${page}</a>`
@@ -11,24 +12,34 @@ const link = page => `<a href='blockfood.io/${page}' style='font-size:18px'>${pa
 
 const app = express()
 
+const htmlFiles = fs.readdirSync(__dirname + '/../blockfood.io')
+    .filter(f => /\.html$/.test(f))
+    .map(f => f.replace('.html',''))
+
 app.get('/', (req, res) => {
-    const htmlFiles = fs.readdirSync(__dirname + '/../blockfood.io').filter(f => /\.html$/.test(f))
     res.send(htmlFiles.map(link).join('<br>'))
 })
 
-app.get('/blockfood.io/*.html', (req, res) => {
-    try {
-        const template = fs.readFileSync(__dirname + '/../blockfood.io/_template.html', 'utf-8')
+htmlFiles.forEach(file => {
+    app.get('/blockfood.io/' + file, (req, res) => {
+        try {
+            const template = fs.readFileSync(__dirname + '/../blockfood.io/_template.html', 'utf-8')
 
-        const file = fs.readFileSync(__dirname + '/../' + req.path, 'utf-8')
+            const file = fs.readFileSync(__dirname + '/../' + req.path + '.html', 'utf-8')
 
-        const html = Mustache.render(template, {content : file.toString()})
 
-        res.write(html)
-        res.end()
-    } catch(e) {
-        res.send(e)
-    }
+            res.write(templateHtmlFile(file, {
+                index: '/blockfood.io/index',
+                terms: '/blockfood.io/terms',
+                privacy: '/blockfood.io/privacy',
+                disclaimer: '/blockfood.io/disclaimer',
+                whitepaper: 'https://whitepaper.blockfood.io/'
+            }, undefined, template))
+            res.end()
+        } catch(e) {
+            res.send(e)
+        }
+    })
 })
 
 app.use('/blockfood.io', express.static(__dirname + '/../blockfood.io' ))

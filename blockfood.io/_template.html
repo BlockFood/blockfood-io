@@ -11,14 +11,14 @@
     <meta name='author' content='BlockFood'/>
 
     <meta property='og:title' content='BlockFood - Give the sharing economy back to the people'/>
-    <meta property='og:image' content=''/>
-    <meta property='og:url' content=''/>
-    <meta property='og:site_name' content=''/>
-    <meta property='og:description' content=''/>
+    <meta property='og:image' content='https://blockfood.io/logo.png'/>
+    <meta property='og:url' content='{{social.url}}'/>
+    <meta property='og:site_name' content='{{social.name}}'/>
+    <meta property='og:description' content='{{social.description}}'/>
     <meta name='twitter:title' content='BlockFood - Give the sharing economy back to the people'/>
-    <meta name='twitter:image' content=''/>
-    <meta name='twitter:url' content=''/>
-    <meta name='twitter:card' content=''/>
+    <meta name='twitter:image' content='https://blockfood.io/logo.png'/>
+    <meta name='twitter:url' content='{{social.url}}'/>
+    <meta name='twitter:card' content='{{social.name}}'/>
 
     <link rel='shortcut icon' href='favicon.ico'>
 
@@ -50,12 +50,12 @@
     <div class='container'>
         <nav role='navigation'>
             <ul class='pull-left left-menu'>
-                <li><a href='index.html#about'>Project</a></li>
-                <li><a href='index.html#roadmap'>Road map</a></li>
-                <li><a href='index.html#team'>Team</a></li>
-                <li><a href='https://whitepaper.blockfood.io/'>White paper</a></li>
+                <li><a href='{{urls.index}}#about'>Project</a></li>
+                <li><a href='{{urls.index}}#roadmap'>Road map</a></li>
+                <li><a href='{{urls.index}}#team'>Team</a></li>
+                <li><a href='{{urls.whitepaper}}'>White paper</a></li>
             </ul>
-            <h1 id='bfio-logo'><a href='index.html'>
+            <h1 id='bfio-logo'><a href='{{urls.index}}'>
                 <svg class='bf-logo '>
                     <use xlink:href='images/icon_Bf.svg#logo'/>
                 </svg>
@@ -65,7 +65,7 @@
                 <li><a href='https://github.com/BlockFood' target='_blank'><i class='icon-github'></i></a></li>
                 <li><a href='https://medium.com/blockfood' target='_blank'><i class='icon-medium'></i></a></li>
                 <li><a href='https://blockfood.slack.com/' target='_blank'><i class='icon-slack'></i></a></li>
-                <li class='bfio-cta-btn'><a href='index.html#subscribe'>Sign up</a></li>
+                <li class='bfio-cta-btn'><a href='{{urls.index}}#subscribe'>Sign up</a></li>
             </ul>
         </nav>
     </div>
@@ -88,9 +88,9 @@
                     <div class='bfio-footer-widget'>
                         <h3>Project</h3>
                         <ul class='bfio-links'>
-                            <li><a href='#about'>Project</a></li>
-                            <li><a href='#roadmap'>Road map</a></li>
-                            <li><a href='#team'>Team</a></li>
+                            <li><a href='{{urls.index}}#about'>Project</a></li>
+                            <li><a href='{{urls.index}}#roadmap'>Road map</a></li>
+                            <li><a href='{{urls.index}}#team'>Team</a></li>
                         </ul>
                     </div>
                 </div>
@@ -117,9 +117,9 @@
                     <div class='bfio-footer-widget'>
                         <h3>Legal</h3>
                         <ul class='bfio-links'>
-                            <li><a href='terms.html'>Terms of service</a></li>
-                            <li><a href='privacy.html'>Privacy policy</a></li>
-                            <li><a href='disclaimer.html'>Disclaimer</a></li>
+                            <li><a href='{{urls.terms}}'>Terms of service</a></li>
+                            <li><a href='{{urls.privacy}}'>Privacy policy</a></li>
+                            <li><a href='{{urls.disclaimer}}'>Disclaimer</a></li>
                         </ul>
                     </div>
                 </div>
