@@ -3,6 +3,10 @@ const fs = require('fs-extra-promise')
 const minify = require('htmlmin')
 const path = require('path')
 const UglifyJS = require('uglify-js')
+const autoprefixer = require('autoprefixer')
+const cssnano = require('cssnano')
+const postcss = require('postcss')
+const purifycss = require('purify-css')
 
 const sourceFolder = path.join(__dirname, '/../blockfood.io')
 
@@ -70,7 +74,6 @@ const copyOtherFiles = async (buildPath) => {
         }
     ))
 
-    // optimize css
     // optimize js
     const js = otherFiles.find(f => /js$/.test(f.name))
     const jsFiles = fs.readdirSync(js.path)
@@ -78,7 +81,6 @@ const copyOtherFiles = async (buildPath) => {
     jsFiles.forEach(jsFile => {
         const source = path.join(js.path, jsFile)
         const destination = path.join(buildPath, 'js', jsFile)
-        console.log(destination)
         const content = fs.readFileSync(source, 'utf-8')
         const minified = UglifyJS.minify(content)
 
@@ -87,6 +89,26 @@ const copyOtherFiles = async (buildPath) => {
         }
 
         fs.writeFileSync(destination, minified.code, 'utf-8')
+    })
+
+    // optimize css
+    const css = otherFiles.find(f => /css$/.test(f.name))
+    const cssFiles = fs.readdirSync(css.path)
+
+    await cssFiles.map(cssFile => {
+        const source = path.join(css.path, cssFile)
+        const destination = path.join(buildPath, 'css', cssFile)
+
+        const content = fs.readFileSync(source, 'utf-8')
+
+        return postcss([autoprefixer, cssnano])
+            .process(content)
+            .then(result => {
+                result.warnings().forEach(function (warn) {
+                    console.warn(source, warn.toString())
+                })
+                fs.writeFileSync(destination, result.css, 'utf-8')
+            }).catch(e => console.log(e))
     })
 }
 
