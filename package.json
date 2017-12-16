@@ -8,6 +8,10 @@
     "fs-extra-promise": "^1.0.1",
     "ftp-deploy": "^1.2.2",
     "htmlmin": "0.0.7",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.0.1",
+    "jimp": "^0.2.28",
     "mustache": "^2.3.0",
     "open": "0.0.5"
   },
