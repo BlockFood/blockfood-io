@@ -28,7 +28,7 @@ htmlFiles.forEach(file => {
             const file = fs.readFileSync(__dirname + '/../' + req.path + '.html', 'utf-8')
 
 
-            res.write(templateHtmlFile(file, {
+            res.write(templateHtmlFile(file, false, {
                 index: '/blockfood.io/index',
                 terms: '/blockfood.io/terms',
                 privacy: '/blockfood.io/privacy',

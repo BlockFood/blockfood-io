@@ -36,9 +36,6 @@
     <script src='js/respond.min.js'></script>
     <![endif]-->
 
-
-
-
 </head>
 
 <body class='bfio-overflow'>
@@ -50,10 +47,10 @@
     <div class='container'>
         <nav role='navigation'>
             <ul class='pull-left left-menu'>
-                <li><a href='{{urls.index}}#about'>Project</a></li>
-                <li><a href='{{urls.index}}#roadmap'>Road map</a></li>
-                <li><a href='{{urls.index}}#team'>Team</a></li>
-                <li><a href='{{urls.whitepaper}}'>White paper</a></li>
+                <li><a href='{{urls.index}}#about' class='main-nav'>Project</a></li>
+                <li><a href='{{urls.index}}#roadmap' class='main-nav'>Road map</a></li>
+                <li><a href='{{urls.index}}#team' class='main-nav'>Team</a></li>
+                <li><a href='{{urls.whitepaper}}' class='main-nav {{#isWhitePaper}}active{{/isWhitePaper}}'>White paper</a></li>
             </ul>
             <h1 id='bfio-logo'><a href='{{urls.index}}'>
                 <svg class='bf-logo '>

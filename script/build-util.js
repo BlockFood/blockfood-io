@@ -10,6 +10,7 @@ const htmlTemplate = fs.readFileSync(path.join(sourceFolder, '_template.html'), 
 const sourceFolderContent = fs.readdirSync(sourceFolder)
 
 const templateHtmlFile = (content,
+                          isWhitePaper = false,
                           urls = {
                               index: 'https://blockfood.io/',
                               terms: 'https://blockfood.io/terms',
@@ -24,7 +25,7 @@ const templateHtmlFile = (content,
                           },
                           template = htmlTemplate) => {
     return minify(Mustache.render(template, {
-        content, urls, social
+        content, isWhitePaper, urls, social
     }))
 }
 

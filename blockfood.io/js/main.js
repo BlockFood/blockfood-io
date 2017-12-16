@@ -253,6 +253,36 @@
         }
     }
 
+    var updateNavigation = function() {
+        $(window).on('scroll', function() {
+            var allNav = []
+            $('#bfio-header a.main-nav').each(function(i, e) {
+                const href = $(e).attr('href')
+                if (/#/.test(href)) {
+                    const ref = href.replace(/.+#/, '')
+                    const distance = $('a[name="' + ref + '"]').offset().top - $(window).scrollTop()
+
+                    allNav.push({ distance: distance, nav: $(e)})
+                }
+            })
+            const closest = allNav.reduce(function(closest, nav) {
+                if (nav.distance < 0 && nav.distance > closest.distance) {
+                    return nav
+                }
+                return closest
+            }, allNav[0])
+
+            allNav.forEach(function(nav) {
+                if (nav === closest) {
+                    nav.nav.addClass('active')
+
+                } else {
+                    nav.nav.removeClass('active')
+                }
+            })
+        })
+    }
+
     const lets = fn => {
         try {
             fn()
@@ -275,6 +305,7 @@
         lets(function startAnimation2() { startAnimation(animation2, "animation_02", "Anime_long") })
         lets(timeline)
         lets(toggleHeader)
+        lets(updateNavigation)
         // Animate
         // contentWayPoint();
 

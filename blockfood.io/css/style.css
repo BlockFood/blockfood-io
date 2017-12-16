@@ -190,6 +190,12 @@ body.scrolled #bfio-header #bfio-logo a {
   font-size:   18px;
   color:       #4B3F80;
   font-weight: bold;
+  transition:  none;
+}
+
+#bfio-header nav ul li a.main-nav:hover,
+#bfio-header nav ul li a.main-nav.active {
+  border-bottom: 3px solid #4B3F80;
 }
 
 #bfio-header nav ul li.bfio-cta-btn a {
@@ -250,7 +256,7 @@ body.scrolled #bfio-header #bfio-logo a {
 
 @media screen and (max-width: 768px) {
   #bfio-header {
-    padding-top: 40px;
+    padding-top:    40px;
     padding-bottom: 40px;
   }
 
@@ -659,12 +665,12 @@ section {
   top:       -110px;
   left:      auto;
 }
+
 @media screen and (max-width: 992px) {
   .cloud-container.decoration.right {
     display: none;
   }
 }
-
 
 .cloud-container.decoration.bottom {
   left:      -310px;
