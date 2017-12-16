@@ -70,7 +70,7 @@ const copyOtherFiles = async (buildPath) => {
     ))
 
     // optimize css
-    
+
 }
 
 module.exports = {
