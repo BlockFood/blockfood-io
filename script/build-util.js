@@ -69,18 +69,8 @@ const copyOtherFiles = async (buildPath) => {
         }
     ))
 
-    const images = otherFiles.find(f => /images/.test(f.name))
-    console.log(images)
     // optimize css
-    // optimize images
-    const what = await imagemin([path.join(images.path, '**/*.{jpg,png}')], path.join(buildPath, 'images'), {
-        plugins: [
-            imageminJpegtran(),
-            imageminPngquant({ quality: '65-80' })
-        ]
-    })
-    console.log('what?', what)
-
+    
 }
 
 module.exports = {
