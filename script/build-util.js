@@ -2,6 +2,7 @@ const Mustache = require('mustache')
 const fs = require('fs-extra-promise')
 const minify = require('htmlmin')
 const path = require('path')
+const UglifyJS = require('uglify-js')
 
 const sourceFolder = path.join(__dirname, '/../blockfood.io')
 
@@ -70,7 +71,23 @@ const copyOtherFiles = async (buildPath) => {
     ))
 
     // optimize css
+    // optimize js
+    const js = otherFiles.find(f => /js$/.test(f.name))
+    const jsFiles = fs.readdirSync(js.path)
 
+    jsFiles.forEach(jsFile => {
+        const source = path.join(js.path, jsFile)
+        const destination = path.join(buildPath, 'js', jsFile)
+        console.log(destination)
+        const content = fs.readFileSync(source, 'utf-8')
+        const minified = UglifyJS.minify(content)
+
+        if (minified.error) {
+            console.log('failure', minified.error)
+        }
+
+        fs.writeFileSync(destination, minified.code, 'utf-8')
+    })
 }
 
 module.exports = {

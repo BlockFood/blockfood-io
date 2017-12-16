@@ -146,7 +146,7 @@
             var description = $('.description', parent)
 
             var getDescriptionHeight = function () {
-                const previousHeight = description.css('height')
+                var previousHeight = description.css('height')
                 description.css({ height: 'auto' })
                 var height = description.height()
                 description.css({ height: previousHeight })
@@ -156,11 +156,11 @@
             $(e).on('click', function () {
                 parent.toggleClass('with-description')
 
-                const isActivated = parent.hasClass('with-description')
+                var isActivated = parent.hasClass('with-description')
 
 
                 if (isActivated) {
-                    const height = getDescriptionHeight()
+                    var height = getDescriptionHeight()
                     description.css({ height: 0 })
                     setTimeout(function () {
                         description.css({ height: height + 'px' })
@@ -240,7 +240,7 @@
     }
 
     var debounce = function(fn, delay) {
-        let timeout
+        var timeout
         return function() {
             clearTimeout(timeout)
             timeout = setTimeout(fn, delay)
@@ -268,15 +268,15 @@
         function onScroll () {
             var allNav = []
             $('#bfio-header a.main-nav').each(function(i, e) {
-                const href = $(e).attr('href')
+                var href = $(e).attr('href')
                 if (/#/.test(href)) {
-                    const ref = href.replace(/.+#/, '')
-                    const distance = $('a[name="' + ref + '"]').offset().top - $(window).scrollTop()
+                    var ref = href.replace(/.+#/, '')
+                    var distance = $('a[name="' + ref + '"]').offset().top - $(window).scrollTop()
 
                     allNav.push({ distance: distance, nav: $(e)})
                 }
             })
-            const closest = allNav.reduce(function(closest, nav) {
+            var closest = allNav.reduce(function(closest, nav) {
                 if (nav.distance <= 10 && nav.distance > closest.distance) {
                     return nav
                 }
@@ -294,7 +294,7 @@
         }
     }
 
-    const lets = fn => {
+    var lets = function(fn){
         try {
             fn()
         } catch(e) {
