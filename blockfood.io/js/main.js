@@ -239,8 +239,16 @@
         $('.cntl').cntl({})
     }
 
+    var debounce = function(fn, delay) {
+        let timeout
+        return function() {
+            clearTimeout(timeout)
+            timeout = setTimeout(fn, delay)
+        }
+    }
+
     var toggleHeader = function() {
-        $(window).on('scroll', toggleClass)
+        $(window).on('scroll', debounce(toggleClass, 50))
         toggleClass()
 
         function toggleClass() {
@@ -254,7 +262,10 @@
     }
 
     var updateNavigation = function() {
-        $(window).on('scroll', function() {
+        $(window).on('scroll', debounce(onScroll, 50))
+        onScroll()
+
+        function onScroll () {
             var allNav = []
             $('#bfio-header a.main-nav').each(function(i, e) {
                 const href = $(e).attr('href')
@@ -266,7 +277,7 @@
                 }
             })
             const closest = allNav.reduce(function(closest, nav) {
-                if (nav.distance < 0 && nav.distance > closest.distance) {
+                if (nav.distance <= 10 && nav.distance > closest.distance) {
                     return nav
                 }
                 return closest
@@ -280,7 +291,7 @@
                     nav.nav.removeClass('active')
                 }
             })
-        })
+        }
     }
 
     const lets = fn => {

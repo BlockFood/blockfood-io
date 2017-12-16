@@ -44,7 +44,6 @@ htmlFiles.forEach(file => {
 
 app.use('/blockfood.io', express.static(__dirname + '/../blockfood.io' ))
 
-
 app.listen(8080)
 
 open('http://localhost:8080')

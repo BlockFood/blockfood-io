@@ -190,7 +190,10 @@ body.scrolled #bfio-header #bfio-logo a {
   font-size:   18px;
   color:       #4B3F80;
   font-weight: bold;
-  transition:  none;
+}
+
+#bfio-header nav ul li a.main-nav {
+  border-bottom: 3px solid transparent;
 }
 
 #bfio-header nav ul li a.main-nav:hover,
