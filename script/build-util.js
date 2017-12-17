@@ -21,6 +21,7 @@ const templateHtmlFile = (content,
                               terms: 'https://blockfood.io/terms',
                               privacy: 'https://blockfood.io/privacy',
                               disclaimer: 'https://blockfood.io/disclaimer',
+                              presale: 'https://blockfood.io/pre-sale',
                               whitepaper: 'https://whitepaper.blockfood.io/',
                           },
                           social = {
@@ -29,8 +30,10 @@ const templateHtmlFile = (content,
                               description: 'World\'s first decentralized food ordering platform',
                           },
                           template = htmlTemplate) => {
+
+    const templatedContent = Mustache.render(content, { isWhitePaper, urls, social })
     return minify(Mustache.render(template, {
-        content, isWhitePaper, urls, social
+        content: templatedContent, isWhitePaper, urls, social
     }))
 }
 

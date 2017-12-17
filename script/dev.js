@@ -33,6 +33,7 @@ htmlFiles.forEach(file => {
                 terms: '/blockfood.io/terms',
                 privacy: '/blockfood.io/privacy',
                 disclaimer: '/blockfood.io/disclaimer',
+                presale : '/blockfood.io/pre-sale',
                 whitepaper: 'https://whitepaper.blockfood.io/'
             }, undefined, template))
             res.end()
