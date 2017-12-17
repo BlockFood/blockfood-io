@@ -911,7 +911,16 @@ section {
 }
 
 #bfio-subscribe .subscribe-form {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
+}
+
+#bfio-subscribe .subscribe-error {
+  color: #b6312d;
+  font-weight: bold;
+}
+
+#bfio-subscribe .subscribe-success h3 {
+  color: #4B3F80;
 }
 
 #bfio-footer {

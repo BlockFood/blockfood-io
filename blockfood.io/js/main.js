@@ -266,6 +266,7 @@
         onScroll()
 
         function onScroll () {
+            var halfWindowHeight = $(window).height() / 2 - 50
             var allNav = []
             $('#bfio-header a.main-nav').each(function(i, e) {
                 var href = $(e).attr('href')
@@ -277,14 +278,14 @@
                 }
             })
             var closest = allNav.reduce(function(closest, nav) {
-                if (nav.distance <= 10 && nav.distance > closest.distance) {
+                if (nav.distance <= halfWindowHeight && nav.distance > closest.distance) {
                     return nav
                 }
                 return closest
             }, allNav[0])
 
             allNav.forEach(function(nav) {
-                if (nav === closest) {
+                if (nav === closest && nav.distance <= halfWindowHeight) {
                     nav.nav.addClass('active')
 
                 } else {
@@ -292,6 +293,45 @@
                 }
             })
         }
+    }
+
+    var handleSubscribe = function () {
+        function onFailure() {
+            $('.subscribe-error').css({ display: 'inline-block' })
+        }
+
+        function onSuccess() {
+            $('.subscribe-success').css({ display: 'inline-block' })
+            $('.subscribe-form').css({ display: 'none' })
+            $('.subscribe-error').css({ display: 'none' })
+        }
+
+        function trySubscribe() {
+            var email = $('#email').val()
+
+            onSuccess()
+            return
+
+            $.get('https://blockfood.io/user/new?email=' + encodeURIComponent(email))
+                .done(function (response) {
+                    if (/^KO/.test(response)) {
+                        onFailure()
+                    } else {
+                        onSuccess()
+                    }
+                })
+                .fail(onFailure)
+        }
+
+        $('.subscribe-email').on('keydown', function(e) {
+            if (e.key === 'Enter') {
+                trySubscribe()
+            }
+        })
+        $('.subscribe-btn').on('click', function (e) {
+            e.preventDefault()
+            trySubscribe()
+        })
     }
 
     var lets = function(fn){
@@ -317,6 +357,7 @@
         lets(timeline)
         lets(toggleHeader)
         lets(updateNavigation)
+        lets(handleSubscribe)
         // Animate
         // contentWayPoint();
 
