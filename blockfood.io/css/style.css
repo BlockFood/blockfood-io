@@ -1360,3 +1360,19 @@ section {
 html, body, #bfio-page {
   height: 100%;
 }
+
+.pre-sale .apply-btn {
+  width: 130px;
+  height: 54px;
+  border-left: none;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin: 0;
+}
+.pre-sale .apply-email {
+  width: calc(100% - 134px);
+}
+
+.pre-sale #animation_01_container {
+  float: right;
+}
