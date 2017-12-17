@@ -307,7 +307,7 @@
         }
 
         function trySubscribe() {
-            var email = $('#email').val()
+            var email = $('.subscribe-email').val()
 
             $.get('https://blockfood.io/user/new?email=' + encodeURIComponent(email))
                 .done(function (response) {
