@@ -23,6 +23,7 @@ const templateHtmlFile = (content,
                               disclaimer: 'https://blockfood.io/disclaimer',
                               presale: 'https://blockfood.io/pre-sale',
                               whitepaper: 'https://whitepaper.blockfood.io/',
+                              api: 'https://api.blockfood.io/'
                           },
                           social = {
                               url: 'https://blockfood.io/',

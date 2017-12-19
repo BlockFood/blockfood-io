@@ -34,7 +34,8 @@ htmlFiles.forEach(file => {
                 privacy: '/blockfood.io/privacy',
                 disclaimer: '/blockfood.io/disclaimer',
                 presale : '/blockfood.io/pre-sale',
-                whitepaper: 'https://whitepaper.blockfood.io/'
+                whitepaper: 'https://whitepaper.blockfood.io/',
+                api: 'http://localhost:3663/'
             }, undefined, template))
             res.end()
         } catch(e) {
