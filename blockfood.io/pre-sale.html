@@ -1,9 +1,6 @@
 <div class='container pre-sale'>
     <div class='row row-bottom-padded-md'>
         <div class='col-lg-12'>
-
-            <h1>Pre-Sale</h1>
-
             <div id='animation_01_container' style='width:400px; height:300px'>
                 <canvas id='animation_01' width='400' height='300'
                         style='position: absolute; display: block;'></canvas>
@@ -12,38 +9,479 @@
                 </div>
             </div>
 
-            <p>
-                Welcome to BlockFood's pre-sale. Pre-sale rules are defined in our <a
-                    href='https://whitepaper.blockfood.io/token-sale' target='_blank'>white paper</a>.
-            </p>
+            <div class='loading'>Loading...
+                <div class='bfio-loader'></div>
+            </div>
 
-            <p>
-                To participate in this pre-sale, you must provide the following accurate information:
+            <div class='step1' style='display: none'>
+                <h1>Pre-Sale 1/3</h1>
+
+                <p>
+                    Welcome to BlockFood's pre-sale. Pre-sale rules are defined in our <a
+                        href='https://whitepaper.blockfood.io/token-sale' target='_blank'>white paper</a>.
+                </p>
+
+                <p>
+                    To participate in this pre-sale, you must provide the following accurate information:
                 <ul>
+                    <li>Email address</li>
                     <li>Full name</li>
                     <li>Date of birth</li>
                     <li>Location</li>
                     <li>Nationality</li>
                     <li>National identity card or Passport</li>
                 </ul>
-            </p>
+                </p>
 
-            <p>To start your application for pre-sale, enter your email:</p>
+                <p>To start your application for pre-sale, enter your email:</p>
 
-            <p>
-            <div class='apply-form input-group mb-2 mb-sm-0'>
-                <div class='input-group-addon'>@</div>
-                <input type='email' class='form-control apply-email' placeholder='Enter your email'/>
-                <input value='Continue' class='btn btn-primary apply-btn' type='submit'/>
+                <p>
+                <div class='apply-form input-group mb-2 mb-sm-0'>
+                    <div class='input-group-addon'>@</div>
+                    <input type='email' class='form-control apply-email' placeholder='Enter your email'/>
+                    <input value='Continue' class='btn btn-primary apply-btn' type='submit'/>
+                </div>
+                <div class='apply-form-error' style='display:none'>Something went wrong. Please check your email and try
+                    again.
+                </div>
+                <div class='apply-form-success' style='display:none'><span class='email'></span> - Thank you. Check your
+                    inbox for the next step.
+                </div>
+                </p>
+
+                <p class='apply-form-advice'>
+                    An email will be sent to your address with instructions for the next step.
+                </p>
             </div>
-            </p>
 
-            <p>
-                An email will be sent to your address with instructions for the next step.
-            </p>
+            <div class='error' style='display:none'>
+                <h1>Pre-Sale</h1>
+
+                <p>
+                    Your application could not be found. Please check the URL. If the URL is correct but this message is
+                    displayed, return to step 1.
+                </p>
+            </div>
+
+            <div class='step2a' style='display: none'>
+                <h1>Pre-Sale step 2/3</h1>
+
+
+                <div class='form'>
+                    <p>In order to complete your application, please complete the following fields:</p>
+
+                    <form id='step2-form' method='post' enctype='multipart/form-data'>
+                        <p>
+                        <div class='input-group mb-2 mb-sm-0'>
+                            <div class='input-group-addon'>Email</div>
+                            <input type='text' class='form-control email' disabled placeholder='email'
+                                   name='email'/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class='input-group mb-2 mb-sm-0'>
+                            <div class='input-group-addon'>Complete name</div>
+                            <input type='text' class='form-control first-name' name='firstName' autofocus
+                                   placeholder='First name'/>
+                            <input type='text' class='form-control last-name' name='lastName' placeholder='Last name'/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class='input-group mb-2 mb-sm-0'>
+                            <div class='input-group-addon'>Date of birth</div>
+                            <input type='text' class='form-control birth-year' name='birthYear'
+                                   placeholder='Year (e.g: 1980)'/>
+                            <input type='text' class='form-control birth-month' name='birthMonth'
+                                   placeholder='Month (e.g: 7)'/>
+                            <input type='text' class='form-control birth-day' name='birthDay'
+                                   placeholder='Day (e.g: 25)'/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class='input-group mb-2 mb-sm-0'>
+                            <div class='input-group-addon'>Address</div>
+                            <input type='text' class='form-control address-line-1' name='addressLine1'
+                                   placeholder='Address line 1'/>
+                            <input type='text' class='form-control address-line-2' name='addressLine2'
+                                   placeholder='Address line 2'/>
+                            <input type='text' class='form-control address-city' name='city' placeholder='City'/>
+                            <input type='text' class='form-control address-state' name='state'
+                                   placeholder='State/Province/Region'/>
+                            <input type='text' class='form-control address-postcode' name='postalCode'
+                                   placeholder='Postal code'/>
+                            <input type='text' class='form-control address-country' name='country'
+                                   placeholder='Country'/>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class='input-group mb-2 mb-sm-0'>
+                            <div class='input-group-addon'>Nationality</div>
+                            <input type='text' class='form-control nationality' name='nationality'
+                                   placeholder='Nationality'/>
+                            <select class='form-control'>
+                                <option value=''>-- select one --</option>
+                                <option value='afghan'>Afghan</option>
+                                <option value='albanian'>Albanian</option>
+                                <option value='algerian'>Algerian</option>
+                                <option value='american'>American</option>
+                                <option value='andorran'>Andorran</option>
+                                <option value='angolan'>Angolan</option>
+                                <option value='antiguans'>Antiguans</option>
+                                <option value='argentinean'>Argentinean</option>
+                                <option value='armenian'>Armenian</option>
+                                <option value='australian'>Australian</option>
+                                <option value='austrian'>Austrian</option>
+                                <option value='azerbaijani'>Azerbaijani</option>
+                                <option value='bahamian'>Bahamian</option>
+                                <option value='bahraini'>Bahraini</option>
+                                <option value='bangladeshi'>Bangladeshi</option>
+                                <option value='barbadian'>Barbadian</option>
+                                <option value='barbudans'>Barbudans</option>
+                                <option value='batswana'>Batswana</option>
+                                <option value='belarusian'>Belarusian</option>
+                                <option value='belgian'>Belgian</option>
+                                <option value='belizean'>Belizean</option>
+                                <option value='beninese'>Beninese</option>
+                                <option value='bhutanese'>Bhutanese</option>
+                                <option value='bolivian'>Bolivian</option>
+                                <option value='bosnian'>Bosnian</option>
+                                <option value='brazilian'>Brazilian</option>
+                                <option value='british'>British</option>
+                                <option value='bruneian'>Bruneian</option>
+                                <option value='bulgarian'>Bulgarian</option>
+                                <option value='burkinabe'>Burkinabe</option>
+                                <option value='burmese'>Burmese</option>
+                                <option value='burundian'>Burundian</option>
+                                <option value='cambodian'>Cambodian</option>
+                                <option value='cameroonian'>Cameroonian</option>
+                                <option value='canadian'>Canadian</option>
+                                <option value='cape verdean'>Cape Verdean</option>
+                                <option value='central african'>Central African</option>
+                                <option value='chadian'>Chadian</option>
+                                <option value='chilean'>Chilean</option>
+                                <option value='chinese'>Chinese</option>
+                                <option value='colombian'>Colombian</option>
+                                <option value='comoran'>Comoran</option>
+                                <option value='congolese'>Congolese</option>
+                                <option value='costa rican'>Costa Rican</option>
+                                <option value='croatian'>Croatian</option>
+                                <option value='cuban'>Cuban</option>
+                                <option value='cypriot'>Cypriot</option>
+                                <option value='czech'>Czech</option>
+                                <option value='danish'>Danish</option>
+                                <option value='djibouti'>Djibouti</option>
+                                <option value='dominican'>Dominican</option>
+                                <option value='dutch'>Dutch</option>
+                                <option value='east timorese'>East Timorese</option>
+                                <option value='ecuadorean'>Ecuadorean</option>
+                                <option value='egyptian'>Egyptian</option>
+                                <option value='emirian'>Emirian</option>
+                                <option value='equatorial guinean'>Equatorial Guinean</option>
+                                <option value='eritrean'>Eritrean</option>
+                                <option value='estonian'>Estonian</option>
+                                <option value='ethiopian'>Ethiopian</option>
+                                <option value='fijian'>Fijian</option>
+                                <option value='filipino'>Filipino</option>
+                                <option value='finnish'>Finnish</option>
+                                <option value='french'>French</option>
+                                <option value='gabonese'>Gabonese</option>
+                                <option value='gambian'>Gambian</option>
+                                <option value='georgian'>Georgian</option>
+                                <option value='german'>German</option>
+                                <option value='ghanaian'>Ghanaian</option>
+                                <option value='greek'>Greek</option>
+                                <option value='grenadian'>Grenadian</option>
+                                <option value='guatemalan'>Guatemalan</option>
+                                <option value='guinea-bissauan'>Guinea-Bissauan</option>
+                                <option value='guinean'>Guinean</option>
+                                <option value='guyanese'>Guyanese</option>
+                                <option value='haitian'>Haitian</option>
+                                <option value='herzegovinian'>Herzegovinian</option>
+                                <option value='honduran'>Honduran</option>
+                                <option value='hungarian'>Hungarian</option>
+                                <option value='icelander'>Icelander</option>
+                                <option value='indian'>Indian</option>
+                                <option value='indonesian'>Indonesian</option>
+                                <option value='iranian'>Iranian</option>
+                                <option value='iraqi'>Iraqi</option>
+                                <option value='irish'>Irish</option>
+                                <option value='israeli'>Israeli</option>
+                                <option value='italian'>Italian</option>
+                                <option value='ivorian'>Ivorian</option>
+                                <option value='jamaican'>Jamaican</option>
+                                <option value='japanese'>Japanese</option>
+                                <option value='jordanian'>Jordanian</option>
+                                <option value='kazakhstani'>Kazakhstani</option>
+                                <option value='kenyan'>Kenyan</option>
+                                <option value='kittian and nevisian'>Kittian and Nevisian</option>
+                                <option value='kuwaiti'>Kuwaiti</option>
+                                <option value='kyrgyz'>Kyrgyz</option>
+                                <option value='laotian'>Laotian</option>
+                                <option value='latvian'>Latvian</option>
+                                <option value='lebanese'>Lebanese</option>
+                                <option value='liberian'>Liberian</option>
+                                <option value='libyan'>Libyan</option>
+                                <option value='liechtensteiner'>Liechtensteiner</option>
+                                <option value='lithuanian'>Lithuanian</option>
+                                <option value='luxembourger'>Luxembourger</option>
+                                <option value='macedonian'>Macedonian</option>
+                                <option value='malagasy'>Malagasy</option>
+                                <option value='malawian'>Malawian</option>
+                                <option value='malaysian'>Malaysian</option>
+                                <option value='maldivan'>Maldivan</option>
+                                <option value='malian'>Malian</option>
+                                <option value='maltese'>Maltese</option>
+                                <option value='marshallese'>Marshallese</option>
+                                <option value='mauritanian'>Mauritanian</option>
+                                <option value='mauritian'>Mauritian</option>
+                                <option value='mexican'>Mexican</option>
+                                <option value='micronesian'>Micronesian</option>
+                                <option value='moldovan'>Moldovan</option>
+                                <option value='monacan'>Monacan</option>
+                                <option value='mongolian'>Mongolian</option>
+                                <option value='moroccan'>Moroccan</option>
+                                <option value='mosotho'>Mosotho</option>
+                                <option value='motswana'>Motswana</option>
+                                <option value='mozambican'>Mozambican</option>
+                                <option value='namibian'>Namibian</option>
+                                <option value='nauruan'>Nauruan</option>
+                                <option value='nepalese'>Nepalese</option>
+                                <option value='new zealander'>New Zealander</option>
+                                <option value='ni-vanuatu'>Ni-Vanuatu</option>
+                                <option value='nicaraguan'>Nicaraguan</option>
+                                <option value='nigerien'>Nigerien</option>
+                                <option value='north korean'>North Korean</option>
+                                <option value='northern irish'>Northern Irish</option>
+                                <option value='norwegian'>Norwegian</option>
+                                <option value='omani'>Omani</option>
+                                <option value='pakistani'>Pakistani</option>
+                                <option value='palauan'>Palauan</option>
+                                <option value='panamanian'>Panamanian</option>
+                                <option value='papua new guinean'>Papua New Guinean</option>
+                                <option value='paraguayan'>Paraguayan</option>
+                                <option value='peruvian'>Peruvian</option>
+                                <option value='polish'>Polish</option>
+                                <option value='portuguese'>Portuguese</option>
+                                <option value='qatari'>Qatari</option>
+                                <option value='romanian'>Romanian</option>
+                                <option value='russian'>Russian</option>
+                                <option value='rwandan'>Rwandan</option>
+                                <option value='saint lucian'>Saint Lucian</option>
+                                <option value='salvadoran'>Salvadoran</option>
+                                <option value='samoan'>Samoan</option>
+                                <option value='san marinese'>San Marinese</option>
+                                <option value='sao tomean'>Sao Tomean</option>
+                                <option value='saudi'>Saudi</option>
+                                <option value='scottish'>Scottish</option>
+                                <option value='senegalese'>Senegalese</option>
+                                <option value='serbian'>Serbian</option>
+                                <option value='seychellois'>Seychellois</option>
+                                <option value='sierra leonean'>Sierra Leonean</option>
+                                <option value='singaporean'>Singaporean</option>
+                                <option value='slovakian'>Slovakian</option>
+                                <option value='slovenian'>Slovenian</option>
+                                <option value='solomon islander'>Solomon Islander</option>
+                                <option value='somali'>Somali</option>
+                                <option value='south african'>South African</option>
+                                <option value='south korean'>South Korean</option>
+                                <option value='spanish'>Spanish</option>
+                                <option value='sri lankan'>Sri Lankan</option>
+                                <option value='sudanese'>Sudanese</option>
+                                <option value='surinamer'>Surinamer</option>
+                                <option value='swazi'>Swazi</option>
+                                <option value='swedish'>Swedish</option>
+                                <option value='swiss'>Swiss</option>
+                                <option value='syrian'>Syrian</option>
+                                <option value='taiwanese'>Taiwanese</option>
+                                <option value='tajik'>Tajik</option>
+                                <option value='tanzanian'>Tanzanian</option>
+                                <option value='thai'>Thai</option>
+                                <option value='togolese'>Togolese</option>
+                                <option value='tongan'>Tongan</option>
+                                <option value='trinidadian or tobagonian'>Trinidadian or Tobagonian</option>
+                                <option value='tunisian'>Tunisian</option>
+                                <option value='turkish'>Turkish</option>
+                                <option value='tuvaluan'>Tuvaluan</option>
+                                <option value='ugandan'>Ugandan</option>
+                                <option value='ukrainian'>Ukrainian</option>
+                                <option value='uruguayan'>Uruguayan</option>
+                                <option value='uzbekistani'>Uzbekistani</option>
+                                <option value='venezuelan'>Venezuelan</option>
+                                <option value='vietnamese'>Vietnamese</option>
+                                <option value='welsh'>Welsh</option>
+                                <option value='yemenite'>Yemenite</option>
+                                <option value='zambian'>Zambian</option>
+                                <option value='zimbabwean'>Zimbabwean</option>
+                            </select>
+                        </div>
+                        </p>
+
+                        <p>
+                        <div class='input-group mb-2 mb-sm-0'>
+                            <div class='input-group-addon'>National identity card or Passport</div>
+                            <input type='file' class='form-control' name='id_card'>
+                        </div>
+                        </p>
+
+                        <div class='text-right'>
+                            <input value='Validate' class='btn btn-primary step2-btn' type='submit'/>
+                        </div>
+
+                        <div class='submit-error' style='display:none'></div>
+                    </form>
+                </div>
+            </div>
+
+            <div class='step2b'>
+                <h1>Pre-Sale step 2/3</h1>
+
+                <p>Please review the following information:</p>
+
+                <div class='recap-email'>
+                    <div class='field'>email</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-firstName'>
+                    <div class='field'>firstName</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-lastName'>
+                    <div class='field'>lastName</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-birthYear'>
+                    <div class='field'>birthYear</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-birthMonth'>
+                    <div class='field'>birthMonth</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-birthDay'>
+                    <div class='field'>birthDay</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-addressLine1'>
+                    <div class='field'>addressLine1</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-addressLine2'>
+                    <div class='field'>addressLine2</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-city'>
+                    <div class='field'>city</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-state'>
+                    <div class='field'>state</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-postalCode'>
+                    <div class='field'>postalCode</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-country'>
+                    <div class='field'>country</div>
+                    <div class='value'></div>
+                </div>
+                <div class='recap-nationality'>
+                    <div class='field'>nationality</div>
+                    <div class='value'></div>
+                </div>
+
+                <p>If</p>
+
+                <div class='text-left'>
+                    <input value='Modify'
+                           class='btn btn-primary step2b-btn-modify' type='submit'/>
+
+
+                    <input value='Confirm (warning: your application cannot be corrected after this)'
+                           class='btn btn-primary step2b-btn-confirm' type='submit'/>
+                </div>
+
+                <div class='text-right'>
+                </div>
+            </div>
+
+            <div class='step3'>
+                <h1>Pre-Sale step 3/3</h1>
+
+                <div class='metamask-required' style='display:none'>
+                    This step of the pre-sale process requires to have <a href='https://metamask.io/'>MetaMask</a>
+                    installed. If you don't have MetaMask, go to <a href='https://metamask.io/'>https://metamask.io/</a>
+                    and follow the instructions.
+                </div>
+                <div class='smart-contract-summary' style='display:none'>
+                    <p>MetaMask is correctly installed.</p>
+
+                    <p>
+                        To configure MetaMask, make sure:
+                    <ul>
+                        <li>You have imported your private key in MetaMask</li>
+                        <li>You are able to read your Ether balance</li>
+                    </ul>
+                    </p>
+
+                    <p>
+                        Enter the amount of Ether you wish to give (minimum: 0.5 Ether):
+                    </p>
+
+                    <p>
+                    <div class='input-group mb-2 mb-sm-0'>
+                        <div class='input-group-addon'>Ether</div>
+                        <input type='text' class='form-control' name='ether'
+                               placeholder='Ether (e.g: 1.5) (minimum: 0.5, maximum: 200)'/>
+                    </div>
+                    </p>
+
+                    <div class='error' style='display:none'>Failed to call smart contract function. Please refresh the
+                        page and try again.
+                    </div>
+                    <div class='warning' style='display:none'>Check your ether amount: minimum contribution = 0.5,
+                        maximum contribution = 200
+                    </div>
+
+                    <p>
+                        <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
+                    </p>
+
+                    <div class='ether-scan' style='display:none'>
+                        Your transaction is visible here: <a href=''>EtherScan - <span class='tx'></span></a>
+                    </div>
+
+                    <div class='transaction-1' style='display:none'>
+                        Waiting for MetaMask confirmation...
+                    <div class='bfio-loader'></div>
+                    </div>
+
+                    <div class='transaction-2' style='display:none'>
+                        Waiting for transaction to be mined (this can take a while)...
+                    <div class='bfio-loader'></div>
+                    </div>
+
+                    <div class='transaction-3' style='display:none'>
+                        Transaction successful ! The BlockFood team will review your information and accept your
+                        participation if everything is okay. You should receive a confirmation email in the next 24
+                        hours.
+                    </div>
+
+
+                </div>
+            </div>
+
 
         </div>
     </div>
 
 
 </div>
+
+<script src='js/ethjs-contract.min.js'></script>
+<script src='js/ethjs-query.min.js'></script>
+<script src='js/pre-sale-abi.js'></script>

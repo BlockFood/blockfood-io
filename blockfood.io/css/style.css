@@ -1376,3 +1376,9 @@ html, body, #bfio-page {
 .pre-sale #animation_01_container {
   float: right;
 }
+
+.bfio-loader {
+  background: url(../images/Preloader_2.gif) left no-repeat #fff;
+  min-height: 64px;
+  min-width: 64px;
+}

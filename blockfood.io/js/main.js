@@ -24,7 +24,7 @@
 
     // Loading page
     var loaderPage = function () {
-        $('.bfio-loader').fadeOut('slow')
+        $('.bfio-main-loader').fadeOut('slow')
     }
 
     // Scroll Next
@@ -57,11 +57,11 @@
 
     }
 
-	// Offcanvas
-	var offcanvasMenu = function() {
-		$('body').prepend('<div id="bfio-offcanvas" />');
-		$('#bfio-offcanvas').prepend('<ul id="bfio-side-links">');
-		$('body').prepend('<a href="#" class="js-bfio-nav-toggle bfio-nav-toggle"><i></i></a>');
+    // Offcanvas
+    var offcanvasMenu = function () {
+        $('body').prepend('<div id="bfio-offcanvas" />')
+        $('#bfio-offcanvas').prepend('<ul id="bfio-side-links">')
+        $('body').prepend('<a href="#" class="js-bfio-nav-toggle bfio-nav-toggle"><i></i></a>')
 
         $('.left-menu li, .right-menu li').each(function () {
             var $this = $(this)
@@ -158,7 +158,6 @@
 
                 var isActivated = parent.hasClass('with-description')
 
-
                 if (isActivated) {
                     var height = getDescriptionHeight()
                     description.css({ height: 0 })
@@ -166,7 +165,7 @@
                         description.css({ height: height + 'px' })
                     }, 50)
                 } else {
-                    setTimeout(function() {
+                    setTimeout(function () {
                         description.css({ height: 0 })
                     }, 50)
                 }
@@ -174,80 +173,87 @@
         })
     }
 
-    var startAnimation = function(animation, animationId, animationName) {
-        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+    var startAnimation = function (animation, animationId, animationName) {
+        var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation
         init()
+
         function init() {
-            canvas = document.getElementById(animationId);
-            anim_container = document.getElementById(animationId + "_container");
-            dom_overlay_container = document.getElementById(animationId + "_overlay");
-            handleComplete();
+            canvas = document.getElementById(animationId)
+            anim_container = document.getElementById(animationId + '_container')
+            dom_overlay_container = document.getElementById(animationId + '_overlay')
+            handleComplete()
         }
+
         function handleComplete() {
             //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-            exportRoot = new animation[animationName]();
-            stage = new createjs.Stage(canvas);
-            stage.addChild(exportRoot);
+            exportRoot = new animation[animationName]()
+            stage = new createjs.Stage(canvas)
+            stage.addChild(exportRoot)
             //Registers the "tick" event listener.
-            fnStartAnimation = function() {
-                createjs.Ticker.setFPS(animation.properties.fps);
-                createjs.Ticker.addEventListener("tick", stage);
+            fnStartAnimation = function () {
+                createjs.Ticker.setFPS(animation.properties.fps)
+                createjs.Ticker.addEventListener('tick', stage)
             }
+
             //Code to support hidpi screens and responsive scaling.
             function makeResponsive(isResp, respDim, isScale, scaleType) {
-                var lastW, lastH, lastS=1;
-                window.addEventListener('resize', resizeCanvas);
-                resizeCanvas();
+                var lastW, lastH, lastS = 1
+                window.addEventListener('resize', resizeCanvas)
+                resizeCanvas()
+
                 function resizeCanvas() {
-                    var w = animation.properties.width, h = animation.properties.height;
-                    var iw = window.innerWidth, ih=window.innerHeight;
-                    var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
-                    if(isResp) {
-                        if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-                            sRatio = lastS;
+                    var w = animation.properties.width, h = animation.properties.height
+                    var iw = window.innerWidth, ih = window.innerHeight
+                    var pRatio = window.devicePixelRatio || 1, xRatio = iw / w, yRatio = ih / h, sRatio = 1
+                    if (isResp) {
+                        if ((respDim == 'width' && lastW == iw) || (respDim == 'height' && lastH == ih)) {
+                            sRatio = lastS
                         }
-                        else if(!isScale) {
-                            if(iw<w || ih<h)
-                                sRatio = Math.min(xRatio, yRatio);
+                        else if (!isScale) {
+                            if (iw < w || ih < h)
+                                sRatio = Math.min(xRatio, yRatio)
                         }
-                        else if(scaleType==1) {
-                            sRatio = Math.min(xRatio, yRatio);
+                        else if (scaleType == 1) {
+                            sRatio = Math.min(xRatio, yRatio)
                         }
-                        else if(scaleType==2) {
-                            sRatio = Math.max(xRatio, yRatio);
+                        else if (scaleType == 2) {
+                            sRatio = Math.max(xRatio, yRatio)
                         }
                     }
-                    if (canvas.width !== ~~(w*pRatio*sRatio)) {
-                        canvas.width = w*pRatio*sRatio;
-                        canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';
+                    if (canvas.width !== ~~(w * pRatio * sRatio)) {
+                        canvas.width = w * pRatio * sRatio
+                        canvas.style.width = dom_overlay_container.style.width = anim_container.style.width = w * sRatio + 'px'
                     }
-                    if (canvas.height !== ~~(h*pRatio*sRatio)) {
-                        canvas.height = h*pRatio*sRatio;
-                        canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
+                    if (canvas.height !== ~~(h * pRatio * sRatio)) {
+                        canvas.height = h * pRatio * sRatio
+                        canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h * sRatio + 'px'
                     }
-                    stage.scaleX = pRatio*sRatio;
-                    stage.scaleY = pRatio*sRatio;
-                    lastW = iw; lastH = ih; lastS = sRatio;
+                    stage.scaleX = pRatio * sRatio
+                    stage.scaleY = pRatio * sRatio
+                    lastW = iw
+                    lastH = ih
+                    lastS = sRatio
                 }
             }
-            makeResponsive(true,'both',false,1);
-            fnStartAnimation();
+
+            makeResponsive(true, 'both', false, 1)
+            fnStartAnimation()
         }
     }
 
-    var timeline = function() {
+    var timeline = function () {
         $('.cntl').cntl({})
     }
 
-    var debounce = function(fn, delay) {
+    var debounce = function (fn, delay) {
         var timeout
-        return function() {
+        return function () {
             clearTimeout(timeout)
             timeout = setTimeout(fn, delay)
         }
     }
 
-    var toggleHeader = function() {
+    var toggleHeader = function () {
         $(window).on('scroll', debounce(toggleClass, 50))
         toggleClass()
 
@@ -261,30 +267,30 @@
         }
     }
 
-    var updateNavigation = function() {
+    var updateNavigation = function () {
         $(window).on('scroll', debounce(onScroll, 50))
         onScroll()
 
-        function onScroll () {
+        function onScroll() {
             var halfWindowHeight = $(window).height() / 2 - 50
             var allNav = []
-            $('#bfio-header a.main-nav').each(function(i, e) {
+            $('#bfio-header a.main-nav').each(function (i, e) {
                 var href = $(e).attr('href')
                 if (/#/.test(href)) {
                     var ref = href.replace(/.+#/, '')
                     var distance = $('a[name="' + ref + '"]').offset().top - $(window).scrollTop()
 
-                    allNav.push({ distance: distance, nav: $(e)})
+                    allNav.push({ distance: distance, nav: $(e) })
                 }
             })
-            var closest = allNav.reduce(function(closest, nav) {
+            var closest = allNav.reduce(function (closest, nav) {
                 if (nav.distance <= halfWindowHeight && nav.distance > closest.distance) {
                     return nav
                 }
                 return closest
             }, allNav[0])
 
-            allNav.forEach(function(nav) {
+            allNav.forEach(function (nav) {
                 if (nav === closest && nav.distance <= halfWindowHeight) {
                     nav.nav.addClass('active')
 
@@ -296,15 +302,15 @@
     }
 
     var handleSubscribe = function () {
-        function onFailure() {
-            $('.subscribe-error').css({ display: 'inline-block' })
-        }
-
-        function onSuccess() {
-            $('.subscribe-success').css({ display: 'inline-block' })
-            $('.subscribe-form').css({ display: 'none' })
-            $('.subscribe-error').css({ display: 'none' })
-        }
+        $('.subscribe-email').on('keydown', function (e) {
+            if (e.key === 'Enter') {
+                trySubscribe()
+            }
+        })
+        $('.subscribe-btn').on('click', function (e) {
+            e.preventDefault()
+            trySubscribe()
+        })
 
         function trySubscribe() {
             var email = $('.subscribe-email').val()
@@ -320,23 +326,267 @@
                 .fail(onFailure)
         }
 
-        $('.subscribe-email').on('keydown', function(e) {
+        function onFailure() {
+            $('.subscribe-error').css({ display: 'inline-block' })
+        }
+
+        function onSuccess() {
+            $('.subscribe-success').css({ display: 'inline-block' })
+            $('.subscribe-form').css({ display: 'none' })
+            $('.subscribe-error').css({ display: 'none' })
+        }
+    }
+
+    var handlePreSaleStep1 = function () {
+
+        $('.apply-email').on('keydown', function (e) {
             if (e.key === 'Enter') {
-                trySubscribe()
+                tryStep1()
             }
         })
-        $('.subscribe-btn').on('click', function (e) {
+
+        $('.apply-form .apply-btn').on('click', function (e) {
             e.preventDefault()
-            trySubscribe()
+            tryStep1()
+        })
+
+        function tryStep1() {
+            var email = $('.apply-email').val()
+
+            $('.apply-form-error').hide()
+            $('.apply-form-success').hide()
+            $('.apply-form-success .email').html(email)
+
+            $.get(window.bfio.api + '/pre-sale/new?email=' + email)
+                .done(function (response) {
+                    if (/^KO/.test(response)) {
+                        onFailure()
+                    } else {
+                        onSuccess()
+                    }
+                })
+                .fail(function () {
+                    onFailure()
+                })
+        }
+
+        function onSuccess() {
+            $('.apply-form').hide()
+            $('.apply-form-advice').hide()
+            $('.apply-form-success').show()
+        }
+
+        function onFailure() {
+            $('.apply-form-error').show()
+        }
+    }
+
+    var lets = function (fn) {
+        try {
+            fn()
+        } catch (e) {
+            console.log(fn.name + ' failed')
+        }
+    }
+
+    /*
+    Pre-sale workflow
+     */
+
+    var preSaleRouter = function () {
+        const hash = window.location.hash
+
+        if (!/privateId=.+$/.test(hash)) {
+            step1()
+        } else {
+            const privateId = hash.substr(hash.indexOf('privateId=') + 'privateId='.length)
+
+            getApplication(privateId).then(function (application) {
+                if (application.isLocked) {
+                    step3(application)
+                } else if (application.firstName) {
+                    step2B(application)
+                } else {
+                    step2A(application)
+                }
+            }).catch(function (error) {
+                $('.step1').hide()
+                $('.pre-sale .loading').hide()
+                $('.pre-sale .error')
+                    .show()
+                    .append(error.responseJSON.error)
+            })
+        }
+    }
+
+    var step1 = function () {
+        $('.step1').show()
+        $('.step2a').hide()
+        $('.step2b').hide()
+        $('.step3').hide()
+
+        $('.pre-sale .loading').hide()
+        $('.pre-sale .error').hide()
+    }
+
+    var step2ALaunched = false
+    var step2A = function (application) {
+        Object.keys(application).forEach(function (field) {
+            $('.step2a input[name="' + field + '"]').val(application[field])
+        })
+
+        $('.step1').hide()
+        $('.step2a').show()
+        $('.step2b').hide()
+        $('.step3').hide()
+
+        $('.pre-sale .loading').hide()
+        $('.pre-sale .error').hide()
+
+        if (!step2ALaunched) {
+            $('#step2-form').submit(function (event) {
+                event.preventDefault()
+                var form = $('#step2-form').get(0)
+                var formData = new FormData(form)
+
+                $('.step2a .submit-error').hide()
+
+                $.ajax({
+                    type: 'POST',
+                    url: window.bfio.api + '/pre-sale/edit/' + application.privateId, // the url where we want to POST
+                    data: formData, // our data object
+                    dataType: 'json', // what type of data do we expect back from the server
+                    processData: false,
+                    contentType: false
+                })
+                    .then(function () {
+                        preSaleRouter()
+                    })
+                    .catch(function (response) {
+                        $('.step2a .submit-error').show()
+                        $('.step2a .submit-error').text(response.responseJSON.error)
+                    })
+            })
+        }
+        step2ALaunched = true
+    }
+
+    var step2B = function (application) {
+        $('.step1').hide()
+        $('.step2a').hide()
+        $('.step2b').show()
+        $('.step3').hide()
+
+        $('.pre-sale .loading').hide()
+        $('.pre-sale .error').hide()
+
+        Object.keys(application).forEach(function (field) {
+            $('.pre-sale .step2b .recap-' + field + ' .value').text(application[field])
+        })
+
+        $('.pre-sale .step2b .step2b-btn-confirm').unbind('click')
+        $('.pre-sale .step2b .step2b-btn-confirm').on('click', function (e) {
+            e.preventDefault()
+
+            lockApplication(application.privateId).then(preSaleRouter)
+        })
+
+        $('.pre-sale .step2b .step2b-btn-modify').unbind('click')
+        $('.pre-sale .step2b .step2b-btn-modify').on('click', function (e) {
+            e.preventDefault()
+
+            step2A(application)
         })
     }
 
-    var lets = function(fn){
-        try {
-            fn()
-        } catch(e) {
-            console.log(fn.name + ' failed')
+    var step3 = function (application) {
+        $('.step1').hide()
+        $('.step2a').hide()
+        $('.step2b').hide()
+        $('.step3').show()
+
+        $('.pre-sale .loading').hide()
+        $('.pre-sale .error').hide()
+
+        if (!window.web3) {
+            $('.step3 .metamask-required').show()
+        } else {
+            $('.step3 .smart-contract-summary').show()
+            $('.step3 .step3-btn').unbind()
+            $('.step3 .step3-btn').on('click', function (e) {
+                e.preventDefault()
+
+                const ether = $('.step3 input[name="ether"]').val()
+
+                const eth = new Eth(window.web3.currentProvider)
+                const contract = new EthContract(eth)
+
+                const BlockFoodPreSale = contract(window.preSale.abi)
+
+                const blockFoodPreSale = BlockFoodPreSale.at(window.preSale.address)
+
+                if (ether >= 0.5) {
+                    $('.step3 .transaction-1').show()
+
+                    blockFoodPreSale.apply(application.publicId, {
+                        value: web3.toWei(ether, 'ether'),
+                        from: web3.eth.accounts[0]
+                    })
+                        .then(function (txHash) {
+                            $('.step3 .step3-btn')
+                                .unbind()
+                                .attr('disabled', true)
+
+                            $('.step3 .ether-scan').show()
+                            $('.step3 .ether-scan a').attr('href', 'https://etherscan.io/tx/' + txHash)
+                            $('.step3 .ether-scan .tx').attr('href', txHash)
+
+                            $('.step3 .transaction-1').hide()
+                            $('.step3 .transaction-2').show()
+
+                            waitForTxToBeMined(eth, txHash, 500).then(function() {
+                                $('.step3 .transaction-2').hide()
+                                $('.step3 .transaction-3').show()
+                            })
+
+                        })
+                        .catch(function (err) {
+                            console.log('BlockFoodPreSale.apply() call failed', err)
+                            $('.step3 .error').show()
+                        })
+                } else {
+                    $('.step3 .warning').show()
+                }
+
+            })
         }
+    }
+
+    var waitForTxToBeMined = function(eth, txHash, pollTimeout) {
+        return eth.getTransactionReceipt(txHash).then(function(transaction) {
+            console.log('Transaction mined !', transaction)
+            if (!transaction) {
+                return new Promise(function (resolve) {
+                    setTimeout(
+                        function() {
+                            resolve(waitForTxToBeMined(eth, txHash, pollTimeout))
+                        },
+                        pollTimeout
+                    )
+                })
+            }
+            return transaction
+        })
+    }
+
+    var getApplication = function (privateId) {
+        return $.get(window.bfio.api + '/pre-sale/review/' + privateId)
+    }
+
+    var lockApplication = function (privateId) {
+        return $.get(window.bfio.api + '/pre-sale/lock/' + privateId)
+            .then(e => console.log('lock ok', e))
+            .catch(response => console.log('lock failed', response.responseJSON))
     }
 
     // Document on load.
@@ -349,12 +599,14 @@
         lets(burgerMenu)
         lets(goToTop)
         lets(toggleDescription)
-        lets(function startAnimation1() { startAnimation(animation1, "animation_01", "Anime_short") })
-        lets(function startAnimation2() { startAnimation(animation2, "animation_02", "Anime_long") })
+        lets(function startAnimation1() { startAnimation(animation1, 'animation_01', 'Anime_short') })
+        lets(function startAnimation2() { startAnimation(animation2, 'animation_02', 'Anime_long') })
         lets(timeline)
         lets(toggleHeader)
         lets(updateNavigation)
         lets(handleSubscribe)
+        lets(handlePreSaleStep1)
+        lets(preSaleRouter)
         // Animate
         // contentWayPoint();
 
