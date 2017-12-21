@@ -336,7 +336,7 @@
                 </div>
             </div>
 
-            <div class='step2b'>
+            <div class='step2b' style='display: none'>
                 <h1>Pre-Sale step 2/3</h1>
 
                 <p>Please review the following information:</p>
@@ -409,7 +409,7 @@
                 </div>
             </div>
 
-            <div class='step3'>
+            <div class='step3' style='display: none'>
                 <h1>Pre-Sale step 3/3</h1>
 
                 <div class='metamask-required' style='display:none'>
@@ -439,10 +439,6 @@
                                placeholder='Ether (e.g: 1.5) (minimum: 0.5, maximum: 200)'/>
                     </div>
                     </p>
-
-                    <div class='error' style='display:none'>Failed to call smart contract function. Please refresh the
-                        page and try again.
-                    </div>
                     <div class='warning' style='display:none'>Check your ether amount: minimum contribution = 0.5,
                         maximum contribution = 200
                     </div>
@@ -451,27 +447,58 @@
                         <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
                     </p>
 
-                    <div class='ether-scan' style='display:none'>
+                    <div class='ether-scan p-like' style='display:none'>
                         Your transaction is visible here: <a href=''>EtherScan - <span class='tx'></span></a>
                     </div>
 
-                    <div class='transaction-1' style='display:none'>
+                    <div class='error p-like ' style='display:none'>
+                        The transaction failed. Make sure you have not already completed the process. If this is not the
+                        case, please refresh the page and try again.
+                    </div>
+
+                    <div class='transaction-1 p-like' style='display:none'>
                         Waiting for MetaMask confirmation...
-                    <div class='bfio-loader'></div>
+                        <div class='bfio-loader'></div>
                     </div>
 
-                    <div class='transaction-2' style='display:none'>
+                    <div class='transaction-2 p-like' style='display:none'>
                         Waiting for transaction to be mined (this can take a while)...
-                    <div class='bfio-loader'></div>
+                        <div class='bfio-loader'></div>
                     </div>
 
-                    <div class='transaction-3' style='display:none'>
+                    <div class='transaction-3 p-like' style='display:none'>
                         Transaction successful ! The BlockFood team will review your information and accept your
                         participation if everything is okay. You should receive a confirmation email in the next 24
                         hours.
                     </div>
+                </div>
+            </div>
 
+            <div class='step4' style='display: none'>
+                <h1>Pre-Sale step 3/3</h1>
+                <div class='p-like'>Your participation has been registered.</div>
 
+                <div class='p-like participation-summary'>
+                    Participation summary:
+                    <ul>
+                        <li class='contribution'>Contribution: <span class='value'></span> Ether</li>
+                        <li class='publicId'>Public ID: <span class='value'></span></li>
+                        <li class='state'>State: <span class='value'></span></li>
+                    </ul>
+                </div>
+
+                <div class='p-like state-pending' style='display: none'>
+                    The BlockFood team is currently reviewing your information. <br><br>
+                    Current application state: <strong>pending</strong>.
+                </div>
+                <div class='p-like state-refused' style='display: none'>
+                    We are sorry to inform you that your application was <strong>declined</strong> due to KYC-related reasons. <br><br>
+                    Final application state: <strong>refused</strong>.
+
+                </div>
+                <div class='p-like state-accepted' style='display: none'>
+                    Your application was <strong>accepted</strong>! Thank you so very much. You are officially one of the person we, at BlockFood, will always be thankful to. Thanks again for being <strong>awesome</strong>.<br><br>
+                    Final application state: <strong>accepted</strong>.
                 </div>
             </div>
 

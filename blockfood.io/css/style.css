@@ -1382,3 +1382,6 @@ html, body, #bfio-page {
   min-height: 64px;
   min-width: 64px;
 }
+.p-like {
+  margin-bottom: 1.5em;
+}

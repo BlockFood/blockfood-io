@@ -394,12 +394,12 @@
      */
 
     var preSaleRouter = function () {
-        const hash = window.location.hash
+        var hash = window.location.hash
 
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
-            const privateId = hash.substr(hash.indexOf('privateId=') + 'privateId='.length)
+            var privateId = hash.substr(hash.indexOf('privateId=') + 'privateId='.length)
 
             getApplication(privateId).then(function (application) {
                 if (application.isLocked) {
@@ -499,6 +499,34 @@
         })
     }
 
+    var getBlockFoodPreSaleSmartContract = function(eth) {
+        var contract = new EthContract(eth)
+
+        var BlockFoodPreSale = contract(window.preSale.abi)
+
+        return BlockFoodPreSale.at(window.preSale.address)
+    }
+
+    var applicationState = {
+        PENDING: 'Pending',
+        REFUSED: 'Refused',
+        ACCEPTED: 'Accepted',
+        UNKNOWN: 'Unknown'
+    }
+
+    var numberToState = function (number) {
+        switch (number) {
+        case 1:
+            return applicationState.PENDING
+        case 2:
+            return applicationState.REFUSED
+        case 3:
+            return applicationState.ACCEPTED
+        default:
+            return applicationState.UNKNOWN
+        }
+    }
+
     var step3 = function (application) {
         $('.step1').hide()
         $('.step2a').hide()
@@ -511,19 +539,30 @@
         if (!window.web3) {
             $('.step3 .metamask-required').show()
         } else {
+            var eth = new Eth(window.web3.currentProvider)
+
+            var blockFoodPreSale = getBlockFoodPreSaleSmartContract(eth)
+
+            blockFoodPreSale.applications(web3.eth.accounts[0]).then(function (application) {
+                var state = numberToState(application.state.toNumber())
+                if (state !== applicationState.UNKNOWN) {
+                    step4({
+                        state: numberToState(application.state.toNumber()),
+                        contribution: web3.fromWei(application.contribution, 'ether'),
+                        publicId: application.id
+                    })
+                }
+            })
+
+
             $('.step3 .smart-contract-summary').show()
             $('.step3 .step3-btn').unbind()
             $('.step3 .step3-btn').on('click', function (e) {
                 e.preventDefault()
 
-                const ether = $('.step3 input[name="ether"]').val()
+                var ether = $('.step3 input[name="ether"]').val()
 
-                const eth = new Eth(window.web3.currentProvider)
-                const contract = new EthContract(eth)
 
-                const BlockFoodPreSale = contract(window.preSale.abi)
-
-                const blockFoodPreSale = BlockFoodPreSale.at(window.preSale.address)
 
                 if (ether >= 0.5) {
                     $('.step3 .transaction-1').show()
@@ -538,8 +577,8 @@
                                 .attr('disabled', true)
 
                             $('.step3 .ether-scan').show()
-                            $('.step3 .ether-scan a').attr('href', 'https://etherscan.io/tx/' + txHash)
-                            $('.step3 .ether-scan .tx').attr('href', txHash)
+                            $('.step3 .ether-scan a').attr('href', 'https://rinkeby.etherscan.io/tx/' + txHash)
+                            $('.step3 .ether-scan .tx').text(txHash)
 
                             $('.step3 .transaction-1').hide()
                             $('.step3 .transaction-2').show()
@@ -547,6 +586,10 @@
                             waitForTxToBeMined(eth, txHash, 500).then(function() {
                                 $('.step3 .transaction-2').hide()
                                 $('.step3 .transaction-3').show()
+                            }).catch(function() {
+                                $('.step3 .transaction-2').hide()
+                                $('.step3 .transaction-3').hide()
+                                $('.step3 .error').show()
                             })
 
                         })
@@ -562,10 +605,31 @@
         }
     }
 
+    var step4 = function (participation) {
+        $('.step1').hide()
+        $('.step2a').hide()
+        $('.step2b').hide()
+        $('.step3').hide()
+        $('.step4').show()
+
+        $('.step4 .participation-summary .contribution .value').text(participation.contribution)
+        $('.step4 .participation-summary .publicId .value').text(participation.publicId)
+        $('.step4 .participation-summary .state .value').text(participation.state)
+
+        if (participation.state === applicationState.PENDING) {
+            $('.step4 .state-pending').show()
+        } else if (participation.state === applicationState.REFUSED) {
+            $('.step4 .state-refused').show()
+        } else if (participation.state === applicationState.ACCEPTED) {
+            $('.step4 .state-accepted').show()
+        }
+
+    }
+
     var waitForTxToBeMined = function(eth, txHash, pollTimeout) {
         return eth.getTransactionReceipt(txHash).then(function(transaction) {
-            console.log('Transaction mined !', transaction)
             if (!transaction) {
+                console.log('Waiting for transaction to be mined...', txHash)
                 return new Promise(function (resolve) {
                     setTimeout(
                         function() {
@@ -575,7 +639,12 @@
                     )
                 })
             }
-            return transaction
+            console.log('Transaction mined !', transaction)
+            if (transaction.status === '0x1') {
+                return transaction
+            } else {
+                throw new Error('Transaction failed')
+            }
         })
     }
 
