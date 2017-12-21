@@ -89,7 +89,7 @@ const copyOtherFiles = async (buildPath) => {
         const minified = UglifyJS.minify(content)
 
         if (minified.error) {
-            console.log('failure', minified.error)
+            console.log('failure for ' + jsFile, minified.error)
         }
 
         fs.writeFileSync(destination, minified.code, 'utf-8')

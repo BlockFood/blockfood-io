@@ -1387,7 +1387,9 @@ html, body, #bfio-page {
 }
 
 .step2b .recap .field {
-  display: inline-block;
   font-weight: bold;
-  margin-right: 40px;
+}
+.step2b .recap .value {
+  margin-left: 20px;
+  margin-bottom: 20px;
 }

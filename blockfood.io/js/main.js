@@ -399,6 +399,12 @@
         function tryStep1() {
             var email = $('.apply-email').val()
 
+            $('.apply-email').attr('disabled', true)
+
+            $('.apply-form .apply-btn')
+                .val('In progress...')
+                .attr('disabled', true)
+
             $('.apply-form-error').hide()
             $('.apply-form-success').hide()
             $('.apply-form-success .email').html(email)
@@ -423,6 +429,10 @@
         }
 
         function onFailure() {
+            $('.apply-email').attr('disabled', false)
+            $('.apply-form .apply-btn')
+                .val('Retry')
+                .attr('disabled', false)
             $('.apply-form-error').show()
         }
 
