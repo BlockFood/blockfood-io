@@ -625,13 +625,13 @@
 
     }
 
-    var waitForTxToBeMined = function(eth, txHash, pollTimeout) {
-        return eth.getTransactionReceipt(txHash).then(function(transaction) {
+    var waitForTxToBeMined = function (eth, txHash, pollTimeout) {
+        return eth.getTransactionReceipt(txHash).then(function (transaction) {
             if (!transaction) {
                 console.log('Waiting for transaction to be mined...', txHash)
                 return new Promise(function (resolve) {
                     setTimeout(
-                        function() {
+                        function () {
                             resolve(waitForTxToBeMined(eth, txHash, pollTimeout))
                         },
                         pollTimeout
@@ -653,8 +653,8 @@
 
     var lockApplication = function (privateId) {
         return $.get(window.bfio.api + '/pre-sale/lock/' + privateId)
-            .then(e => console.log('lock ok', e))
-            .catch(response => console.log('lock failed', response.responseJSON))
+            .then(function (e) {console.log('lock ok', e)})
+            .catch(function (response) {console.log('lock failed', response.responseJSON)})
     }
 
     // Document on load.
