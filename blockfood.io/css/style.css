@@ -1385,3 +1385,9 @@ html, body, #bfio-page {
 .p-like {
   margin-bottom: 1.5em;
 }
+
+.step2b .recap .field {
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 40px;
+}

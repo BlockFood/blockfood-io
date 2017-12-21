@@ -337,49 +337,6 @@
         }
     }
 
-    var handlePreSaleStep1 = function () {
-
-        $('.apply-email').on('keydown', function (e) {
-            if (e.key === 'Enter') {
-                tryStep1()
-            }
-        })
-
-        $('.apply-form .apply-btn').on('click', function (e) {
-            e.preventDefault()
-            tryStep1()
-        })
-
-        function tryStep1() {
-            var email = $('.apply-email').val()
-
-            $('.apply-form-error').hide()
-            $('.apply-form-success').hide()
-            $('.apply-form-success .email').html(email)
-
-            $.get(window.bfio.api + '/pre-sale/new?email=' + email)
-                .done(function (response) {
-                    if (/^KO/.test(response)) {
-                        onFailure()
-                    } else {
-                        onSuccess()
-                    }
-                })
-                .fail(function () {
-                    onFailure()
-                })
-        }
-
-        function onSuccess() {
-            $('.apply-form').hide()
-            $('.apply-form-advice').hide()
-            $('.apply-form-success').show()
-        }
-
-        function onFailure() {
-            $('.apply-form-error').show()
-        }
-    }
 
     var lets = function (fn) {
         try {
@@ -427,6 +384,48 @@
 
         $('.pre-sale .loading').hide()
         $('.pre-sale .error').hide()
+
+        $('.apply-email').on('keydown', function (e) {
+            if (e.key === 'Enter') {
+                tryStep1()
+            }
+        })
+
+        $('.apply-form .apply-btn').on('click', function (e) {
+            e.preventDefault()
+            tryStep1()
+        })
+
+        function tryStep1() {
+            var email = $('.apply-email').val()
+
+            $('.apply-form-error').hide()
+            $('.apply-form-success').hide()
+            $('.apply-form-success .email').html(email)
+
+            $.get(window.bfio.api + '/pre-sale/new?email=' + email)
+                .done(function (response) {
+                    if (/^KO/.test(response)) {
+                        onFailure()
+                    } else {
+                        onSuccess()
+                    }
+                })
+                .fail(function () {
+                    onFailure()
+                })
+        }
+
+        function onSuccess() {
+            $('.apply-form').hide()
+            $('.apply-form-advice').hide()
+            $('.apply-form-success').show()
+        }
+
+        function onFailure() {
+            $('.apply-form-error').show()
+        }
+
     }
 
     var step2ALaunched = false
@@ -674,7 +673,6 @@
         lets(toggleHeader)
         lets(updateNavigation)
         lets(handleSubscribe)
-        lets(handlePreSaleStep1)
         lets(preSaleRouter)
         // Animate
         // contentWayPoint();
