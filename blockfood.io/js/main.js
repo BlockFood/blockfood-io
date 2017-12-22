@@ -254,7 +254,7 @@
     }
 
     var toggleHeader = function () {
-        $(window).on('scroll', debounce(toggleClass, 50))
+        $(window).on('scroll', toggleClass)
         toggleClass()
 
         function toggleClass() {
@@ -423,6 +423,7 @@
         }
 
         function onSuccess() {
+            $('.apply-form-intro').hide()
             $('.apply-form').hide()
             $('.apply-form-advice').hide()
             $('.apply-form-success').show()
@@ -565,13 +566,12 @@
 
 
             $('.step3 .smart-contract-summary').show()
+            $('.step3 .smart-contract-summary input[name="ether"]').focus()
             $('.step3 .step3-btn').unbind()
             $('.step3 .step3-btn').on('click', function (e) {
                 e.preventDefault()
 
                 var ether = $('.step3 input[name="ether"]').val()
-
-
 
                 if (ether >= 0.5) {
                     $('.step3 .transaction-1').show()

@@ -330,6 +330,21 @@ body.scrolled #bfio-header #bfio-logo a {
   height: 320px;
 }
 
+#bfio-hero .action-call {
+  position: absolute;
+  z-index:  16;
+  bottom:   60px;
+  right:    10%;
+}
+
+#bfio-hero .action-call a.btn {
+  font-size: 30px;
+}
+
+#bfio-hero .container {
+  position: relative;
+}
+
 @media screen and (max-width: 1200px) {
   #bfio-hero .animation .cloud-container {
     left:   110px;
@@ -346,6 +361,10 @@ body.scrolled #bfio-header #bfio-logo a {
     width:  780px;
     height: 320px;
   }
+
+  #bfio-hero .action-call a.btn {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -354,6 +373,20 @@ body.scrolled #bfio-header #bfio-logo a {
     top:    120px;
     width:  780px;
     height: 320px;
+  }
+
+  #bfio-hero .action-call {
+    position:   static;
+    float:      none !important;
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+
+  #bfio-hero .animation .cloud-container {
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
   }
 }
 
@@ -724,6 +757,15 @@ section {
 .animation-container {
   width:      100%;
   min-height: 600px;
+  position:   relative;
+}
+
+@media screen and (max-width: 768px) {
+  .animation-container {
+    width:      100%;
+    min-height: 400px;
+    position:   relative;
+  }
 }
 
 #bfio-team .bfio-lead {
@@ -846,7 +888,12 @@ section {
 
 #bfio-features #animation_02_container {
   margin-top:    -75px;
-  margin-bottom: 150px;
+}
+
+
+#bfio-features #animation_02_container canvas {
+  width:  100% !important;
+  height: auto !important;
 }
 
 #bfio-about .bfio-social a {
@@ -915,7 +962,7 @@ section {
 }
 
 #bfio-subscribe .subscribe-error {
-  color: #b6312d;
+  color:       #b6312d;
   font-weight: bold;
 }
 
@@ -1288,8 +1335,6 @@ section {
   }
 }
 
-
-
 .js .animate-box {
   opacity: 0;
 }
@@ -1362,13 +1407,14 @@ html, body, #bfio-page {
 }
 
 .pre-sale .apply-btn {
-  width: 130px;
-  height: 54px;
-  border-left: none;
+  width:                     130px;
+  height:                    54px;
+  border-left:               none;
   border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  margin: 0;
+  border-top-left-radius:    0;
+  margin:                    0;
 }
+
 .pre-sale .apply-email {
   width: calc(100% - 134px);
 }
@@ -1380,8 +1426,9 @@ html, body, #bfio-page {
 .bfio-loader {
   background: url(../images/Preloader_2.gif) left no-repeat #fff;
   min-height: 64px;
-  min-width: 64px;
+  min-width:  64px;
 }
+
 .p-like {
   margin-bottom: 1.5em;
 }
@@ -1389,7 +1436,19 @@ html, body, #bfio-page {
 .step2b .recap .field {
   font-weight: bold;
 }
+
 .step2b .recap .value {
-  margin-left: 20px;
+  margin-left:   20px;
   margin-bottom: 20px;
+}
+
+.conclusion {
+  border-radius: 5px;
+  border: 2px solid;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.conclusion strong {
+  font-size: 120%;
 }
