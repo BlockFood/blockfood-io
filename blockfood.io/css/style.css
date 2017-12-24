@@ -840,8 +840,9 @@ section {
 }
 
 .bfio-feature .bfio-icon .icon {
-  stroke: white;
-  fill:   white;
+  stroke:       white;
+  fill:         white;
+  stroke-width: 2px;
 }
 
 .bfio-feature {
@@ -887,9 +888,8 @@ section {
 }
 
 #bfio-features #animation_02_container {
-  margin-top:    -75px;
+  margin-top: -75px;
 }
-
 
 #bfio-features #animation_02_container canvas {
   width:  100% !important;
@@ -1444,9 +1444,9 @@ html, body, #bfio-page {
 
 .conclusion {
   border-radius: 5px;
-  border: 2px solid;
-  padding: 20px;
-  font-weight: bold;
+  border:        2px solid;
+  padding:       20px;
+  font-weight:   bold;
 }
 
 .conclusion strong {
