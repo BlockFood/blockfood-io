@@ -1452,3 +1452,7 @@ html, body, #bfio-page {
 .conclusion strong {
   font-size: 120%;
 }
+
+.smaller {
+  font-size: 20px !important;
+}
