@@ -384,7 +384,7 @@
 
         $('.pre-sale .loading').hide()
         $('.pre-sale .error').hide()
-
+/*
         $('.apply-email').on('keydown', function (e) {
             if (e.key === 'Enter') {
                 tryStep1()
@@ -436,7 +436,7 @@
                 .attr('disabled', false)
             $('.apply-form-error').show()
         }
-
+*/
     }
 
     var step2ALaunched = false
