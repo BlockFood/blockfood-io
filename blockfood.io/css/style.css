@@ -811,7 +811,6 @@ section {
 
 #bfio-team .bfio-project-item.image-popup {
   background:    rgba(255, 255, 255, 0.5);
-  border:        2px dashed #4b3f80;
   border-radius: 10px;
   margin-bottom: 20px;
   cursor:        pointer;
