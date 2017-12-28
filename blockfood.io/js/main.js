@@ -353,6 +353,12 @@
     var preSaleRouter = function () {
         var hash = window.location.hash
 
+        /*remove to activate pre-sale form*/
+        step1()
+
+        return
+        /*end remove to activate pre-sale form*/
+
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
