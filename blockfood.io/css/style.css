@@ -1404,7 +1404,8 @@ html, body, #bfio-page {
 }
 
 .pre-sale .apply-btn {
-  width:                     330px;
+  width:                     130px;
+  /*width:                     330px;*/
   height:                    54px;
   border-left:               none;
   border-bottom-left-radius: 0;
@@ -1413,7 +1414,8 @@ html, body, #bfio-page {
 }
 
 .pre-sale .apply-email {
-  width: calc(100% - 334px);
+  width: calc(100% - 134px);
+  /*width: calc(100% - 334px);*/
 }
 
 .pre-sale #animation_01_container {

@@ -353,12 +353,6 @@
     var preSaleRouter = function () {
         var hash = window.location.hash
 
-        /*remove to activate pre-sale form*/
-        step1()
-
-        return
-        /*end remove to activate pre-sale form*/
-
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
@@ -390,7 +384,7 @@
 
         $('.pre-sale .loading').hide()
         $('.pre-sale .error').hide()
-/*
+
         $('.apply-email').on('keydown', function (e) {
             if (e.key === 'Enter') {
                 tryStep1()
@@ -442,7 +436,7 @@
                 .attr('disabled', false)
             $('.apply-form-error').show()
         }
-*/
+
     }
 
     var step2ALaunched = false
