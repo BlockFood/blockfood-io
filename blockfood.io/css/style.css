@@ -660,6 +660,15 @@ section {
   }
 }
 
+.project-description .p-like {
+  text-justify: distribute;
+  text-align: justify;
+}
+.project-description .main {
+  color: #E6501E;
+  font-size: 20px;
+}
+
 .bfio-characteristics {
   position: relative;
 }
