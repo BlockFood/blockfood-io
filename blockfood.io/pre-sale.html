@@ -22,14 +22,15 @@
                 </p>
 
                 <div class='p-like'>
-                    Pre-sale characteristics
+                    BlockFoodToken pre-sale characteristics:
                     <ul>
                         <li><b>Start</b>: January 8th 2018</li>
                         <li><b>End</b>: February 8th 2018</li>
-                        <li><b>Soft cap</b>: 100 Eth</li>
+                        <li><b>Minimum cap</b>: 100 Eth</li>
                         <li><b>Maximum cap</b>: 200 Eth</li>
                         <li><b>Exchange rate</b>: 1 Eth = 1 500 BFT</li>
                         <li><b>Minimum contribution</b>: 0.1 Eth</li>
+                        <li><b>Token availability</b>: March 8th 2018 at the latest</li>
                     </ul>
                 </div>
 
@@ -52,24 +53,23 @@
                     </ul>
                 </div>
 
-                <p class='apply-form-intro'>To start your application for pre-sale, enter your email:</p>
+                <div class='p-like apply-form-intro'>To start your application for pre-sale, enter your email:</div>
 
                 <div class='p-like'>
-                    Warning: an ethereum account can only be used once for this process. If you wish to participate a
-                    second time, you can use the same email address but your need to use a different ethereum account.
+                    Warning: an ethereum address can only be used once for this process. If you wish to participate a
+                    second time, you can use the same email address but your need to use a different ethereum address.
                 </div>
 
                 <div class='p-like'>
-                    <div class='apply-form input-group mb-2 mb-sm-0'>
+                    <div class='p-like apply-form input-group mb-2 mb-sm-0'>
                         <div class='input-group-addon'>@</div>
                         <input type='email' class='form-control apply-email' placeholder='Enter your email'/>
                         <input value='Continue' class='btn btn-primary apply-btn' type='submit'/>
                     </div>
-                    <div class='apply-form-error' style='display:none'>Something went wrong. Please check your email and
-                        try
-                        again.
+                    <div class='p-like apply-form-error text-center warning' style='display:none'>
+                        Something went wrong. Please check your email and try again.
                     </div>
-                    <div class='apply-form-success conclusion' style='display:none'>
+                    <div class='p-like apply-form-success conclusion' style='display:none'>
                         <span class='email'></span> - Thank you. Check your inbox for the next step.
                     </div>
                 </div>
@@ -177,30 +177,65 @@
                     installed. If you don't have MetaMask, go to <a href='https://metamask.io/'>https://metamask.io/</a>
                     and follow the instructions.
                 </div>
+
+                <div class='metamask-unlock' style='display: none'>
+                    <h2>Unlock your MetaMask</h2>
+                    <div class='p-like'>
+                        It seems your MetaMask in not unlocked.<br><br>
+                        In order to unlock your MetaMask plugin, click on the
+                        icon and enter your password:
+                    </div>
+                    <div class='p-like text-center'>
+                        <img src='images/pre-sale/unlock-metamask.png'>
+                    </div>
+                    <div class='p-like text-center'>
+                        <a class='btn btn-primary reloadBtn' href='#'>I've unlocked my MetaMask plugin</a>
+                    </div>
+                </div>
+
                 <div class='smart-contract-summary' style='display:none'>
-                    <p>MetaMask is correctly installed.</p>
+                    <p>MetaMask is correctly installed and unlocked.</p>
 
                     <div class='p-like'>
                         To configure MetaMask, make sure:
                         <ul>
-                            <li>You have imported your private key in MetaMask</li>
+                            <li>You have imported your account in MetaMask</li>
                             <li>You are able to read your Ether balance</li>
                         </ul>
                     </div>
 
-                    <p>
-                        Enter the amount of Ether you wish to give (minimum: 0.5 Ether):
-                    </p>
+                    <div class='p-like ethereum-characteristics'>
+                        Characteristics of your ethereum address:
+                        <ul>
+                            <li>Address: <code><span class='address'>(loading)</span></code></li>
+                            <li>Balance: <code><span class='balance'>(loading)</span> Ether</code> (<a
+                                    href='javascript:(function(){})()' class='refresh'>refresh</a>)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class='p-like ether-amount'>
+                        Enter the amount of Ether you wish to give
+                        <ul>
+                            <li>minimum: <code><span class='minimum'>(loading)</span> Ether</code></li>
+                            <li>maximum: <code><span class='maximum'>(loading)</span> Ether</code> (<a
+                                    href='javascript:(function(){})()' class='refresh'>refresh</a>)
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class='p-like'>
                         <div class='input-group mb-2 mb-sm-0'>
                             <div class='input-group-addon'>Ether</div>
                             <input type='text' class='form-control' name='ether'
-                                   placeholder='Ether (e.g: 1.5) (minimum: 0.1, maximum: 200)'/>
+                                   placeholder='Ether (e.g: 8.5, 100, 42, 0.1, ...)'/>
                         </div>
                     </div>
-                    <div class='warning' style='display:none'>Check your ether amount: minimum contribution = 0.1,
-                        maximum contribution = 200
+                    <div class='warning ether-amount' style='display:none'>
+                        Check your ether amount: minimum contribution = <code><span class='minimum'>0.1</span>
+                        Ether</code>, maximum contribution = <code><span class='maximum'>200</span> Ether</code>. <br>
+                        If you have decimals, make sure you use a point <code>.</code> instead of a coma <code>,</code>
+                        as delimiter.
                     </div>
 
                     <p>
@@ -228,8 +263,8 @@
 
                     <div class='transaction-3 p-like' style='display:none'>
                         Transaction successful ! The BlockFood team will review your information and accept your
-                        participation if everything is okay. You should receive a confirmation email in the next 24
-                        hours.
+                        participation if everything is in order.<br><br>
+                        You should receive a confirmation email in the next 24 hours.
                     </div>
                 </div>
             </div>
@@ -241,9 +276,9 @@
                 <div class='p-like participation-summary'>
                     Participation summary:
                     <ul>
-                        <li class='contribution'>Contribution: <span class='value'></span> Ether</li>
-                        <li class='publicId'>Public ID: <span class='value'></span></li>
-                        <li class='state'>State: <span class='value'></span></li>
+                        <li class='contribution'>Contribution: <code><span class='value'></span> Ether</code></li>
+                        <li class='publicId'>Public ID: <code><span class='value'></span></code></li>
+                        <li class='state'>State: <code><span class='value'></span></code></li>
                     </ul>
                 </div>
 

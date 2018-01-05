@@ -201,6 +201,11 @@ window.init_page = function ($) {
 
         if (!window.web3) {
             $('.step3 .metamask-required').show()
+        } else if (!web3.eth.accounts[0]) {
+            $('.step3 .metamask-unlock').show()
+            $('.reloadBtn').on('click', function() {
+                window.location.reload()
+            })
         } else {
             var eth = new Eth(window.web3.currentProvider)
 
@@ -216,6 +221,38 @@ window.init_page = function ($) {
                     })
                 }
             })
+
+            var refreshMinimumAndMaximum = function() {
+                $('.ether-amount .maximum').text('(loading)')
+                $('.ether-amount .minimum').text('(loading)')
+
+                blockFoodPreSale.getMaximumContributionPossible().then(function (maximum) {
+                    $('.ether-amount .maximum').text(web3.fromWei(maximum[0], 'ether'))
+                })
+
+                blockFoodPreSale.minContribution().then(function (minimum) {
+                    $('.ether-amount .minimum').text(web3.fromWei(minimum[0], 'ether'))
+                })
+            }
+            refreshMinimumAndMaximum()
+            $('.ether-amount a.refresh').on('click', function() {
+                refreshMinimumAndMaximum()
+            })
+
+            var refreshEthAddressAndBalance = function() {
+                $('.ethereum-characteristics .address').text(web3.eth.accounts[0])
+                $('.ethereum-characteristics .balance').text('(loading)')
+
+                web3.eth.getBalance(web3.eth.accounts[0], function (error, balance) {
+                    var roundedBalance = web3.fromWei(balance, 'ether').toNumber().toFixed(3)
+                    $('.ethereum-characteristics .balance').text(roundedBalance)
+                })
+            }
+            refreshEthAddressAndBalance()
+            $('.ethereum-characteristics a.refresh').on('click', function() {
+                refreshEthAddressAndBalance()
+            })
+
 
             $('.step3 .smart-contract-summary').show()
             $('.step3 .smart-contract-summary input[name="ether"]').focus()
