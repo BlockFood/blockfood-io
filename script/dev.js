@@ -8,8 +8,6 @@ const { templateHtmlFile } = require('./build-util')
 
 const link = page => `<a href='blockfood.io/${page}' style='font-size:18px'>${page}</a>`
 
-
-
 const app = express()
 
 const htmlFiles = fs.readdirSync(__dirname + '/../blockfood.io')

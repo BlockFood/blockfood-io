@@ -1,451 +1,525 @@
 window.preSale = {
     abi: [
         {
-            "constant": true,
-            "inputs": [],
-            "name": "maxCap",
-            "outputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': 'minCap_',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'name': 'changeMinCap',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'maxCap',
+            'outputs': [
                 {
-                    "name": "amount",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "name": "withdraw",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "minCap",
-            "outputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': 'amount',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'name': 'withdraw',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [],
-            "name": "failsafe",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "constant": true,
-            "inputs": [],
-            "name": "contributionRejected",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'minCap',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [],
-            "name": "refund",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            'constant': false,
+            'inputs': [],
+            'name': 'failsafe',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'contributionRejected',
+            'outputs': [
                 {
-                    "name": "id",
-                    "type": "string"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "name": "apply",
-            "outputs": [],
-            "payable": true,
-            "stateMutability": "payable",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [
+            'constant': false,
+            'inputs': [],
+            'name': 'refund',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
+        },
+        {
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': 'id',
+                    'type': 'string'
                 }
             ],
-            "name": "applicants",
-            "outputs": [
+            'name': 'apply',
+            'outputs': [],
+            'payable': true,
+            'stateMutability': 'payable',
+            'type': 'function'
+        },
+        {
+            'constant': true,
+            'inputs': [
                 {
-                    "name": "applicant",
-                    "type": "address"
+                    'name': '',
+                    'type': 'uint256'
+                }
+            ],
+            'name': 'applicants',
+            'outputs': [
+                {
+                    'name': 'applicant',
+                    'type': 'address'
                 },
                 {
-                    "name": "id",
-                    "type": "string"
+                    'name': 'id',
+                    'type': 'string'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "contributionPending",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'contributionPending',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "",
-                    "type": "address"
+                    'name': 'maxCap_',
+                    'type': 'uint256'
                 }
             ],
-            "name": "applications",
-            "outputs": [
+            'name': 'changeMaxCap',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
+        },
+        {
+            'constant': true,
+            'inputs': [
                 {
-                    "name": "contribution",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'address'
+                }
+            ],
+            'name': 'applications',
+            'outputs': [
+                {
+                    'name': 'contribution',
+                    'type': 'uint256'
                 },
                 {
-                    "name": "id",
-                    "type": "string"
+                    'name': 'id',
+                    'type': 'string'
                 },
                 {
-                    "name": "state",
-                    "type": "uint8"
+                    'name': 'state',
+                    'type': 'uint8'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "owner",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'owner',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "address"
+                    'name': '',
+                    'type': 'address'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "applicant",
-                    "type": "address"
+                    'name': 'applicant',
+                    'type': 'address'
                 }
             ],
-            "name": "accept",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            'name': 'accept',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "newOwner",
-                    "type": "address"
+                    'name': 'owner_',
+                    'type': 'address'
                 }
             ],
-            "name": "changeOwner",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            'name': 'changeOwner',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "getMaximumContributionPossible",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'getMaximumContributionPossible',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "minContribution",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'minContribution',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "applicant",
-                    "type": "address"
+                    'name': 'applicant',
+                    'type': 'address'
                 }
             ],
-            "name": "reject",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            'name': 'reject',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "getApplicantsLength",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'getApplicantsLength',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "endDate",
-            "outputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': 'minContribution_',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'name': 'changeMinContribution',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "contributionAccepted",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'endDate',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "withdrawn",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'contributionAccepted',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "uint256"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": true,
-            "inputs": [],
-            "name": "target",
-            "outputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'withdrawn',
+            'outputs': [
                 {
-                    "name": "",
-                    "type": "address"
+                    'name': '',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "view",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "constant": false,
-            "inputs": [
+            'constant': true,
+            'inputs': [],
+            'name': 'target',
+            'outputs': [
                 {
-                    "name": "newTarget",
-                    "type": "address"
+                    'name': '',
+                    'type': 'address'
                 }
             ],
-            "name": "changeTarget",
-            "outputs": [],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "function"
+            'payable': false,
+            'stateMutability': 'view',
+            'type': 'function'
         },
         {
-            "inputs": [
+            'constant': false,
+            'inputs': [
                 {
-                    "name": "target_",
-                    "type": "address"
+                    'name': 'target_',
+                    'type': 'address'
+                }
+            ],
+            'name': 'changeTarget',
+            'outputs': [],
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'function'
+        },
+        {
+            'inputs': [
+                {
+                    'name': 'target_',
+                    'type': 'address'
                 },
                 {
-                    "name": "endDate_",
-                    "type": "uint256"
+                    'name': 'endDate_',
+                    'type': 'uint256'
                 },
                 {
-                    "name": "minContribution_",
-                    "type": "uint256"
+                    'name': 'minContribution_',
+                    'type': 'uint256'
                 },
                 {
-                    "name": "minCap_",
-                    "type": "uint256"
+                    'name': 'minCap_',
+                    'type': 'uint256'
                 },
                 {
-                    "name": "maxCap_",
-                    "type": "uint256"
+                    'name': 'maxCap_',
+                    'type': 'uint256'
                 }
             ],
-            "payable": false,
-            "stateMutability": "nonpayable",
-            "type": "constructor"
+            'payable': false,
+            'stateMutability': 'nonpayable',
+            'type': 'constructor'
         },
         {
-            "anonymous": false,
-            "inputs": [
+            'anonymous': false,
+            'inputs': [
                 {
-                    "indexed": false,
-                    "name": "applicant",
-                    "type": "address"
+                    'indexed': false,
+                    'name': 'applicant',
+                    'type': 'address'
                 },
                 {
-                    "indexed": false,
-                    "name": "contribution",
-                    "type": "uint256"
+                    'indexed': false,
+                    'name': 'contribution',
+                    'type': 'uint256'
                 },
                 {
-                    "indexed": false,
-                    "name": "id",
-                    "type": "string"
+                    'indexed': false,
+                    'name': 'id',
+                    'type': 'string'
                 }
             ],
-            "name": "PendingApplication",
-            "type": "event"
+            'name': 'PendingApplication',
+            'type': 'event'
         },
         {
-            "anonymous": false,
-            "inputs": [
+            'anonymous': false,
+            'inputs': [
                 {
-                    "indexed": false,
-                    "name": "applicant",
-                    "type": "address"
+                    'indexed': false,
+                    'name': 'applicant',
+                    'type': 'address'
                 },
                 {
-                    "indexed": false,
-                    "name": "contribution",
-                    "type": "uint256"
+                    'indexed': false,
+                    'name': 'contribution',
+                    'type': 'uint256'
                 },
                 {
-                    "indexed": false,
-                    "name": "id",
-                    "type": "string"
+                    'indexed': false,
+                    'name': 'id',
+                    'type': 'string'
                 }
             ],
-            "name": "RejectedApplication",
-            "type": "event"
+            'name': 'RejectedApplication',
+            'type': 'event'
         },
         {
-            "anonymous": false,
-            "inputs": [
+            'anonymous': false,
+            'inputs': [
                 {
-                    "indexed": false,
-                    "name": "applicant",
-                    "type": "address"
+                    'indexed': false,
+                    'name': 'applicant',
+                    'type': 'address'
                 },
                 {
-                    "indexed": false,
-                    "name": "contribution",
-                    "type": "uint256"
+                    'indexed': false,
+                    'name': 'contribution',
+                    'type': 'uint256'
                 },
                 {
-                    "indexed": false,
-                    "name": "id",
-                    "type": "string"
+                    'indexed': false,
+                    'name': 'id',
+                    'type': 'string'
                 }
             ],
-            "name": "AcceptedApplication",
-            "type": "event"
+            'name': 'AcceptedApplication',
+            'type': 'event'
         },
         {
-            "anonymous": false,
-            "inputs": [
+            'anonymous': false,
+            'inputs': [
                 {
-                    "indexed": false,
-                    "name": "target",
-                    "type": "address"
+                    'indexed': false,
+                    'name': 'target',
+                    'type': 'address'
                 },
                 {
-                    "indexed": false,
-                    "name": "amount",
-                    "type": "uint256"
+                    'indexed': false,
+                    'name': 'amount',
+                    'type': 'uint256'
                 }
             ],
-            "name": "Withdrawn",
-            "type": "event"
+            'name': 'Withdrawn',
+            'type': 'event'
         },
         {
-            "anonymous": false,
-            "inputs": [
+            'anonymous': false,
+            'inputs': [
                 {
-                    "indexed": false,
-                    "name": "target",
-                    "type": "address"
+                    'indexed': false,
+                    'name': 'target',
+                    'type': 'address'
                 },
                 {
-                    "indexed": false,
-                    "name": "amount",
-                    "type": "uint256"
+                    'indexed': false,
+                    'name': 'amount',
+                    'type': 'uint256'
                 }
             ],
-            "name": "Refund",
-            "type": "event"
+            'name': 'Refund',
+            'type': 'event'
+        },
+        {
+            'anonymous': false,
+            'inputs': [
+                {
+                    'indexed': false,
+                    'name': 'owner',
+                    'type': 'address'
+                },
+                {
+                    'indexed': false,
+                    'name': 'target',
+                    'type': 'address'
+                },
+                {
+                    'indexed': false,
+                    'name': 'minContribution',
+                    'type': 'uint256'
+                },
+                {
+                    'indexed': false,
+                    'name': 'minCap',
+                    'type': 'uint256'
+                },
+                {
+                    'indexed': false,
+                    'name': 'maxCap',
+                    'type': 'uint256'
+                }
+            ],
+            'name': 'ContractUpdate',
+            'type': 'event'
         }
     ],
     address: '0xC081edA015Fa3dac8a9E567F0596216ADE74A4C6'
