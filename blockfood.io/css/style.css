@@ -660,6 +660,15 @@ section {
   }
 }
 
+.project-description .p-like {
+  text-justify: distribute;
+  text-align: justify;
+}
+.project-description .main {
+  color: #E6501E;
+  font-size: 20px;
+}
+
 .bfio-characteristics {
   position: relative;
 }
@@ -1346,52 +1355,12 @@ section {
   position: relative;
 }
 
-#bfio-roadmap .year {
-  color:       #484c50;
-  font-size:   40px;
-  font-weight: bold;
-  position:    relative;
-  top:         -30px;
-  text-align:  center;
-}
 
-#bfio-roadmap .month {
-  font-size:     30px;
-  margin-bottom: 10px;
-}
-
-#bfio-roadmap .line {
-  margin-left: 10px;
-}
-
-#bfio-roadmap .roadmap-year {
-  color:      black;
-  margin-top: 60px;
-}
-
-#bfio-roadmap .roadmap-container {
-  width:      200px;
-  min-height: 200px;
-  display:    inline-block;
+#bfio-roadmap ul {
   text-align: left;
 }
-
-@media screen and (max-width: 992px) {
-  #bfio-roadmap .roadmap-year {
-    padding: 120px 90px;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  #bfio-roadmap .roadmap-year {
-    padding: 70px 210px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  #bfio-roadmap .roadmap-year {
-    padding: 50px 50px;
-  }
+#bfio-roadmap li {
+  font-size: 16px;
 }
 
 .bfio-role {
