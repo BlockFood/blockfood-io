@@ -1,7 +1,6 @@
 module.exports = {
     username: "",
     host: "",
-    port: 21,
-    localRoot: ".",
+    localRoot: "./build",
     remoteRoot: ""
 }
