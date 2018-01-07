@@ -222,6 +222,8 @@ window.init_page = function ($) {
                 }
             })
 
+            var minimumContribution = 0.1
+
             var refreshMinimumAndMaximum = function() {
                 $('.ether-amount .maximum').text('(loading)')
                 $('.ether-amount .minimum').text('(loading)')
@@ -232,6 +234,7 @@ window.init_page = function ($) {
 
                 blockFoodPreSale.minContribution().then(function (minimum) {
                     $('.ether-amount .minimum').text(web3.fromWei(minimum[0], 'ether'))
+                    minimumContribution = parseFloat(web3.fromWei(minimum[0], 'ether'))
                 })
             }
             refreshMinimumAndMaximum()
@@ -262,7 +265,8 @@ window.init_page = function ($) {
 
                 var ether = $('.step3 input[name="ether"]').val()
 
-                if (ether >= 0.5) {
+                console.log('?', minimumContribution)
+                if (ether >= minimumContribution) {
                     $('.step3 .transaction-1').show()
 
                     blockFoodPreSale.apply(application.publicId, {
@@ -275,7 +279,7 @@ window.init_page = function ($) {
                                 .attr('disabled', true)
 
                             $('.step3 .ether-scan').show()
-                            $('.step3 .ether-scan a').attr('href', 'https://rinkeby.etherscan.io/tx/' + txHash)
+                            $('.step3 .ether-scan a').attr('href', 'https://etherscan.io/tx/' + txHash)
                             $('.step3 .ether-scan .tx').text(txHash)
 
                             $('.step3 .transaction-1').hide()
