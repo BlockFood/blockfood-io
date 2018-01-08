@@ -22,6 +22,19 @@
                 </p>
 
                 <div class='p-like'>
+                    BlockFoodToken pre-sale characteristics:
+                    <ul>
+                        <li><b>Start</b>: January 8th 2018</li>
+                        <li><b>End</b>: February 8th 2018</li>
+                        <li><b>Minimum cap</b>: 100 Eth</li>
+                        <li><b>Maximum cap</b>: 200 Eth</li>
+                        <li><b>Exchange rate</b>: 1 Eth = 1 500 BFT</li>
+                        <li><b>Minimum contribution</b>: 0.1 Eth</li>
+                        <li><b>Token availability</b>: March 8th 2018 at the latest</li>
+                    </ul>
+                </div>
+
+                <div class='p-like'>
                     To participate in this pre-sale, you must provide the following accurate information:
                     <ul>
                         <li>Email address</li>
@@ -40,24 +53,23 @@
                     </ul>
                 </div>
 
-                <p class='apply-form-intro'>To start your application for pre-sale, enter your email:</p>
+                <div class='p-like apply-form-intro'>To start your application for pre-sale, enter your email:</div>
 
                 <div class='p-like'>
-                    Warning: an ethereum account can only be used once for this process. If you wish to participate a
-                    second time, you can use the same email address but your need to use a different ethereum account.
+                    Warning: an ethereum address can only be used once for this process. If you wish to participate a
+                    second time, you can use the same email address but your need to use a different ethereum address.
                 </div>
 
                 <div class='p-like'>
-                    <div class='apply-form input-group mb-2 mb-sm-0'>
+                    <div class='p-like apply-form input-group mb-2 mb-sm-0'>
                         <div class='input-group-addon'>@</div>
-                        <input type='email' class='form-control apply-email' placeholder='Pre-sale starts on January 8th 2018 at 15:00 UTC' disabled/>
-                        <input value='15:00 UTC' class='btn btn-primary apply-btn' type='submit' disabled/>
+                        <input type='email' class='form-control apply-email' placeholder='Enter your email'/>
+                        <input value='Continue' class='btn btn-primary apply-btn' type='submit'/>
                     </div>
-                    <div class='apply-form-error' style='display:none'>Something went wrong. Please check your email and
-                        try
-                        again.
+                    <div class='p-like apply-form-error text-center warning' style='display:none'>
+                        Something went wrong. Please check your email and try again.
                     </div>
-                    <div class='apply-form-success conclusion' style='display:none'>
+                    <div class='p-like apply-form-success conclusion' style='display:none'>
                         <span class='email'></span> - Thank you. Check your inbox for the next step.
                     </div>
                 </div>
@@ -71,8 +83,9 @@
                 <h1>Pre-Sale</h1>
 
                 <p>
-                    Your application could not be found. Please check the URL. If the URL is correct but this message is
-                    displayed, return to step 1.
+                    Your application could not be found or our network is temporarily down.<br><br>
+                    Please check the URL. If the URL is correct but this message is displayed, return to
+                    <a href='{{urls.preSale}}'>step 1</a>.
                 </p>
             </div>
 
@@ -165,38 +178,99 @@
                     installed. If you don't have MetaMask, go to <a href='https://metamask.io/'>https://metamask.io/</a>
                     and follow the instructions.
                 </div>
+
+                <div class='metamask-unlock' style='display: none'>
+                    <h2>Unlock your MetaMask</h2>
+                    <div class='p-like'>
+                        It seems your MetaMask in not unlocked.<br><br>
+                        In order to unlock your MetaMask plugin, click on the
+                        icon and enter your password:
+                    </div>
+                    <div class='p-like text-center'>
+                        <img src='images/pre-sale/unlock-metamask.png'>
+                    </div>
+                    <div class='p-like text-center'>
+                        <a class='btn btn-primary reloadBtn' href='#'>I've unlocked my MetaMask plugin</a>
+                    </div>
+                </div>
+
                 <div class='smart-contract-summary' style='display:none'>
-                    <p>MetaMask is correctly installed.</p>
+                    <p>MetaMask is correctly installed and unlocked.</p>
 
                     <div class='p-like'>
                         To configure MetaMask, make sure:
                         <ul>
-                            <li>You have imported your private key in MetaMask</li>
+                            <li>You have imported your account in MetaMask</li>
                             <li>You are able to read your Ether balance</li>
                         </ul>
                     </div>
 
-                    <p>
-                        Enter the amount of Ether you wish to give (minimum: 0.5 Ether):
-                    </p>
+                    <div class='p-like ethereum-characteristics'>
+                        Characteristics of your ethereum address:
+                        <ul>
+                            <li>Address: <code><span class='address'>(loading)</span></code></li>
+                            <li>Balance: <code><span class='balance'>(loading)</span> Ether</code> (<a
+                                    href='javascript:(function(){})()' class='refresh'>refresh</a>)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class='p-like existing-tx conclusion' style='display:none'>
+                        It seems you already have some transactions in progress with our smart contract:
+                        <div class='transactions'></div>
+
+                        If those transactions are taking too long, you can resend them using the MetaMask plugin.<br><br>Click on the "Taking too long? Retry with a higher gas price here" button:<br>
+                        <div class='p-like text-center'><img src='images/pre-sale/update-transaction.png'></div>
+                        If you use the form below, a new transaction will be created and put after the existing ones.<br>
+                        This will likely result in an error once they are executed!
+                    </div>
+
+                    <div class='p-like ether-amount'>
+                        Enter the amount of Ether you wish to give
+                        <ul>
+                            <li>minimum: <code><span class='minimum'>(loading)</span> Ether</code></li>
+                            <li>maximum: <code><span class='maximum'>(loading)</span> Ether</code> (<a
+                                    href='javascript:(function(){})()' class='refresh'>refresh</a>)
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class='p-like'>
                         <div class='input-group mb-2 mb-sm-0'>
                             <div class='input-group-addon'>Ether</div>
                             <input type='text' class='form-control' name='ether'
-                                   placeholder='Ether (e.g: 1.5) (minimum: 0.5, maximum: 200)'/>
+                                   placeholder='Ether (e.g: 8.5, 100, 42, 0.1, ...)'/>
                         </div>
                     </div>
-                    <div class='warning' style='display:none'>Check your ether amount: minimum contribution = 0.5,
-                        maximum contribution = 200
+                    <div class='warning ether-amount' style='display:none'>
+                        Check your ether amount: minimum contribution = <code><span class='minimum'>0.1</span>
+                        Ether</code>, maximum contribution = <code><span class='maximum'>200</span> Ether</code>. <br>
+                        If you have decimals, make sure you use a point <code>.</code> instead of a coma <code>,</code>
+                        as delimiter.
                     </div>
 
-                    <p>
+                    <div class='p-like'>
+                        Here are the recommended values for gas limit and gas price in MetaMask:
+                        <ul>
+                            <li>Gas price:
+                                <ul>
+                                    <li>Minimum: <code>20 gwei</code> (should take between 1 and 10 minutes)</li>
+                                    <li>Faster: <code>40 gwei</code> (should take between 10 and 60 seconds)</li>
+                                    <li>Fastest: <code>60 gwei</code> (should take between 10 and 30 seconds)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Gas limit: <code>250 000 units</code> (Normal usage is: <code>170 994 units</code>)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class='p-like'>
                         <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
-                    </p>
+                    </div>
 
                     <div class='ether-scan p-like' style='display:none'>
-                        Your transaction is visible here: <a href=''>EtherScan - <span class='tx'></span></a>
+                        Your transaction is visible here: <a href='' target='_blank'>EtherScan - <span class='tx'></span></a>
                     </div>
 
                     <div class='error p-like ' style='display:none'>
@@ -205,7 +279,7 @@
                     </div>
 
                     <div class='transaction-1 p-like' style='display:none'>
-                        Waiting for MetaMask confirmation...
+                        Waiting for MetaMask confirmation...<br>
                         <div class='bfio-loader'></div>
                     </div>
 
@@ -216,8 +290,8 @@
 
                     <div class='transaction-3 p-like' style='display:none'>
                         Transaction successful ! The BlockFood team will review your information and accept your
-                        participation if everything is okay. You should receive a confirmation email in the next 24
-                        hours.
+                        participation if everything is in order.<br><br>
+                        You should receive a confirmation email in the next 24 hours.
                     </div>
                 </div>
             </div>
@@ -229,9 +303,9 @@
                 <div class='p-like participation-summary'>
                     Participation summary:
                     <ul>
-                        <li class='contribution'>Contribution: <span class='value'></span> Ether</li>
-                        <li class='publicId'>Public ID: <span class='value'></span></li>
-                        <li class='state'>State: <span class='value'></span></li>
+                        <li class='contribution'>Contribution: <code><span class='value'></span> Ether</code></li>
+                        <li class='publicId'>Public ID: <code><span class='value'></span></code></li>
+                        <li class='state'>State: <code><span class='value'></span></code></li>
                     </ul>
                 </div>
 
