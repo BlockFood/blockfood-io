@@ -197,6 +197,20 @@ window.init_page = function ($) {
         }
     }
 
+    var updateGasAdvice = function() {
+        $.get('https://ethgasstation.info/json/ethgasAPI.json').then(function(data) {
+            console.log(data)
+            $('.estimates .slow .gwei').text(data.safeLow/10)
+            $('.estimates .slow .duration').text(data.safeLowWait)
+            $('.estimates .normal .gwei').text(data.average/10)
+            $('.estimates .normal .duration').text(data.avgWait)
+            $('.estimates .fast .gwei').text(data.fastest/10)
+            $('.estimates .fast .duration').text(data.fastestWait)
+        })
+    }
+
+    updateGasAdvice()
+
     var step3 = function (application) {
         $('.step1').hide()
         $('.step2a').hide()
@@ -225,6 +239,8 @@ window.init_page = function ($) {
                     $('.existing-tx .transactions').append('<div><a target=\'_blank\' href=\'https://etherscan.io/tx/' + txHash + '\'>'+txHash+'</a>')
                 }
             }
+
+
 
             getBlockFoodPreSaleSmartContract(eth).then(function (blockFoodPreSale) {
 
