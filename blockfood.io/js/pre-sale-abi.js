@@ -521,6 +521,5 @@ window.preSale = {
             "name": "ContractUpdate",
             "type": "event"
         }
-    ],
-    address: '0x20138727bAd91EE61db094A5eDba6343b6F67669'
+    ]
 }

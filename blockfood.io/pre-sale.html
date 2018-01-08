@@ -214,6 +214,16 @@
                         </ul>
                     </div>
 
+                    <div class='p-like existing-tx conclusion' style='display: none;'>
+                        It seems you already have some transactions in progress with our smart contract:
+                        <div class='transactions'></div>
+
+                        If those transactions are taking too long, you can resend them using the MetaMask plugin. Click on the "Taking too long? Retry with a higher gas price here" button:<br>
+                        <img src='images/pre-sale/update-transaction.png'><br><br>
+                        If you use the form below, a new transaction will be created and put after the existing ones.<br>
+                        This will likely result in an error once they are executed!
+                    </div>
+
                     <div class='p-like ether-amount'>
                         Enter the amount of Ether you wish to give
                         <ul>
@@ -238,9 +248,25 @@
                         as delimiter.
                     </div>
 
-                    <p>
+                    <div class='p-like'>
                         <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
-                    </p>
+                    </div>
+
+                    <div class='p-like'>
+                        Here are the recommended values for gas limit and gas price in MetaMask:
+                        <ul>
+                            <li>Gas price:
+                                <ul>
+                                    <li>Minimum: <code>20 gwei</code> (should take between 1 and 10 minutes)</li>
+                                    <li>Faster: <code>40 gwei</code> (should take between 10 and 60 seconds)</li>
+                                    <li>Fastest: <code>60 gwei</code> (should take between 10 and 30 seconds)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Gas limit: <code>250 000 units</code> (Normal usage is: <code>170 994 units</code>)
+                            </li>
+                        </ul>
+                    </div>
 
                     <div class='ether-scan p-like' style='display:none'>
                         Your transaction is visible here: <a href='' target='_blank'>EtherScan - <span class='tx'></span></a>
@@ -252,7 +278,7 @@
                     </div>
 
                     <div class='transaction-1 p-like' style='display:none'>
-                        Waiting for MetaMask confirmation...
+                        Waiting for MetaMask confirmation...<br>
                         <div class='bfio-loader'></div>
                     </div>
 

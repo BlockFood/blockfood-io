@@ -121,14 +121,12 @@ window.init_page = function ($) {
                     dataType: 'json', // what type of data do we expect back from the server
                     processData: false,
                     contentType: false
+                }).then(function () {
+                    preSaleRouter()
+                }).catch(function (response) {
+                    $('.step2a .submit-error').show()
+                    $('.step2a .submit-error').text(response.responseJSON.error)
                 })
-                    .then(function () {
-                        preSaleRouter()
-                    })
-                    .catch(function (response) {
-                        $('.step2a .submit-error').show()
-                        $('.step2a .submit-error').text(response.responseJSON.error)
-                    })
             })
         }
         step2ALaunched = true
@@ -167,7 +165,16 @@ window.init_page = function ($) {
 
         var BlockFoodPreSale = contract(window.preSale.abi)
 
-        return BlockFoodPreSale.at(window.preSale.address)
+        return $.ajax({
+            type: 'GET',
+            url: window.bfio.api + '/pre-sale/smart-contract'
+        }).then(function (response) {
+            console.log('Contract is at ', response.address)
+            return BlockFoodPreSale.at(response.address)
+        }).catch(function (response) {
+            console.log('Could not get contract address')
+        })
+
     }
 
     var applicationState = {
@@ -196,113 +203,133 @@ window.init_page = function ($) {
         $('.step2b').hide()
         $('.step3').show()
 
-        $('.pre-sale .loading').hide()
         $('.pre-sale .error').hide()
 
         if (!window.web3) {
             $('.step3 .metamask-required').show()
         } else if (!web3.eth.accounts[0]) {
             $('.step3 .metamask-unlock').show()
-            $('.reloadBtn').on('click', function() {
+            $('.reloadBtn').on('click', function () {
                 window.location.reload()
             })
         } else {
             var eth = new Eth(window.web3.currentProvider)
 
-            var blockFoodPreSale = getBlockFoodPreSaleSmartContract(eth)
+            if (application.txHashes && application.txHashes.length > 0) {
+                $('.existing-tx').show()
 
-            blockFoodPreSale.applications(web3.eth.accounts[0]).then(function (application) {
-                var state = numberToState(application.state.toNumber())
-                if (state !== applicationState.UNKNOWN) {
-                    step4({
-                        state: numberToState(application.state.toNumber()),
-                        contribution: web3.fromWei(application.contribution, 'ether'),
-                        publicId: application.id
+                $('.existing-tx .transactions').text('')
+
+                for (var i = 0; i < application.txHashes.length; i++) {
+                    var txHash = application.txHashes[i]
+                    $('.existing-tx .transactions').append('<div><a target=\'_blank\' href=\'https://etherscan.io/tx/' + txHash + '\'>'+txHash+'</a>')
+                }
+            }
+
+            getBlockFoodPreSaleSmartContract(eth).then(function (blockFoodPreSale) {
+
+                $('.pre-sale .loading').hide()
+                blockFoodPreSale.applications(web3.eth.accounts[0]).then(function (application) {
+                    var state = numberToState(application.state.toNumber())
+                    if (state !== applicationState.UNKNOWN) {
+                        step4({
+                            state: numberToState(application.state.toNumber()),
+                            contribution: web3.fromWei(application.contribution, 'ether'),
+                            publicId: application.id
+                        })
+                    }
+                })
+
+                var minimumContribution = 0.1
+
+                var refreshMinimumAndMaximum = function () {
+                    $('.ether-amount .maximum').text('(loading)')
+                    $('.ether-amount .minimum').text('(loading)')
+
+                    blockFoodPreSale.getMaximumContributionPossible().then(function (maximum) {
+                        $('.ether-amount .maximum').text(web3.fromWei(maximum[0], 'ether'))
+                    })
+
+                    blockFoodPreSale.minContribution().then(function (minimum) {
+                        $('.ether-amount .minimum').text(web3.fromWei(minimum[0], 'ether'))
+                        minimumContribution = parseFloat(web3.fromWei(minimum[0], 'ether'))
                     })
                 }
-            })
-
-            var minimumContribution = 0.1
-
-            var refreshMinimumAndMaximum = function() {
-                $('.ether-amount .maximum').text('(loading)')
-                $('.ether-amount .minimum').text('(loading)')
-
-                blockFoodPreSale.getMaximumContributionPossible().then(function (maximum) {
-                    $('.ether-amount .maximum').text(web3.fromWei(maximum[0], 'ether'))
-                })
-
-                blockFoodPreSale.minContribution().then(function (minimum) {
-                    $('.ether-amount .minimum').text(web3.fromWei(minimum[0], 'ether'))
-                    minimumContribution = parseFloat(web3.fromWei(minimum[0], 'ether'))
-                })
-            }
-            refreshMinimumAndMaximum()
-            $('.ether-amount a.refresh').on('click', function() {
                 refreshMinimumAndMaximum()
-            })
-
-            var refreshEthAddressAndBalance = function() {
-                $('.ethereum-characteristics .address').text(web3.eth.accounts[0])
-                $('.ethereum-characteristics .balance').text('(loading)')
-
-                web3.eth.getBalance(web3.eth.accounts[0], function (error, balance) {
-                    var roundedBalance = web3.fromWei(balance, 'ether').toNumber().toFixed(3)
-                    $('.ethereum-characteristics .balance').text(roundedBalance)
+                $('.ether-amount a.refresh').on('click', function () {
+                    refreshMinimumAndMaximum()
                 })
-            }
-            refreshEthAddressAndBalance()
-            $('.ethereum-characteristics a.refresh').on('click', function() {
-                refreshEthAddressAndBalance()
-            })
 
+                var refreshEthAddressAndBalance = function () {
+                    $('.ethereum-characteristics .address').text(web3.eth.accounts[0])
+                    $('.ethereum-characteristics .balance').text('(loading)')
 
-            $('.step3 .smart-contract-summary').show()
-            $('.step3 .smart-contract-summary input[name="ether"]').focus()
-            $('.step3 .step3-btn').unbind()
-            $('.step3 .step3-btn').on('click', function (e) {
-                e.preventDefault()
-
-                var ether = $('.step3 input[name="ether"]').val()
-
-                console.log('?', minimumContribution)
-                if (ether >= minimumContribution) {
-                    $('.step3 .transaction-1').show()
-
-                    blockFoodPreSale.apply(application.publicId, {
-                        value: web3.toWei(ether, 'ether'),
-                        from: web3.eth.accounts[0]
+                    web3.eth.getBalance(web3.eth.accounts[0], function (error, balance) {
+                        var roundedBalance = web3.fromWei(balance, 'ether').toNumber().toFixed(3)
+                        $('.ethereum-characteristics .balance').text(roundedBalance)
                     })
-                        .then(function (txHash) {
-                            $('.step3 .step3-btn')
-                                .unbind()
-                                .attr('disabled', true)
+                }
+                refreshEthAddressAndBalance()
+                $('.ethereum-characteristics a.refresh').on('click', function () {
+                    refreshEthAddressAndBalance()
+                })
 
-                            $('.step3 .ether-scan').show()
-                            $('.step3 .ether-scan a').attr('href', 'https://etherscan.io/tx/' + txHash)
-                            $('.step3 .ether-scan .tx').text(txHash)
+                $('.step3 .smart-contract-summary').show()
+                $('.step3 .smart-contract-summary input[name="ether"]').focus()
+                $('.step3 .step3-btn').unbind()
+                $('.step3 .step3-btn').on('click', function (e) {
+                    e.preventDefault()
 
-                            $('.step3 .transaction-1').hide()
-                            $('.step3 .transaction-2').show()
+                    var ether = $('.step3 input[name="ether"]').val()
 
-                            waitForTxToBeMined(eth, txHash, 500).then(function () {
-                                $('.step3 .transaction-2').hide()
-                                $('.step3 .transaction-3').show()
-                            }).catch(function () {
-                                $('.step3 .transaction-2').hide()
-                                $('.step3 .transaction-3').hide()
+                    if (ether >= minimumContribution) {
+                        $('.step3 .transaction-1').show()
+
+                        blockFoodPreSale.apply(application.publicId, {
+                            value: web3.toWei(ether, 'ether'),
+                            from: web3.eth.accounts[0]
+                        })
+                            .then(function (txHash) {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: window.bfio.api + '/pre-sale/tx/' + application.privateId + '/' + txHash,
+                                }).then(function () {
+                                    console.log('Add txHash', txHash)
+                                }).catch(function (err) {
+                                    console.log('Could not log txHash due to:', err)
+                                })
+
+                                $('.step3 .step3-btn')
+                                    .unbind()
+                                    .attr('disabled', true)
+
+                                $('.step3 .ether-scan').show()
+                                $('.step3 .ether-scan a').attr('href', 'https://etherscan.io/tx/' + txHash)
+                                $('.step3 .ether-scan .tx').text(txHash)
+
+                                $('.step3 .transaction-1').hide()
+                                $('.step3 .transaction-2').show()
+
+                                waitForTxToBeMined(eth, txHash, 500).then(function () {
+                                    $('.step3 .transaction-2').hide()
+                                    $('.step3 .transaction-3').show()
+                                }).catch(function () {
+                                    $('.step3 .transaction-2').hide()
+                                    $('.step3 .transaction-3').hide()
+                                    $('.step3 .error').show()
+                                })
+
+                            })
+                            .catch(function (err) {
+                                console.log('BlockFoodPreSale.apply() call failed', err)
                                 $('.step3 .error').show()
                             })
-
-                        })
-                        .catch(function (err) {
-                            console.log('BlockFoodPreSale.apply() call failed', err)
-                            $('.step3 .error').show()
-                        })
-                } else {
-                    $('.step3 .warning').show()
-                }
-
+                    } else {
+                        $('.step3 .warning').show()
+                    }
+                })
+            }).catch(function (err) {
+                console.log('Could not get blockFoorPreSale instance', err)
             })
         }
     }
