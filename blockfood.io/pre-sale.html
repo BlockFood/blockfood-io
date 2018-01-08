@@ -83,8 +83,9 @@
                 <h1>Pre-Sale</h1>
 
                 <p>
-                    Your application could not be found. Please check the URL. If the URL is correct but this message is
-                    displayed, return to step 1.
+                    Your application could not be found or our network is temporarily down.<br><br>
+                    Please check the URL. If the URL is correct but this message is displayed, return to
+                    <a href='{{urls.preSale}}'>step 1</a>.
                 </p>
             </div>
 
@@ -214,12 +215,12 @@
                         </ul>
                     </div>
 
-                    <div class='p-like existing-tx conclusion' style='display: none;'>
+                    <div class='p-like existing-tx conclusion'>
                         It seems you already have some transactions in progress with our smart contract:
                         <div class='transactions'></div>
 
-                        If those transactions are taking too long, you can resend them using the MetaMask plugin. Click on the "Taking too long? Retry with a higher gas price here" button:<br>
-                        <img src='images/pre-sale/update-transaction.png'><br><br>
+                        If those transactions are taking too long, you can resend them using the MetaMask plugin.<br><br>Click on the "Taking too long? Retry with a higher gas price here" button:<br>
+                        <div class='p-like text-center'><img src='images/pre-sale/update-transaction.png'></div>
                         If you use the form below, a new transaction will be created and put after the existing ones.<br>
                         This will likely result in an error once they are executed!
                     </div>
@@ -249,10 +250,6 @@
                     </div>
 
                     <div class='p-like'>
-                        <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
-                    </div>
-
-                    <div class='p-like'>
                         Here are the recommended values for gas limit and gas price in MetaMask:
                         <ul>
                             <li>Gas price:
@@ -266,6 +263,10 @@
                                 Gas limit: <code>250 000 units</code> (Normal usage is: <code>170 994 units</code>)
                             </li>
                         </ul>
+                    </div>
+
+                    <div class='p-like'>
+                        <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
                     </div>
 
                     <div class='ether-scan p-like' style='display:none'>
