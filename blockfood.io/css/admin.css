@@ -1,0 +1,38 @@
+.admin td.locked {
+  background: #a4d716;
+}
+
+.admin td.notLocked {
+}
+
+.amount-raised, .applications-length {
+  font-size: 60px;
+}
+
+.step-indicator {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+td, th {
+  padding: 10px !important;
+}
+tr {
+  border: 1px solid grey;
+}
+
+.estimates {
+  border-radius: 20px;
+  border: 1px solid grey;
+  float: right;
+  padding: 10px;
+}
+
+.smart-contract .bfio-loader {
+  display: inline-block;
+}
+
+ul, li {
+  list-style: none;
+  padding: 2px;
+}

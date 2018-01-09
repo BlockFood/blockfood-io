@@ -199,7 +199,6 @@ window.init_page = function ($) {
 
     var updateGasAdvice = function() {
         $.get('https://ethgasstation.info/json/ethgasAPI.json').then(function(data) {
-            console.log(data)
             $('.estimates .slow .gwei').text(data.safeLow/10)
             $('.estimates .slow .duration').text(data.safeLowWait)
             $('.estimates .normal .gwei').text(data.average/10)
