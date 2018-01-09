@@ -88,7 +88,7 @@ window.init_page = function ($) {
         })
     }
 
-    var go = function () {
+    const go = function () {
         var eth = new Eth(window.web3.currentProvider)
 
         return getBlockFoodPreSaleSmartContract(eth).then(function (preSale) {

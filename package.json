@@ -4,7 +4,7 @@
   "description": "This website is the central point of information regarding the BlockFood project.",
   "main": "script/index.js",
   "dependencies": {
-    "autoprefixer": "^7.2.3",
+    "autoprefixer": "^7.2.4",
     "cssnano": "^3.10.0",
     "express": "^4.16.2",
     "fs-extra-promise": "^1.0.1",
@@ -17,9 +17,9 @@
     "mustache": "^2.3.0",
     "node-sftp-deploy": "^1.0.3",
     "open": "0.0.5",
-    "postcss": "^6.0.14",
-    "purify-css": "^1.2.5",
-    "uglify-js": "^3.2.2"
+    "postcss": "^6.0.16",
+    "purify-css": "^1.2.6",
+    "uglify-es": "^3.3.5"
   },
   "devDependencies": {
     "sftp-upload": "^1.0.0"
