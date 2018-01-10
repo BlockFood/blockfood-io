@@ -68,28 +68,39 @@ window.init_page = function ($) {
         return `<div class='show-tx-hashes'>${hashes.map(hashLi).join('<br>')}</div>`
     }
 
+    const pad = number => number < 10 ? `0${number}` : number
+    const printDate = date => `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${pad(date.getHours())}:${pad(date.getMinutes())}`
+
     var applicationTr = function (application) {
-        return `<tr>
-<td>${application.index}</td>
- <td>${application.email}</td>
+        const date = application.latestAction
+        return `
+<tr>
+    <td>${application.index}</td>
+    <td>${printDate(date)}</td>
+    <td>${application.publicId}</td>
+    <td>${application.email}</td>
     <td>${application.country}</td>
     <td>${application.firstName}</td>
     <td>${application.lastName}</td>
     <td>${application.contribution ? application.contribution : ''}</td>
     <td>${etherscanAddress(application.address)}</td>
     <td>${hashes(application.txHashes)}</td>
-</tr>`
+</tr>
+`
     }
 
     var appendApplications = function (step, applications) {
-        $('.workflow .applications').append(`<tr><td class='step-indicator' colspan='3'>${step} (${applications.length})</td></tr>`)
+        $('.workflow .applications tbody').append(`<tr><td class='step-indicator' colspan='3'>${step} (${applications.length})</td></tr>`)
         applications.forEach(function (application) {
-            $('.workflow .applications').append(applicationTr(application))
+            $('.workflow .applications tbody').append(applicationTr(application))
         })
     }
 
     const go = function () {
         var eth = new Eth(window.web3.currentProvider)
+        $('.workflow .applications tbody').text('')
+        $('.application-loader').show()
+        $('.applications').hide()
 
         return getBlockFoodPreSaleSmartContract(eth).then(function (preSale) {
 
@@ -98,14 +109,17 @@ window.init_page = function ($) {
             }
 
             web3.eth.getBalance(preSale.address, function (err, balance) {
-                $('.smart-contract .amount-raised').text(web3.fromWei(balance.toNumber(), 'ether'))
+                const amountRaised = parseFloat(web3.fromWei(balance.toNumber(), 'ether'))
+                $('.smart-contract .amount-raised').text(amountRaised)
+                $('.progress-baaar').css({ width: amountRaised + '%' })
+                $('.progress-text').text(amountRaised + '%')
             })
 
             Promise.all([
                 preSale.contributionPending(),
                 preSale.contributionAccepted(),
                 preSale.contributionRejected(),
-            ]).then(function(data) {
+            ]).then(function (data) {
                 var contributionPending = data[0][0]
                 var contributionAccepted = data[1][0]
                 var contributionRejected = data[2][0]
@@ -114,8 +128,7 @@ window.init_page = function ($) {
                 $('.amount-accepted').text(web3.fromWei(contributionAccepted, 'ether'))
                 $('.amount-rejected').text(web3.fromWei(contributionRejected, 'ether'))
 
-
-            }).catch(function(e) {
+            }).catch(function (e) {
                 console.log('Could not update contributions', e)
             })
 
@@ -150,6 +163,17 @@ window.init_page = function ($) {
                     application.index = preSaleApplicants.indexOf(smartContractApplicant)
                     application.address = smartContractApplicant ? smartContractApplicant.address : ''
 
+                    application.creation = new Date(application.creation)
+                    application.lastUpdate = new Date(application.lastUpdate)
+                    application.lockDate = new Date(application.lockDate)
+
+                    const latestAction = Math.max(
+                        application.creation.getTime(),
+                        application.lastUpdate.getTime(),
+                        application.lockDate.getTime()
+                    )
+                    application.latestAction = new Date(latestAction)
+
                     return application
                 })
 
@@ -172,7 +196,7 @@ window.init_page = function ($) {
                 var sortApplicationByDate = function (applications) {
                     return applications.sort(function (a1, a2) {
                         if (a1.index === a2.index && a1.country && a2.country) {
-                            return a1.country.toLowerCase() < a2.country.toLowerCase() ? -1 : 1
+                            return a1.latestAction.getTime() < a2.latestAction.getTime() ? 1 : -1
                         }
                         return a1.index < a2.index ? 1 : -1
                     })
@@ -203,6 +227,8 @@ window.init_page = function ($) {
 
                     $('.application-loader').hide()
                     $('.applications').show()
+
+                    $('.last-update').text(printDate(new Date()))
                 })
 
                 $('.smart-contract .applications-length').text(preSaleApplicants.length)
@@ -222,4 +248,6 @@ window.init_page = function ($) {
     }
 
     go()
+
+    $('.refresh-btn').on('click', () => go())
 }

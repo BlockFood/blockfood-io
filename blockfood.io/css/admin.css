@@ -36,3 +36,33 @@ ul, li {
   list-style: none;
   padding: 2px;
 }
+
+.progress-container {
+  width: 400px;
+  height: 60px;
+  border-radius: 20px;
+  border: 1px solid #4B3F80;
+  position: relative;
+  overflow:hidden;
+  background: linear-gradient(45deg, rgba(75,63,128,0.3) 0%,rgba(75,63,232,0.2) 100%);
+}
+
+.progress-baaar {
+  background: linear-gradient(45deg, rgba(75,63,128,1) 0%,rgba(75,63,232,0.8) 100%);
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 0.5s width;
+}
+
+.progress-text {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 40px;
+  line-height: 60px;
+
+}

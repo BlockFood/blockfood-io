@@ -4,7 +4,7 @@
 
 
             <div class='admin'>
-                <h1>Pre-Sale Admin 🐈</h1>
+                <h1>Pre-Sale Admin <span class='refresh-btn'>🐈</span> <span class='last-update'></span></h1>
 
                 <div class='p-like estimates'>
                     <ul>
@@ -29,8 +29,8 @@
 
                     <div class='p-like text-center'>
                         Total: <code class='amount-raised'>
-                            <div class='bfio-loader'></div>
-                        </code> Ether <br>
+                        <div class='bfio-loader'></div>
+                    </code> Ether <br>
 
                         (💡 <code class='amount-pending'></code>,
                         📗 <code class='amount-accepted'></code>,
@@ -48,6 +48,11 @@
                     </div>
                 </div>
 
+                <div class='p-like progress-container'>
+                    <div class='progress-baaar'></div>
+                    <div class='progress-text'></div>
+                </div>
+
                 <div class='p-like workflow'>
                     <h2>Workflow state</h2>
                     <div class='bfio-loader application-loader'></div>
@@ -55,6 +60,8 @@
                         <thead>
                         <tr>
                             <th>id</th>
+                            <th>date</th>
+                            <th>publicId</th>
                             <th>email</th>
                             <th>Country</th>
                             <th>First name</th>
