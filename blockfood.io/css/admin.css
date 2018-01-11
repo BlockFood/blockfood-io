@@ -66,3 +66,11 @@ ul, li {
   line-height: 60px;
   color: white;
 }
+
+.admin .applications{
+  font-size: 12px;
+}
+
+body {
+  overflow: visible !important;
+}

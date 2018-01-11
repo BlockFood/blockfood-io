@@ -6,7 +6,7 @@ window.init_page = function ($) {
 
         return $.ajax({
             type: 'GET',
-            url: window.bfio.api + '/pre-sale/smart-contract'
+            url: 'http://localhost:3663/pre-sale/smart-contract'
         }).then(function (response) {
             console.log('Contract is at ', response.address)
             return BlockFoodPreSale.at(response.address)
@@ -77,9 +77,7 @@ window.init_page = function ($) {
 <tr>
     <td>${application.index}</td>
     <td>${printDate(date)}</td>
-    <td>${application.publicId}</td>
-    <td>${application.email}</td>
-    <td>${application.country}</td>
+    <td>${application.publicId}<br>${application.email}<br>${application.country}</td>
     <td>${application.firstName}</td>
     <td>${application.lastName}</td>
     <td>${application.contribution ? application.contribution : ''}</td>
@@ -137,7 +135,7 @@ window.init_page = function ($) {
             })
 
             return Promise.all([
-                $.get(window.bfio.api + '/admin/pre-sale/review'),
+                $.get('http://localhost:3663/admin/pre-sale/review'),
 
                 preSale.getApplicantsLength().then(function (applicantsLength) {
                     applicantsLength = applicantsLength[0].toNumber()

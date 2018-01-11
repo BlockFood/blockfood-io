@@ -22,13 +22,15 @@
     "uglify-es": "^3.3.5"
   },
   "devDependencies": {
+    "api-tunnel": "^1.0.3",
     "sftp-upload": "^1.0.0"
   },
   "scripts": {
     "start": "node script/dev.js",
     "build": "node script/build.js",
     "predeploy": "npm run build",
-    "deploy": "node script/deploy.js"
+    "deploy": "node script/deploy.js",
+    "tunnel": "node script/api-tunnel.js"
   },
   "repository": {
     "type": "git",
