@@ -6,7 +6,7 @@ window.init_page = function ($) {
 
         return $.ajax({
             type: 'GET',
-            url: 'http://localhost:3663/pre-sale/smart-contract'
+            url: 'https://localhost/pre-sale/smart-contract'
         }).then(function (response) {
             console.log('Contract is at ', response.address)
             return BlockFoodPreSale.at(response.address)
@@ -135,7 +135,7 @@ window.init_page = function ($) {
             })
 
             return Promise.all([
-                $.get('http://localhost:3663/admin/pre-sale/review'),
+                $.get('https://localhost/admin/pre-sale/review'),
 
                 preSale.getApplicantsLength().then(function (applicantsLength) {
                     applicantsLength = applicantsLength[0].toNumber()
