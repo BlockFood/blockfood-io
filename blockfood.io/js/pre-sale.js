@@ -387,7 +387,6 @@ window.init_page = function ($) {
                                     $('.step3 .transaction-3').hide()
                                     $('.step3 .error').show()
                                 })
-
                             })
                             .catch(function (err) {
                                 console.log('BlockFoodPreSale.apply() call failed', err)
