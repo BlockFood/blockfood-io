@@ -29,6 +29,7 @@
                         <li><b>Minimum cap</b>: 100 Eth or 60 000$</li>
                         <li><b>Maximum cap</b>: 200 Eth or 120 000$</li>
                         <li><b>Exchange rate</b>: 1 Eth = 1 500 BFT</li>
+                        <li><b>Accepted currency</b>: 1 Eth = 1 500 BFT</li>
                         <li><b>Minimum contribution</b>: 0.1 Eth</li>
                         <li><b>Token availability</b>: March 8th 2018 at the latest</li>
                     </ul>
@@ -53,25 +54,19 @@
                     </ul>
                 </div>
 
-                <div class='p-like conclusion'>
-                    💡 If you need any help, you can check our guide: <a
-                        href='https://medium.com/blockfood/how-to-participate-in-pre-sale-3b63aa7049cb' target='_blank'>How to participate in pre-sale <i class='icon-external-link'></i></a><br><br>
-                    💬 You can also talk to us directly using our Telegram group: <a href='https://t.me/blockfood' target='_blank'>@BlockFood <i class='icon-external-link'></i></a>
 
+                <div class='p-like apply-form-intro'>To start your application for pre-sale, enter your email address:
                 </div>
-
-                <div class='p-like apply-form-intro'>To start your application for pre-sale, enter your email:</div>
-
 
 
                 <div class='p-like'>
                     <div class='p-like apply-form input-group mb-2 mb-sm-0'>
                         <div class='input-group-addon'>@</div>
-                        <input type='email' class='form-control apply-email' placeholder='Enter your email'/>
+                        <input type='email' class='form-control apply-email' placeholder='Enter your email address'/>
                         <input value='Continue' class='btn btn-primary apply-btn' type='submit'/>
                     </div>
                     <div class='p-like apply-form-error text-center warning' style='display:none'>
-                        Something went wrong. Please check your email and try again.
+                        Something went wrong. Please check your email address and try again.
                     </div>
                     <div class='p-like apply-form-success conclusion' style='display:none'>
                         <span class='email'></span> - Thank you. Check your inbox for the next step.
@@ -163,7 +158,7 @@
                     <div class='value'></div>
                 </div>
 
-                <p>If there is a mistake in the information above, you can update these information using the "Modify"
+                <p>If there is a mistake in the information above, you can modify your information using the "Modify"
                     button below.</p>
 
                 <div class='text-left'>
@@ -183,23 +178,135 @@
                 <h1>Pre-Sale step 3/3</h1>
 
                 <div class='metamask-required' style='display:none'>
-                    This step of the pre-sale process requires to have <a href='https://metamask.io/'>MetaMask</a>
-                    installed. If you don't have MetaMask, go to <a href='https://metamask.io/'>https://metamask.io/</a>
-                    and follow the instructions.
+                    <div class='p-like'>
+
+                        This step of the pre-sale process requires to have <a href='https://metamask.io/'>MetaMask</a>
+                        installed. If you don't have MetaMask, go to <a
+                            href='https://metamask.io/' target='_blank'>https://metamask.io/ <i
+                            class='icon-external-link'></i></a>
+                        and follow the instructions.
+                    </div>
+
+                    <div class='p-like'>
+                        <h2>What is MetaMask?</h2>
+                        MetaMask will allow you to use your Ethereum directly in your browser. It will enable us a way
+                        to browse the blockchain and create a transaction that will transfer your selected amount of
+                        ether
+                        directly to our smart contract.<br><br>
+                        Once we create the transaction, a MetaMask validation popup will appear and allow you to control
+                        the transaction, adjust the gas limit and the gas price and confirm it.<br><br>
+                    </div>
+
+                    <div class='p-like'>
+                        <h2>How to finalize your application using MyEtherWallet</h2>
+                        If you prefer to use MyEtherWallet <strong>instead</strong> of MetaMask, you need to interact directly with the smart contract.
+                        Follow this instructions:<br>
+                        <ol>
+                            <li>Go to <a
+                                    href='https://www.myetherwallet.com/#contracts' target='_blank'>https://www.myetherwallet.com/#contracts
+                                <i
+                                        class='icon-external-link'></i></a>
+                            </li>
+                            <li>Verify the address. It should be: <code>https://www.myetherwallet.com/#contracts</code>
+                            </li>
+                            <li>
+                                Enter contract address: <br>
+                                <a class='btn copy-pre-sale-address'>📋 Copy address</a>
+                                <code class='pre-sale-smart-contract-address'></code>
+                                <span class='pre-sale-address-copied' style='display: none'><i>copied</i></span>
+                            </li>
+                            <li>
+                                Enter ABI / JSON interface: <br>
+                                <ol>
+                                    <li>
+                                <a class='btn copy-pre-sale-abi'>📋 Copy ABI / JSON interface</a> <span class='abi-copied' style='display: none'><i>copied</i></span></li>
+                                        <div class='abi-container'><code class='pre-sale-abi'>[{"constant":false,"inputs":[{"name":"minCap_","type":"uint256"}],"name":"changeMinCap","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"maxCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"minCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"failsafe","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"contributionRejected","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"string"}],"name":"apply","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"applicants","outputs":[{"name":"applicant","type":"address"},{"name":"id","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contributionPending","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"maxCap_","type":"uint256"}],"name":"changeMaxCap","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"applications","outputs":[{"name":"contribution","type":"uint256"},{"name":"id","type":"string"},{"name":"state","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"applicant","type":"address"}],"name":"accept","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"owner_","type":"address"}],"name":"changeOwner","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getMaximumContributionPossible","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"applicant","type":"address"}],"name":"reject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getApplicantsLength","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"minContribution_","type":"uint256"}],"name":"changeMinContribution","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"endDate","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contributionAccepted","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"withdrawn","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"target","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"target_","type":"address"}],"name":"changeTarget","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"target_","type":"address"},{"name":"endDate_","type":"uint256"},{"name":"minContribution_","type":"uint256"},{"name":"minCap_","type":"uint256"},{"name":"maxCap_","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"PendingApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"RejectedApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"AcceptedApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Refund","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"minContribution","type":"uint256"},{"indexed":false,"name":"minCap","type":"uint256"},{"indexed":false,"name":"maxCap","type":"uint256"}],"name":"ContractUpdate","type":"event"}]</code></div>
+
+                                    <li>Return to the page and paste the content of your clipboard in the "ABI / JSON interface" text area.</li>
+                                </ol>
+                            </li>
+                            <li>Click on the "Access" button</li>
+                            <li>Click on "Select a function" and select "apply"</li>
+                            <li>
+                                A new parameter field should appear, called "id" of type "string".
+
+                                Enter the following value:<br>
+                                <a class='btn copy-applicant-id'>📋 Copy id</a> <code class='publicId'></code>  <span class='copy-applicant-id' style='display: none'><i>copied</i></span>
+                            </li>
+                            <li>Unlock your wallet as usual on MyEtherWallet</li>
+                            <li>Click on the "Write" button</li>
+                            <li>A popup should appear, letting you review the amount you wish to send to the contract and the gas limit.
+                                <ul>
+                                    <li>Set the amount of Ether you wish to give</li>
+                                    <li>Set the gas limit to <code>200 000</code></li>
+                                </ul>
+                            </li>
+                            <li>Click on "Generate transaction"</li>
+                            <li>Click on "Yes, I am sure! Make transaction."</li>
+                            <li>If everything is correct, a green message should appear at the bottom of the page.<br>
+                                It contains a link to the newly created transaction. Open it if you want to track your transaction. <br>You will also be able to retrieve this transaction on <a href='https://etherscan.io/address/0x762c128a5bac6553e66fb2c07bee864576966c26' target='_blank'>EtherScan <i class='icon-external-link'></i></a></li>
+                        </ol>
+
+                    </div>
+
+                    <div class='p-like'>
+                        <h2>I am new to Ethereum</h2>
+                        If you are new to Ethereum, MetaMask and this world of complexity, just follow this process:<br><br>
+                        <ol>
+                            <li>💱 Buy some Ether in a exchange: for example you can use <a
+                                    href='https://www.weusecoins.com/how-to-buy-ether/'>this guide <i
+                                    class='icon-external-link'></i></a>
+                                <ul>
+                                    <li>⚠ This operation can take some time (between 2 and 30 days) ⚠</li>
+                                    <li>If you want to limit your fees in the operation, prefer using a wire transfer
+                                        rather than your credit card
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>🦊 Install MetaMask <a
+                                    href='https://metamask.io/' target='_blank'>https://metamask.io/ <i
+                                    class='icon-external-link'></i></a></li>
+                            <li>Launch MetaMask, follow the initialization workflow thoroughly</li>
+                            <li>Transfer your Ether from the exchange to the account automatically created by MetaMask,
+                                or create a new one
+                                <ul>
+                                    <li>You should find this operation in your exchange either in "Wallets" or in
+                                        "Withdraw/Deposit"
+                                    </li>
+                                    <li>What you need to do is "withdraw" the ether from the exchange and send them to
+                                        your new MetaMask wallet
+                                    </li>
+                                    <li>You can see the address of your wallet in MetaMask in the '...' menu: 'Copy
+                                        address to clipboard"
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>You are ready for the last step
+                                <ul>
+                                    <li>Read our <a
+                                            href='https://medium.com/blockfood/how-to-participate-in-pre-sale-3b63aa7049cb'
+                                            target='_blank'>guide for further instructions <i
+                                            class='icon-external-link'></i></a></li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+
                 </div>
 
                 <div class='metamask-unlock' style='display: none'>
                     <h2>Unlock your MetaMask</h2>
                     <div class='p-like'>
                         It seems your MetaMask in not unlocked.<br><br>
-                        In order to unlock your MetaMask plugin, click on the
-                        icon and enter your password:
+                        In order to unlock your MetaMask plugin, click on the icon and enter your password.<br><br>
+                        Once your MetaMask plugin is unlocked, simply reload this page or use the button below.
                     </div>
                     <div class='p-like text-center'>
                         <img src='images/pre-sale/unlock-metamask.png'>
                     </div>
                     <div class='p-like text-center'>
-                        <a class='btn btn-primary reloadBtn' href='#'>I've unlocked my MetaMask plugin</a>
+                        <a class='btn btn-primary reloadBtn' href='javascript:(function(){})()'>I've unlocked my
+                            MetaMask plugin</a>
                     </div>
                 </div>
 
@@ -228,9 +335,11 @@
                         It seems you already have some transactions in progress with our smart contract:
                         <div class='transactions'></div>
 
-                        If those transactions are taking too long, you can resend them using the MetaMask plugin.<br><br>Click on the "Taking too long? Retry with a higher gas price here" button:<br>
+                        If those transactions are taking too long, you can resend them using the MetaMask
+                        plugin.<br><br>Click on the "Taking too long? Retry with a higher gas price here" button:<br>
                         <div class='p-like text-center'><img src='images/pre-sale/update-transaction.png'></div>
-                        If you use the form below, a new transaction will be created and put after the existing ones.<br>
+                        If you use the form below, a new transaction will be created and put after the existing
+                        ones.<br>
                         This will likely result in an error once they are executed!
                     </div>
 
@@ -251,48 +360,54 @@
                                    placeholder='Ether (e.g: 8.5, 100, 42, 0.1, ...)'/>
                         </div>
                     </div>
-                    <div class='warning ether-amount' style='display:none'>
+                    <div class='p-like warning ether-amount' style='display:none'>
                         Check your ether amount: minimum contribution = <code><span class='minimum'>0.1</span>
                         Ether</code>, maximum contribution = <code><span class='maximum'>200</span> Ether</code>. <br>
                         If you have decimals, make sure you use a point <code>.</code> instead of a coma <code>,</code>
                         as delimiter.
                     </div>
 
+                    <div class='p-like text-center'>
+                        <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
+                    </div>
+
                     <div class='p-like estimates'>
-                        Here are the recommended values for gas limit and gas price in MetaMask:
+                        When MetaMask popup opens, you have to set the gas price and gas limit:
                         <ul>
-                            <li>Gas price:
-                                <ul>
-                                    <li class='slow'>Slow: <code><span class='gwei'>30</span> gwei</code> (should take around <span class='duration'>20</span> minutes)</li>
-                                    <li class='normal'>Normal: <code><span class='gwei'>50</span> gwei</code> (should take around <span class='duration'>2</span> minutes)</li>
-                                    <li class='fast'>Faster: <code><span class='gwei'>70</span> gwei</code> (should take around <span class='duration'>0.5</span> minute)</li>
-                                </ul>
-                            </li>
                             <li>
                                 Gas limit: <code>200 000 units</code> (Normal usage is: <code>170 994 units</code>)
+                            </li>
+                            <li>Gas price:
+                                <ul>
+                                    <li class='slow'>Slow: <code><span class='gwei'>30</span> gwei</code> (should take
+                                        around <span class='duration'>20</span> minutes)
+                                    </li>
+                                    <li class='normal'>Normal: <code><span class='gwei'>50</span> gwei</code> (should
+                                        take around <span class='duration'>2</span> minutes)
+                                    </li>
+                                    <li class='fast'>Faster: <code><span class='gwei'>70</span> gwei</code> (should take
+                                        around <span class='duration'>0.5</span> minute)
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
 
-                    <div class='p-like'>
-                        <input value='Apply' class='btn btn-primary step3-btn' type='submit'/>
-                    </div>
-
                     <div class='ether-scan p-like' style='display:none'>
-                        Your transaction should be visible here after a while: <a href='' target='_blank'>EtherScan - <span class='tx'></span></a>
+                        Your transaction should be visible here after a while: <a href='' target='_blank'>EtherScan -
+                        <span class='tx'></span></a>
                     </div>
 
-                    <div class='error p-like ' style='display:none'>
-                        The transaction failed. Make sure you have not already completed the process. If this is not the
-                        case, please refresh the page and try again.
+                    <div class='error p-like transaction-creation-failed  text-center' style='display:none'>
+                        Could not create the transaction. Please retry.
                     </div>
 
-                    <div class='transaction-1 p-like' style='display:none'>
-                        Waiting for MetaMask confirmation...<br>
+                    <div class='transaction-1 p-like text-center' style='display:none'>
+                        Waiting for MetaMask confirmation (this can take a while, be patient)...<br>
                         <div class='bfio-loader'></div>
                     </div>
 
-                    <div class='transaction-2 p-like' style='display:none'>
+                    <div class='transaction-2 p-like text-center' style='display:none'>
                         Waiting for transaction to be mined (this can take a while)...
                         <div class='bfio-loader'></div>
                     </div>
@@ -336,6 +451,16 @@
                 </div>
             </div>
 
+            <div class='p-like conclusion'>
+                If you need any help, you can check our guide: <a
+                    href='https://medium.com/blockfood/how-to-participate-in-pre-sale-3b63aa7049cb' target='_blank'>💡
+                How
+                to participate in pre-sale <i class='icon-external-link'></i></a><br><br>
+                You can also talk to us directly using our Telegram group: <a href='https://t.me/blockfood'
+                                                                              target='_blank'>💬 @BlockFood <i
+                    class='icon-external-link'></i></a><br><br>
+                Or send us an email at <a href='mailto:contact@blockfood.io'>📧 contact@blockfood.io</a>
+            </div>
 
         </div>
     </div>

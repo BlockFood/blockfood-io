@@ -1408,6 +1408,9 @@ html, body, #bfio-page {
   min-height: 64px;
   min-width:  64px;
 }
+.text-center .bfio-loader {
+  background-position-x: center;
+}
 
 .small-loader {
   background:      url(../images/Preloader_2.gif);
@@ -1491,4 +1494,22 @@ html, body, #bfio-page {
 #links .link-container .link-label {
   font-weight: bold;
   margin-left:20px;
+}
+
+input.no-decoration {
+  width: 420px;
+  text-align: center;
+  outline: none;
+  border: none;
+}
+
+.abi-container {
+  height: 200px;
+  overflow: scroll;
+}
+
+.warning.ether-amount, .error.transaction-creation-failed {
+  margin: 50px;
+  margin-top: 10px;
+  color: #c7254e;
 }

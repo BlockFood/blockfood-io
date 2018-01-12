@@ -6,6 +6,8 @@ window.init_page = function ($) {
     var preSaleRouter = function () {
         var hash = window.location.hash
 
+        getSmartContractAddress()
+
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
@@ -160,19 +162,63 @@ window.init_page = function ($) {
         })
     }
 
-    var getBlockFoodPreSaleSmartContract = function (eth) {
-        var contract = new EthContract(eth)
-
-        var BlockFoodPreSale = contract(window.preSale.abi)
-
+    var getSmartContractAddress = function () {
         return $.ajax({
             type: 'GET',
             url: window.bfio.api + '/pre-sale/smart-contract'
         }).then(function (response) {
             console.log('Contract is at ', response.address)
-            return BlockFoodPreSale.at(response.address)
-        }).catch(function (response) {
+            $('.pre-sale-smart-contract-address').text(response.address)
+            return response.address
+        })
+    }
+
+    var contractAddressClipboard = new Clipboard('.copy-pre-sale-address', {
+        target: function (trigger) {
+            return $('.pre-sale-smart-contract-address')[0]
+        }
+    })
+    contractAddressClipboard.on('success', function() {
+        $('.pre-sale-address-copied').show()
+        setTimeout(function () {
+            $('.pre-sale-address-copied').hide()
+        }, 5000)
+    })
+
+    var abiClipboard = new Clipboard('.copy-pre-sale-abi', {
+        target: function (trigger) {
+            return $('.pre-sale-abi')[0]
+        }
+    })
+    abiClipboard.on('success', function() {
+        $('.abi-copied').show()
+        setTimeout(function () {
+            $('.abi-copied').hide()
+        }, 5000)
+    })
+
+    var publicIdClipboard = new Clipboard('.copy-applicant-id', {
+        target: function(trigger) {
+            return $('.publicId')[0]
+        }
+    })
+    publicIdClipboard.on('success', function() {
+        $('.applicant-id-copied').show()
+        setTimeout(function () {
+            $('.applicant-id-copied').hide()
+        }, 5000)
+    })
+
+    var getBlockFoodPreSaleSmartContract = function (eth) {
+        var contract = new EthContract(eth)
+
+        var BlockFoodPreSale = contract(window.preSale.abi)
+
+        return getSmartContractAddress().then(function (address) {
+            return BlockFoodPreSale.at(address)
+        }).catch(function (e) {
             console.log('Could not get contract address')
+            throw(e)
         })
 
     }
@@ -197,13 +243,13 @@ window.init_page = function ($) {
         }
     }
 
-    var updateGasAdvice = function() {
-        $.get('https://ethgasstation.info/json/ethgasAPI.json').then(function(data) {
-            $('.estimates .slow .gwei').text(data.safeLow/10)
+    var updateGasAdvice = function () {
+        $.get('https://ethgasstation.info/json/ethgasAPI.json').then(function (data) {
+            $('.estimates .slow .gwei').text(data.safeLow / 10)
             $('.estimates .slow .duration').text(data.safeLowWait)
-            $('.estimates .normal .gwei').text(data.average/10)
+            $('.estimates .normal .gwei').text(data.average / 10)
             $('.estimates .normal .duration').text(data.avgWait)
-            $('.estimates .fast .gwei').text(data.fastest/10)
+            $('.estimates .fast .gwei').text(data.fastest / 10)
             $('.estimates .fast .duration').text(data.fastestWait)
         })
     }
@@ -218,13 +264,17 @@ window.init_page = function ($) {
 
         $('.pre-sale .error').hide()
 
+        $('.publicId').text(application.publicId)
+
         if (!window.web3) {
             $('.step3 .metamask-required').show()
+            $('.pre-sale .loading').hide()
         } else if (!web3.eth.accounts[0]) {
             $('.step3 .metamask-unlock').show()
             $('.reloadBtn').on('click', function () {
                 window.location.reload()
             })
+            $('.pre-sale .loading').hide()
         } else {
             var eth = new Eth(window.web3.currentProvider)
 
@@ -235,11 +285,9 @@ window.init_page = function ($) {
 
                 for (var i = 0; i < application.txHashes.length; i++) {
                     var txHash = application.txHashes[i]
-                    $('.existing-tx .transactions').append('<div><a target=\'_blank\' href=\'https://etherscan.io/tx/' + txHash + '\'>'+txHash+'</a>')
+                    $('.existing-tx .transactions').append('<div><a target=\'_blank\' href=\'https://etherscan.io/tx/' + txHash + '\'>' + txHash + '</a>')
                 }
             }
-
-
 
             getBlockFoodPreSaleSmartContract(eth).then(function (blockFoodPreSale) {
 
@@ -297,8 +345,14 @@ window.init_page = function ($) {
 
                     var ether = $('.step3 input[name="ether"]').val()
 
+
+
                     if (ether >= minimumContribution) {
+                        $('.step3 .warning').hide()
+                        $('.step3 .error').hide()
                         $('.step3 .transaction-1').show()
+                        $('.step3 .step3-btn')
+                            .attr('disabled', true)
 
                         blockFoodPreSale.apply(application.publicId, {
                             value: web3.toWei(ether, 'ether'),
@@ -338,6 +392,9 @@ window.init_page = function ($) {
                             .catch(function (err) {
                                 console.log('BlockFoodPreSale.apply() call failed', err)
                                 $('.step3 .error').show()
+                                $('.step3 .transaction-1').hide()
+                                $('.step3 .step3-btn')
+                                    .attr('disabled', false)
                             })
                     } else {
                         $('.step3 .warning').show()
