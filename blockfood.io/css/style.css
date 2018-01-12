@@ -1408,6 +1408,7 @@ html, body, #bfio-page {
   min-height: 64px;
   min-width:  64px;
 }
+
 .text-center .bfio-loader {
   background-position-x: center;
 }
@@ -1437,6 +1438,7 @@ html, body, #bfio-page {
   border-radius: 5px;
   border:        2px solid;
   padding:       20px;
+  margin-top:    20px;
   font-weight:   bold;
 }
 
@@ -1472,44 +1474,45 @@ html, body, #bfio-page {
   background:    rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   border:        1px solid black;
-  padding: 20px;
+  padding:       20px;
   margin-bottom: 20px;
 }
 
 #links .link-container > div {
-  display: inline-block;
+  display:     inline-block;
   line-height: 28px;
 }
 
 #links .link-container .link-illustration {
   font-style: italic;
-  width: 84px;
+  width:      84px;
   text-align: right;
 }
+
 #links .link-container .link-description {
-  float:right;
+  float:       right;
   font-weight: bold;
 }
 
 #links .link-container .link-label {
   font-weight: bold;
-  margin-left:20px;
+  margin-left: 20px;
 }
 
 input.no-decoration {
-  width: 420px;
+  width:      420px;
   text-align: center;
-  outline: none;
-  border: none;
+  outline:    none;
+  border:     none;
 }
 
 .abi-container {
-  height: 200px;
+  height:   200px;
   overflow: scroll;
 }
 
 .warning.ether-amount, .error.transaction-creation-failed {
-  margin: 50px;
+  margin:     50px;
   margin-top: 10px;
-  color: #c7254e;
+  color:      #c7254e;
 }
