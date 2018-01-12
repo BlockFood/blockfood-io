@@ -7,7 +7,8 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name='description'
           content='Decentralized online food delivery platform built on Ethereum and Smart Contracts'/>
-    <meta name='keywords' content='blockfood, ethereum, token sale, decentralized platform, food delivery, decentralized food ordering platform'/>
+    <meta name='keywords'
+          content='blockfood, ethereum, token sale, decentralized platform, food delivery, decentralized food ordering platform'/>
     <meta name='author' content='BlockFood'/>
 
     <meta property='og:title' content='BlockFood - Give the sharing economy back to the people'/>
@@ -37,7 +38,7 @@
 
     <script>
         window.bfio = {
-            api : "{{{urls.api}}}"
+            api: '{{{urls.api}}}'
         }
     </script>
 
@@ -55,7 +56,8 @@
                 <li><a href='{{urls.index}}#about' class='main-nav'>Project</a></li>
                 <li><a href='{{urls.index}}#roadmap' class='main-nav'>Road map</a></li>
                 <li><a href='{{urls.index}}#team' class='main-nav'>Team</a></li>
-                <li><a href='{{urls.whitepaper}}' class='main-nav {{#isWhitePaper}}active{{/isWhitePaper}}'>White paper</a></li>
+                <li><a href='{{urls.whitepaper}}' class='main-nav {{#isWhitePaper}}active{{/isWhitePaper}}'>White
+                    paper</a></li>
             </ul>
             <h1 id='bfio-logo'><a href='{{urls.index}}'>
                 <svg class='bf-logo '>
@@ -156,6 +158,81 @@
                             <img src='//blockfood.io/stats/indexk?idsite=1&rec=1' style='border:0' alt=''/>
                             <!-- End Piwik -->
                         </noscript>
+                        <!-- Retargeting partners -->
+                        <script type='text/javascript'>
+                            /* FB pixel */
+                            !function (f, b, e, v, n, t, s) {
+                                if (f.fbq) return
+                                n = f.fbq = function () {
+                                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                                }
+                                if (!f._fbq) f._fbq = n
+                                n.push = n
+                                n.loaded = !0
+                                n.version = '2.0'
+                                n.queue = []
+                                t = b.createElement(e)
+                                t.async = !0
+                                t.src = v
+                                s = b.getElementsByTagName(e)[0]
+                                s.parentNode.insertBefore(t, s)
+                            }(window, document, 'script',
+                                'https://connect.facebook.net/en_US/fbevents.js')
+                            fbq('init', '1637426076553052')
+                            fbq('track', 'PageView')
+
+                            /* <![CDATA[ */
+                            var google_conversion_id = 825554032
+                            var google_custom_params = window.google_tag_params
+                            var google_remarketing_only = true
+                            /* ]]> */
+                        </script>
+
+                        <script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'>
+                        </script>
+                        <noscript>
+                            <div style='display:inline;'>
+                                <img height='1' width='1' style='border-style:none;' alt=''
+                                     src='//googleads.g.doubleclick.net/pagead/viewthroughconversion/825554032/?guid=ON&amp;script=0'/>
+                            </div>
+                        </noscript>
+
+                        <noscript><img height='1' width='1' style='display:none'
+                                       src='https://www.facebook.com/tr?id=1637426076553052&ev=PageView&noscript=1'/>
+                        </noscript>
+
+                        <!-- End Retargeting partners-->
+
+                        <!-- Retargeting -->
+                        <script type='text/javascript'>
+                            adroll_adv_id = 'GFUAGFWXZ5AFHEEBJLMIEN'
+                            adroll_pix_id = 'W7Q6PCFM2VA77GJHPK7X7A';
+                            /* OPTIONAL: provide email to improve user identification */
+                            /* adroll_email = "username@example.com"; */
+                            (function () {
+                                var _onload = function () {
+                                    if (document.readyState && !/loaded|complete/.test(document.readyState)) {
+                                        setTimeout(_onload, 10)
+                                        return
+                                    }
+                                    if (!window.__adroll_loaded) {
+                                        __adroll_loaded = true
+                                        setTimeout(_onload, 50)
+                                        return
+                                    }
+                                    var scr = document.createElement('script')
+                                    var host = (('https:' == document.location.protocol) ? 'https://s.adroll.com' : 'http://a.adroll.com')
+                                    scr.setAttribute('async', 'true')
+                                    scr.type = 'text/javascript'
+                                    scr.src = host + '/j/roundtrip.js';
+                                    ((document.getElementsByTagName('head') || [null])[0] ||
+                                        document.getElementsByTagName('script')[0].parentNode).appendChild(scr)
+                                }
+                                if (window.addEventListener) {window.addEventListener('load', _onload, false)}
+                                else {window.attachEvent('onload', _onload)}
+                            }())
+                        </script>
+
                         <p class='bfio-right'>
                             <small class='bfio-right'>Give the sharing economy back to the people</small>
                         </p>
@@ -164,7 +241,6 @@
             </div>
         </div>
     </footer>
-
 </div>
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans|Poppins' rel='stylesheet'>
@@ -193,20 +269,24 @@
 <script src='js/main.js'></script>
 
 <!-- Piwik -->
-<script type="text/javascript">
-    var _paq = _paq || [];
+<script type='text/javascript'>
+    var _paq = _paq || []
     /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.blockfood.io"]);
-    _paq.push(['trackPageView']);
+    _paq.push(['setDocumentTitle', document.domain + '/' + document.title])
+    _paq.push(['setCookieDomain', '*.blockfood.io'])
+    _paq.push(['trackPageView'])
     _paq.push(['enableLinkTracking']);
-    (function() {
-        var u="//blockfood.io/stats/";
-        _paq.push(['setTrackerUrl', u+'indexk']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'index.js'; s.parentNode.insertBefore(g,s);
-    })();
+    (function () {
+        var u = '//blockfood.io/stats/'
+        _paq.push(['setTrackerUrl', u + 'indexk'])
+        _paq.push(['setSiteId', '1'])
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0]
+        g.type = 'text/javascript'
+        g.async = true
+        g.defer = true
+        g.src = u + 'index.js'
+        s.parentNode.insertBefore(g, s)
+    })()
 </script>
 <!-- End Piwik Code -->
 
