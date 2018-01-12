@@ -169,7 +169,8 @@ window.init_page = function ($) {
                         application.creation.getTime(),
                         application.lastUpdate.getTime(),
                         application.lockDate.getTime()
-                    )
+                    ) || application.creation.getTime()
+
                     application.latestAction = new Date(latestAction)
 
                     return application
@@ -193,7 +194,7 @@ window.init_page = function ($) {
 
                 var sortApplicationByDate = function (applications) {
                     return applications.sort(function (a1, a2) {
-                        if (a1.index === a2.index && a1.country && a2.country) {
+                        if (a1.index === a2.index) {
                             return a1.latestAction.getTime() < a2.latestAction.getTime() ? 1 : -1
                         }
                         return a1.index < a2.index ? 1 : -1
