@@ -339,6 +339,7 @@ body.scrolled #bfio-header #bfio-logo a {
 
 #bfio-hero .action-call a.btn {
   font-size: 30px;
+  width: 100%;
 }
 
 #bfio-hero .container {
@@ -880,19 +881,6 @@ section {
   width:   220px;
 }
 
-.bfio-feature svg.cloud {
-  animation-duration:        1s;
-  animation-name:            cloud-like-2;
-  animation-iteration-count: 2;
-  animation-timing-function: ease-in-out;
-}
-
-.bfio-feature:hover svg.cloud {
-  animation-duration:        0.5s;
-  animation-name:            cloud-like-2;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-}
 
 #bfio-features #animation_02_container {
   margin-top: -75px;
