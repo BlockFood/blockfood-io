@@ -244,12 +244,18 @@ window.init_page = function ($) {
                     const handleAction = (action) => {
                         $(`.btn.${action}`).on('click', (e) => {
                             const privateId = e.target.getAttribute('data-application-private-id')
+                            const isDisabled = $(e.target).attr('disabled')
 
-                            $.get(`https://localhost/admin/pre-sale/${action}/${privateId}`).then(() => {
-                                go()
-                            }).catch((e) => {
-                                console.log(action + ' failed', e)
-                            })
+                            if (!isDisabled) {
+                                $(e.target).attr('disabled', true)
+
+                                $.get(`https://localhost/admin/pre-sale/${action}/${privateId}`).then(() => {
+                                    $(e.target).hide()
+                                }).catch((e) => {
+                                    console.log(action + ' failed', e)
+                                    $(e.target).text('Error: ' + e.toString())
+                                })
+                            }
                         })
                     }
 
