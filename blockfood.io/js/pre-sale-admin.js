@@ -79,7 +79,7 @@ window.init_page = function ($) {
                 <div href='' data-application-private-id='${application.privateId}' class='btn btn-default reject'>Reject</div> 
             `
         }
-        if (!application.reminderDate && !application.rejectDate && !application.acceptDate) {
+        if (!application.reminderDate && !application.rejectDate && !application.acceptDate && application.index === -1) {
             actions += `
                 <div href='' data-application-private-id='${application.privateId}' class='btn btn-default reminder'>Send reminder</div>
             `
@@ -93,7 +93,7 @@ window.init_page = function ($) {
 <tr>
     <td>${application.index}</td>
     <td>${printDate(date)}</td>
-    <td>${application.publicId}<br>${application.privateId}<br>${application.email}<br>${application.country}</td>
+    <td>pub: ${application.publicId}<br>priv: ${application.privateId}<br>${application.email}<br>${application.country}</td>
     <td>${application.firstName}</td>
     <td>${application.lastName}</td>
     <td>${application.contribution ? application.contribution : ''}</td>
@@ -241,17 +241,21 @@ window.init_page = function ($) {
                     appendApplications('step 2', sortApplicationByDate(step2))
                     appendApplications('step 1', sortApplicationByDate(step1))
 
-                    $('.btn.accept').on('click', (e) => {
-                        const privateId = e.target.getAttribute('data-application-private-id')
-                        console.log('GET https://localhost/admin/pre-sale/accept/'+privateId)
+                    const handleAction = (action) => {
+                        $(`.btn.${action}`).on('click', (e) => {
+                            const privateId = e.target.getAttribute('data-application-private-id')
 
-                        $.get('https://localhost/admin/pre-sale/accept/' + privateId).then(() => {
-                            console.log('accept success')
-                            go()
-                        }).catch((e) => {
-                            console.log('accept failed', e)
+                            $.get(`https://localhost/admin/pre-sale/${action}/${privateId}`).then(() => {
+                                go()
+                            }).catch((e) => {
+                                console.log(action + ' failed', e)
+                            })
                         })
-                    })
+                    }
+
+                    handleAction('accept')
+                    handleAction('refuse')
+                    handleAction('reminder')
 
                     $('.application-loader').hide()
                     $('.applications').show()
