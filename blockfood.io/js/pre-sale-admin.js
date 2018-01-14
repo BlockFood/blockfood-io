@@ -71,18 +71,35 @@ window.init_page = function ($) {
     const pad = number => number < 10 ? `0${number}` : number
     const printDate = date => `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${pad(date.getHours())}:${pad(date.getMinutes())}`
 
+    const applicationActions = (application) => {
+        let actions = ''
+        if (!application.rejectDate && !application.acceptDate && application.index >= 0) {
+            actions += `
+                <div href='' data-application-private-id='${application.privateId}' class='btn btn-default accept'>Accept</div><br>
+                <div href='' data-application-private-id='${application.privateId}' class='btn btn-default reject'>Reject</div> 
+            `
+        }
+        if (!application.reminderDate && !application.rejectDate && !application.acceptDate) {
+            actions += `
+                <div href='' data-application-private-id='${application.privateId}' class='btn btn-default reminder'>Send reminder</div>
+            `
+        }
+        return actions
+    }
+
     var applicationTr = function (application) {
         const date = application.latestAction
         return `
 <tr>
     <td>${application.index}</td>
     <td>${printDate(date)}</td>
-    <td>${application.publicId}<br>${application.email}<br>${application.country}</td>
+    <td>${application.publicId}<br>${application.privateId}<br>${application.email}<br>${application.country}</td>
     <td>${application.firstName}</td>
     <td>${application.lastName}</td>
     <td>${application.contribution ? application.contribution : ''}</td>
     <td>${etherscanAddress(application.address)}</td>
     <td>${hashes(application.txHashes)}</td>
+    <td>${applicationActions(application)}</td>
 </tr>
 `
     }
@@ -223,6 +240,18 @@ window.init_page = function ($) {
                     appendApplications('step 3', sortApplicationByDate(step3))
                     appendApplications('step 2', sortApplicationByDate(step2))
                     appendApplications('step 1', sortApplicationByDate(step1))
+
+                    $('.btn.accept').on('click', (e) => {
+                        const privateId = e.target.getAttribute('data-application-private-id')
+                        console.log('GET https://localhost/admin/pre-sale/accept/'+privateId)
+
+                        $.get('https://localhost/admin/pre-sale/accept/' + privateId).then(() => {
+                            console.log('accept success')
+                            go()
+                        }).catch((e) => {
+                            console.log('accept failed', e)
+                        })
+                    })
 
                     $('.application-loader').hide()
                     $('.applications').show()

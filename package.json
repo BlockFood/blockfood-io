@@ -30,7 +30,8 @@
     "build": "node script/build.js",
     "predeploy": "npm run build",
     "deploy": "node script/deploy.js",
-    "tunnel": "node script/api-tunnel.js"
+    "tunnel": "node script/api-tunnel.js",
+    "tunnel-dev": "node script/api-tunnel-dev.js"
   },
   "repository": {
     "type": "git",
