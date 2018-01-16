@@ -527,7 +527,13 @@ body.scrolled #bfio-header #bfio-logo a {
 @media screen and (max-width: 992px) {
   #bfio-hero .bfio-intro > div .bfio-right-position {
     width:      100%;
-    text-align: left;
+    text-align: center;
+  }
+  .bfio-intro.animation {
+
+    z-index: 9;
+    margin-top: 70px;
+
   }
 }
 
@@ -560,10 +566,12 @@ body.scrolled #bfio-header #bfio-logo a {
     line-height: 37px;
     text-align:  center;
   }
+  #bfio-hero .bfio-intro > div {
+    text-align: center;
+  }
 }
 
 #bfio-hero .bfio-intro > div .btn-primary {
-  padding:   20px 30px !important;
   min-width: 200px;
   font-size: 18px;
 }
