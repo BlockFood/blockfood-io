@@ -1073,8 +1073,9 @@ section {
 
 .bfio-social li {
   padding: 0;
-  margin:  0;
+  margin:  10px;
   display: inline;
+  font-size: 40px;
 }
 
 .bfio-social li a:hover {
