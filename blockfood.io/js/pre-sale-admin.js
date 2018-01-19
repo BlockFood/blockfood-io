@@ -75,6 +75,7 @@ window.init_page = function ($) {
         let actions = ''
         if (!application.rejectDate && !application.acceptDate && application.index >= 0) {
             actions += `
+                <div href='' data-application-address='${application.address}' class='btn btn-default accept-smart-contract'>Accept on smart contract</div><br>
                 <div href='' data-application-private-id='${application.privateId}' class='btn btn-default accept'>Accept</div><br>
                 <div href='' data-application-private-id='${application.privateId}' class='btn btn-default reject'>Reject</div> 
             `
@@ -262,6 +263,15 @@ window.init_page = function ($) {
                     handleAction('accept')
                     handleAction('refuse')
                     handleAction('reminder')
+
+                    $(`.btn.accept-smart-contract`).on('click', (e) => {
+                        const address = e.target.getAttribute('data-application-address')
+
+                        preSale.accept(address, { from: web3.eth.accounts[0] })
+                            .then( (txHash) => {
+                               console.log('Accept in progress, tx hash = ', txHash)
+                            })
+                    })
 
                     $('.application-loader').hide()
                     $('.applications').show()

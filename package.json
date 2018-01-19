@@ -31,7 +31,8 @@
     "predeploy": "npm run build",
     "deploy": "node script/deploy.js",
     "tunnel": "node script/api-tunnel.js",
-    "tunnel-dev": "node script/api-tunnel-dev.js"
+    "tunnel-dev": "node script/api-tunnel-dev.js",
+    "generate-localhost-cert": "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.cert"
   },
   "repository": {
     "type": "git",
