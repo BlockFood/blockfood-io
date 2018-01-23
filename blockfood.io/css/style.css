@@ -1513,3 +1513,7 @@ input.no-decoration {
   margin-top: 10px;
   color:      #c7254e;
 }
+
+.submit-error {
+  color:      #c7254e;
+}

@@ -87,7 +87,9 @@ window.init_page = function ($) {
         })
 
         function tryStep1() {
-            var email = $('.apply-email').val()
+            var email = $('.apply-email').val().replace(/&/g, '')
+            var hash = window.location.hash
+            var sponsor = /ref=.+$/.test(hash) ? hash.substr(hash.indexOf('ref=') + 'ref='.length) : ''
 
             $('.apply-email').attr('disabled', true)
 
@@ -99,7 +101,7 @@ window.init_page = function ($) {
             $('.apply-form-success').hide()
             $('.apply-form-success .email').html(email)
 
-            $.get(window.bfio.api + '/pre-sale/new?email=' + email)
+            $.get(window.bfio.api + '/pre-sale/new?email=' + email + '&sponsor=' + sponsor)
                 .done(function (response) {
                     if (/^KO/.test(response)) {
                         onFailure()
@@ -179,9 +181,7 @@ window.init_page = function ($) {
         $('.pre-sale .error').hide()
 
         Object.keys(application).forEach(function (field) {
-            if (application[field]) {
-                $('.pre-sale .step2b .recap-' + field + ' .value').text(application[field])
-            }
+            $('.pre-sale .step2b .recap-' + field + ' .value').text(application[field] ? application[field] : 'N/A')
         })
 
         $('.pre-sale .step2b .step2b-btn-confirm').unbind('click')
