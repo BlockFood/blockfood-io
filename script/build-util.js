@@ -27,8 +27,8 @@ const templateHtmlFile = (content,
                           },
                           social = {
                               url: 'https://blockfood.io/',
-                              name: 'BlockFood - Give the sharing economy back to the people',
-                              description: 'World\'s first decentralized food ordering platform',
+                              name: 'BlockFood - Decentralized Food Ordering & Delivery Platform',
+                              description: 'Decentralized Food Ordering & Delivery Platform built on Smart Contracts and Ethereum.',
                           },
                           template = htmlTemplate) => {
 
