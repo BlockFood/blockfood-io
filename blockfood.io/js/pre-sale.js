@@ -8,6 +8,41 @@ window.init_page = function ($) {
 
         getSmartContractAddress()
 
+        var fakeApplication = {
+            email: 'block@food.io',
+            firstName: 'Block',
+            lastName: 'Food',
+            country: 'Awesomeland',
+            sponsor: 'publicIdFromSponsor'
+        }
+
+        if (/forceStep=.+$/.test(hash)) {
+            var step = hash.substr(hash.indexOf('forceStep=') + 'forceStep='.length)
+
+            switch (step) {
+            case '1':
+                step1()
+                break
+            case '2A':
+                step2A(fakeApplication)
+                break
+            case '2B':
+                step2B(fakeApplication)
+                break
+            case '3':
+                step3(fakeApplication)
+                break
+            case '4':
+                step4({
+                    state: applicationState.ACCEPTED,
+                    contribution: '0.1',
+                    publicId: 'public id'
+                })
+                break
+            }
+            return
+        }
+
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
@@ -144,7 +179,9 @@ window.init_page = function ($) {
         $('.pre-sale .error').hide()
 
         Object.keys(application).forEach(function (field) {
-            $('.pre-sale .step2b .recap-' + field + ' .value').text(application[field])
+            if (application[field]) {
+                $('.pre-sale .step2b .recap-' + field + ' .value').text(application[field])
+            }
         })
 
         $('.pre-sale .step2b .step2b-btn-confirm').unbind('click')
@@ -178,7 +215,7 @@ window.init_page = function ($) {
             return $('.pre-sale-smart-contract-address')[0]
         }
     })
-    contractAddressClipboard.on('success', function() {
+    contractAddressClipboard.on('success', function () {
         $('.pre-sale-address-copied').show()
         setTimeout(function () {
             $('.pre-sale-address-copied').hide()
@@ -190,7 +227,7 @@ window.init_page = function ($) {
             return $('.pre-sale-abi')[0]
         }
     })
-    abiClipboard.on('success', function() {
+    abiClipboard.on('success', function () {
         $('.abi-copied').show()
         setTimeout(function () {
             $('.abi-copied').hide()
@@ -198,11 +235,11 @@ window.init_page = function ($) {
     })
 
     var publicIdClipboard = new Clipboard('.copy-applicant-id', {
-        target: function(trigger) {
+        target: function (trigger) {
             return $('.publicId')[0]
         }
     })
-    publicIdClipboard.on('success', function() {
+    publicIdClipboard.on('success', function () {
         $('.applicant-id-copied').show()
         setTimeout(function () {
             $('.applicant-id-copied').hide()
@@ -344,8 +381,6 @@ window.init_page = function ($) {
                     e.preventDefault()
 
                     var ether = $('.step3 input[name="ether"]').val()
-
-
 
                     if (ether >= minimumContribution) {
                         $('.step3 .warning').hide()

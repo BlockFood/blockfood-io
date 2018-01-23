@@ -28,10 +28,10 @@
                         <li><b>End</b>: February 8th 2018</li>
                         <li><b>Minimum cap</b>: 100 Eth or 60 000$</li>
                         <li><b>Maximum cap</b>: 200 Eth or 120 000$</li>
-                        <li><b>Exchange rate</b>: 1 Eth = 1 500 BFT</li>
+                        <li><b>Exchange rate</b>: 1 Eth = 1 500 BFT (+50% bonus compared to main sale)</li>
                         <li><b>Accepted currency</b>: Ethereum</li>
                         <li><b>Minimum contribution</b>: 0.1 Eth</li>
-                        <li><b>Token availability</b>: March 8th 2018 at the latest</li>
+                        <li><b>Token availability</b>: April 12th 2018 at the latest</li>
                     </ul>
                 </div>
 
@@ -102,7 +102,7 @@
                     <form id='step2-form' method='post' enctype='multipart/form-data'>
                         <div class='p-like'>
                             <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>Email</div>
+                                <div class='input-group-addon'>* Email</div>
                                 <input type='text' class='form-control email' disabled placeholder='email'
                                        name='email'/>
                             </div>
@@ -110,7 +110,7 @@
 
                         <div class='p-like'>
                             <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>Complete name</div>
+                                <div class='input-group-addon'>* Complete name</div>
                                 <input type='text' class='form-control first-name' name='firstName' autofocus
                                        placeholder='First name'/>
                                 <input type='text' class='form-control last-name' name='lastName'
@@ -120,11 +120,21 @@
 
                         <div class='p-like'>
                             <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>Country of residence</div>
+                                <div class='input-group-addon'>* Country of residence</div>
                                 <input type='text' class='form-control address-country' name='country'
                                        placeholder='Country'/>
                             </div>
                         </div>
+
+                        <div class='p-like'>
+                            <div class='input-group mb-2 mb-sm-0'>
+                                <div class='input-group-addon'>Sponsor ID</div>
+                                <input type='text' class='form-control sponsor-id' name='sponsor'
+                                       placeholder='Sponsor ID'/>
+                            </div>
+                        </div>
+
+                        <div class='p-like'>Fields marked with an asterisk (*) are mandatory.</div>
 
                         <div class='text-right'>
                             <input value='Validate' class='btn btn-primary step2-btn' type='submit'/>
@@ -158,13 +168,17 @@
                     <div class='value'></div>
                 </div>
 
+                <div class='recap recap-sponsor'>
+                    <div class='field'>Sponsor ID</div>
+                    <div class='value'>N/A</div>
+                </div>
+
                 <p>If there is a mistake in the information above, you can modify your information using the "Modify"
                     button below.</p>
 
                 <div class='text-left'>
                     <input value='Modify'
                            class='btn btn-default step2b-btn-modify' type='submit'/>
-
 
                     <input value='Confirm (warning: your application cannot be modified after this)'
                            class='btn btn-primary step2b-btn-confirm pull-right' type='submit'/>
