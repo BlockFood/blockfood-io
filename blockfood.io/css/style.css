@@ -392,7 +392,7 @@ body.scrolled #bfio-header #bfio-logo a {
 }
 
 .animate-cloud-top {
-  animation-duration:        2s;
+  animation-duration:        3s;
   animation-name:            cloud-like-1;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
