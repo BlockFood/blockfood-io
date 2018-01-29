@@ -138,7 +138,8 @@
                         <div class='p-like'>Fields marked with an asterisk (*) are mandatory.</div>
 
                         <div class='text-right'>
-                            <div class='submit-error' style='display:none'></div> <input value='Validate' class='btn btn-primary step2-btn' type='submit'/>
+                            <div class='submit-error' style='display:none'></div>
+                            <input value='Validate' class='btn btn-primary step2-btn' type='submit'/>
                         </div>
 
 
@@ -190,7 +191,17 @@
             </div>
 
             <div class='step3' style='display: none'>
-                <h1>Pre-Sale step 3/3</h1>
+                <h1>Pre-Sale final step</h1>
+
+                <div class="p-like">
+                    <h2>How do you want to proceed?</h2>
+
+                    <a href="javascript:(function(){})()" class="btn btn-default use-metamask"><img src="https://metamask.io/img/metamask.png" alt="metamask"
+                                                            style="max-height: 50px"><br>Send Ether with MetaMask</a>
+                    <a href="javascript:(function(){})()" class="btn btn-default send-ether-directly"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/1200px-Ethereum_logo_2014.svg.png"
+                            alt="ethereum" style="max-height: 50px;"><br>Send Ether directly</a>
+                </div>
 
                 <div class='metamask-required' style='display:none'>
                     <div class='p-like'>
@@ -214,13 +225,13 @@
 
                     <div class='p-like'>
                         <h2>How to finalize your application using MyEtherWallet</h2>
-                        If you prefer to use MyEtherWallet <strong>instead</strong> of MetaMask, you need to interact directly with the smart contract.
+                        If you prefer to use MyEtherWallet <strong>instead</strong> of MetaMask, you need to interact
+                        directly with the smart contract.
                         Follow this instructions:<br>
                         <ol>
-                            <li>Go to <a
-                                    href='https://www.myetherwallet.com/#contracts' target='_blank'>https://www.myetherwallet.com/#contracts
-                                <i
-                                        class='icon-external-link'></i></a>
+                            <li>
+                                Go to <a href='https://www.myetherwallet.com/#contracts' target='_blank'>
+                                https://www.myetherwallet.com/#contracts <i class='icon-external-link'></i></a>
                             </li>
                             <li>Verify the address. It should be: <code>https://www.myetherwallet.com/#contracts</code>
                             </li>
@@ -234,10 +245,14 @@
                                 Enter ABI / JSON interface: <br>
                                 <ol>
                                     <li>
-                                <a class='btn copy-pre-sale-abi'>📋 Copy ABI / JSON interface</a> <span class='abi-copied' style='display: none'><i>copied</i></span></li>
-                                        <div class='abi-container'><code class='pre-sale-abi'>[{"constant":false,"inputs":[{"name":"minCap_","type":"uint256"}],"name":"changeMinCap","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"maxCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"minCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"failsafe","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"contributionRejected","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"string"}],"name":"apply","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"applicants","outputs":[{"name":"applicant","type":"address"},{"name":"id","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contributionPending","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"maxCap_","type":"uint256"}],"name":"changeMaxCap","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"applications","outputs":[{"name":"contribution","type":"uint256"},{"name":"id","type":"string"},{"name":"state","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"applicant","type":"address"}],"name":"accept","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"owner_","type":"address"}],"name":"changeOwner","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getMaximumContributionPossible","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"applicant","type":"address"}],"name":"reject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getApplicantsLength","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"minContribution_","type":"uint256"}],"name":"changeMinContribution","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"endDate","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contributionAccepted","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"withdrawn","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"target","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"target_","type":"address"}],"name":"changeTarget","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"target_","type":"address"},{"name":"endDate_","type":"uint256"},{"name":"minContribution_","type":"uint256"},{"name":"minCap_","type":"uint256"},{"name":"maxCap_","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"PendingApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"RejectedApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"AcceptedApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Refund","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"minContribution","type":"uint256"},{"indexed":false,"name":"minCap","type":"uint256"},{"indexed":false,"name":"maxCap","type":"uint256"}],"name":"ContractUpdate","type":"event"}]</code></div>
+                                        <a class='btn copy-pre-sale-abi'>📋 Copy ABI / JSON interface</a> <span
+                                            class='abi-copied' style='display: none'><i>copied</i></span></li>
+                                    <div class='abi-container'><code class='pre-sale-abi'>[{"constant":false,"inputs":[{"name":"minCap_","type":"uint256"}],"name":"changeMinCap","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"maxCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"minCap","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"failsafe","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"contributionRejected","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"id","type":"string"}],"name":"apply","outputs":[],"payable":true,"stateMutability":"payable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"applicants","outputs":[{"name":"applicant","type":"address"},{"name":"id","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contributionPending","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"maxCap_","type":"uint256"}],"name":"changeMaxCap","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"applications","outputs":[{"name":"contribution","type":"uint256"},{"name":"id","type":"string"},{"name":"state","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"applicant","type":"address"}],"name":"accept","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"owner_","type":"address"}],"name":"changeOwner","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getMaximumContributionPossible","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"minContribution","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"applicant","type":"address"}],"name":"reject","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"getApplicantsLength","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"minContribution_","type":"uint256"}],"name":"changeMinContribution","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"endDate","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"contributionAccepted","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"withdrawn","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"target","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"target_","type":"address"}],"name":"changeTarget","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"inputs":[{"name":"target_","type":"address"},{"name":"endDate_","type":"uint256"},{"name":"minContribution_","type":"uint256"},{"name":"minCap_","type":"uint256"},{"name":"maxCap_","type":"uint256"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"PendingApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"RejectedApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"applicant","type":"address"},{"indexed":false,"name":"contribution","type":"uint256"},{"indexed":false,"name":"id","type":"string"}],"name":"AcceptedApplication","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Refund","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"owner","type":"address"},{"indexed":false,"name":"target","type":"address"},{"indexed":false,"name":"minContribution","type":"uint256"},{"indexed":false,"name":"minCap","type":"uint256"},{"indexed":false,"name":"maxCap","type":"uint256"}],"name":"ContractUpdate","type":"event"}]</code>
+                                    </div>
 
-                                    <li>Return to the page and paste the content of your clipboard in the "ABI / JSON interface" text area.</li>
+                                    <li>Return to the page and paste the content of your clipboard in the "ABI / JSON
+                                        interface" text area.
+                                    </li>
                                 </ol>
                             </li>
                             <li>Click on the "Access" button</li>
@@ -246,11 +261,13 @@
                                 A new parameter field should appear, called "id" of type "string".
 
                                 Enter the following value:<br>
-                                <a class='btn copy-applicant-id'>📋 Copy id</a> <code class='publicId'></code>  <span class='copy-applicant-id' style='display: none'><i>copied</i></span>
+                                <a class='btn copy-applicant-id'>📋 Copy id</a> <code class='publicId'></code> <span
+                                    class='copy-applicant-id' style='display: none'><i>copied</i></span>
                             </li>
                             <li>Unlock your wallet as usual on MyEtherWallet</li>
                             <li>Click on the "Write" button</li>
-                            <li>A popup should appear, letting you review the amount you wish to send to the contract and the gas limit.
+                            <li>A popup should appear, letting you review the amount you wish to send to the contract
+                                and the gas limit.
                                 <ul>
                                     <li>Set the amount of Ether you wish to give</li>
                                     <li>Set the gas limit to <code>200 000</code></li>
@@ -259,7 +276,10 @@
                             <li>Click on "Generate transaction"</li>
                             <li>Click on "Yes, I am sure! Make transaction."</li>
                             <li>If everything is correct, a green message should appear at the bottom of the page.<br>
-                                It contains a link to the newly created transaction. Open it if you want to track your transaction. <br>You will also be able to retrieve this transaction on <a href='https://etherscan.io/address/0x762c128a5bac6553e66fb2c07bee864576966c26' target='_blank'>EtherScan <i class='icon-external-link'></i></a></li>
+                                It contains a link to the newly created transaction. Open it if you want to track your
+                                transaction. <br>You will also be able to retrieve this transaction on <a
+                                        href='https://etherscan.io/address/0x762c128a5bac6553e66fb2c07bee864576966c26'
+                                        target='_blank'>EtherScan <i class='icon-external-link'></i></a></li>
                         </ol>
 
                     </div>
@@ -472,9 +492,9 @@
                 How
                 to participate in pre-sale <i class='icon-external-link'></i></a><br><br>
                 You can also talk to us directly using our Telegram group: <a href='https://t.me/blockfood'
-                                                                              target='_blank'>💬 @BlockFood <i
+                                                                              target='_blank'>@BlockFood <i
                     class='icon-external-link'></i></a><br><br>
-                Or send us an email at <a href='mailto:contact@blockfood.io'>📧 contact@blockfood.io</a>
+                Or send us an email at <a href='mailto:contact@blockfood.io'>contact@blockfood.io</a>
             </div>
 
         </div>

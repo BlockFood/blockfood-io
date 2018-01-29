@@ -10,6 +10,7 @@ window.init_page = function ($) {
 
         var fakeApplication = {
             email: 'block@food.io',
+            publicId: 'public id',
             firstName: 'Block',
             lastName: 'Food',
             country: 'Awesomeland',
