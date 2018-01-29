@@ -849,6 +849,8 @@ section {
 
 #bfio-team .with-description .description {
   opacity: 1;
+  text-justify: distribute;
+  text-align: justify;
 }
 
 #bfio-team .photo {
