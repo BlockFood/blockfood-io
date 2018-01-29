@@ -1496,6 +1496,21 @@ html, body, #bfio-page {
   margin-left: 20px;
 }
 
+#events .event-image img {
+  max-width: 60%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#events .event-name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#events .event-location {
+  font-weight: bold;
+}
+
 input.no-decoration {
   width:      420px;
   text-align: center;
