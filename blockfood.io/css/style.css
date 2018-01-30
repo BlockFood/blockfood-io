@@ -1424,6 +1424,12 @@ html, body, #bfio-page {
   margin-bottom: 1.5em;
 }
 
+.p-like.warning {
+  padding: 20px;
+  border: 1px solid orange;
+  border-radius: 20px;
+}
+
 .step2b .recap .field {
   font-weight: bold;
 }
