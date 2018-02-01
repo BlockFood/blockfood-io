@@ -1,4 +1,36 @@
 window.init_page = function ($) {
+    // hash utility functions
+
+    var updateHash = function (key, newValue) {
+        var hash = (window.location.href.split("#")[1] || "")
+        var keyFound = false
+        var updatedHash = hash.split('&').reduce(function (hash, value, i) {
+            var currentKey = value.split('=')[0]
+            var currentValue = value.split('=')[1]
+
+            if (currentKey === key) {
+                keyFound = true
+            }
+            return hash + (i !== 0 ? '&' : '') + currentKey + '=' + (currentKey === key ? newValue : currentValue)
+        }, '')
+
+        if (!keyFound) {
+            updatedHash = updatedHash + (updatedHash.length > 0 ? '&' : '') + key + '=' + newValue
+        }
+
+        window.location.hash = updatedHash
+    }
+
+    var getValueFromHash = function (key) {
+        var hash = (window.location.href.split("#")[1] || "")
+        var values = hash.split('&').reduce(function (values, value) {
+            values[value.split('=')[0]] = value.split('=')[1]
+            return values
+        }, {})
+
+        return values[key]
+    }
+
     /*
     Pre-sale workflow
      */
@@ -18,28 +50,28 @@ window.init_page = function ($) {
         }
 
         if (/forceStep=.+$/.test(hash)) {
-            var step = hash.substr(hash.indexOf('forceStep=') + 'forceStep='.length)
+            var step = getValueFromHash('forceStep')
 
             switch (step) {
-            case '1':
-                step1()
-                break
-            case '2A':
-                step2A(fakeApplication)
-                break
-            case '2B':
-                step2B(fakeApplication)
-                break
-            case '3':
-                step3(fakeApplication)
-                break
-            case '4':
-                step4({
-                    state: applicationState.ACCEPTED,
-                    contribution: '0.1',
-                    publicId: 'public id'
-                })
-                break
+                case '1':
+                    step1()
+                    break
+                case '2A':
+                    step2A(fakeApplication)
+                    break
+                case '2B':
+                    step2B(fakeApplication)
+                    break
+                case '3':
+                    step3(fakeApplication)
+                    break
+                case '4':
+                    step4({
+                        state: applicationState.ACCEPTED,
+                        contribution: '0.1',
+                        publicId: 'public id'
+                    })
+                    break
             }
             return
         }
@@ -47,7 +79,7 @@ window.init_page = function ($) {
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
-            var privateId = hash.substr(hash.indexOf('privateId=') + 'privateId='.length)
+            var privateId = getValueFromHash('privateId')
 
             getApplication(privateId).then(function (application) {
                 if (application.isLocked) {
@@ -270,14 +302,14 @@ window.init_page = function ($) {
 
     var numberToState = function (number) {
         switch (number) {
-        case 1:
-            return applicationState.PENDING
-        case 2:
-            return applicationState.REFUSED
-        case 3:
-            return applicationState.ACCEPTED
-        default:
-            return applicationState.UNKNOWN
+            case 1:
+                return applicationState.PENDING
+            case 2:
+                return applicationState.REFUSED
+            case 3:
+                return applicationState.ACCEPTED
+            default:
+                return applicationState.UNKNOWN
         }
     }
 
@@ -294,16 +326,7 @@ window.init_page = function ($) {
 
     updateGasAdvice()
 
-    var step3 = function (application) {
-        $('.step1').hide()
-        $('.step2a').hide()
-        $('.step2b').hide()
-        $('.step3').show()
-
-        $('.pre-sale .error').hide()
-
-        $('.publicId').text(application.publicId)
-
+    var useMetamask = function(application) {
         if (!window.web3) {
             $('.step3 .metamask-required').show()
             $('.pre-sale .loading').hide()
@@ -441,6 +464,50 @@ window.init_page = function ($) {
         }
     }
 
+    var useMyEtherWallet = function() {
+        $('.pre-sale .loading').hide()
+    }
+
+    var step3 = function (application) {
+        $('.step1').hide()
+        $('.step2a').hide()
+        $('.step2b').hide()
+        $('.step3').show()
+
+        $('.pre-sale .error').hide()
+
+        $('.publicId').text(application.publicId)
+
+
+        // check if hash contains #use=?
+        $('.btn.use-metamask').unbind()
+        $('.btn.use-metamask').on('click', function() {
+            updateHash('use', 'metamask')
+            step3(application)
+        })
+        $('.btn.use-myetherwallet').unbind()
+        $('.btn.use-myetherwallet').on('click', function() {
+            updateHash('use', 'myetherwallet')
+            step3(application)
+        })
+
+        var use = getValueFromHash('use')
+
+        console.log("???", use)
+
+        if (!use) {
+            $('.pre-sale .loading').hide()
+        } else if (use === 'metamask' ) {
+            $('.metamask').show()
+            $('.myetherwallet').hide()
+            useMetamask(application)
+        } else if (use === 'myetherwallet') {
+            $('.myetherwallet').show()
+            $('.metamask').hide()
+            useMyEtherWallet()
+        }
+    }
+
     var step4 = function (participation) {
         $('.step1').hide()
         $('.step2a').hide()
@@ -490,8 +557,12 @@ window.init_page = function ($) {
 
     var lockApplication = function (privateId) {
         return $.get(window.bfio.api + '/pre-sale/lock/' + privateId)
-            .then(function (e) {console.log('lock ok', e)})
-            .catch(function (response) {console.log('lock failed', response.responseJSON)})
+            .then(function (e) {
+                console.log('lock ok', e)
+            })
+            .catch(function (response) {
+                console.log('lock failed', response.responseJSON)
+            })
     }
 
     preSaleRouter()
