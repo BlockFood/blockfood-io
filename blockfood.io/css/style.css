@@ -1540,3 +1540,9 @@ input.no-decoration {
 .submit-error {
   color:      #c7254e;
 }
+.pre-sale .btn.step3-btn {
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 80px;
+  padding-right: 80px;
+}
