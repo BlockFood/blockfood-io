@@ -466,6 +466,7 @@ window.init_page = function ($) {
 
     var useMyEtherWallet = function() {
         $('.pre-sale .loading').hide()
+        getSmartContractAddress()
     }
 
     var step3 = function (application) {
@@ -500,10 +501,14 @@ window.init_page = function ($) {
         } else if (use === 'metamask' ) {
             $('.metamask').show()
             $('.myetherwallet').hide()
+            $('.btn.use-metamask').addClass('active')
+            $('.btn.use-myetherwallet').removeClass('active')
             useMetamask(application)
         } else if (use === 'myetherwallet') {
             $('.myetherwallet').show()
             $('.metamask').hide()
+            $('.btn.use-myetherwallet').addClass('active')
+            $('.btn.use-metamask').removeClass('active')
             useMyEtherWallet()
         }
     }
