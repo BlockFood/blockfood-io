@@ -634,7 +634,7 @@ body.scrolled #bfio-header #bfio-logo a {
 .bfio-lead {
   font-size:     50px;
   font-weight:   300;
-  color:         #484c50;
+  color:         #e6501e;
   margin-bottom: 50px;
 }
 
@@ -790,7 +790,6 @@ section {
 #bfio-team .bfio-lead {
   font-size:     50px;
   font-weight:   300;
-  color:         #484c50;
   margin-bottom: 10px;
 }
 

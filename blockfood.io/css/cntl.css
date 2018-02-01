@@ -31,7 +31,6 @@
 }
 
 .cntl-bar-fill, .cntl-icon:before {
-  box-shadow:       0px 0px 25px rgba(0,0,0,0.5);
 
 }
 
@@ -91,7 +90,7 @@
 .cntl-content {
   width:            40%;
   padding:          10px;
-  background-color: rgba(238, 238, 238, 1);
+  background-color: white;
   border-radius:    8px;
   border:           solid 3px #4B3F80;
   float:            left;
