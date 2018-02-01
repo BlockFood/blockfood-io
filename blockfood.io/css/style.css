@@ -392,7 +392,7 @@ body.scrolled #bfio-header #bfio-logo a {
 }
 
 .animate-cloud-top {
-  animation-duration:        2s;
+  animation-duration:        3s;
   animation-name:            cloud-like-1;
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
@@ -849,6 +849,8 @@ section {
 
 #bfio-team .with-description .description {
   opacity: 1;
+  text-justify: distribute;
+  text-align: justify;
 }
 
 #bfio-team .photo {
@@ -1422,6 +1424,12 @@ html, body, #bfio-page {
   margin-bottom: 1.5em;
 }
 
+.p-like.warning {
+  padding: 20px;
+  border: 1px solid orange;
+  border-radius: 20px;
+}
+
 .step2b .recap .field {
   font-weight: bold;
 }
@@ -1494,6 +1502,21 @@ html, body, #bfio-page {
 #links .link-container .link-label {
   font-weight: bold;
   margin-left: 20px;
+}
+
+#events .event-image img {
+  max-width: 60%;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#events .event-name {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#events .event-location {
+  font-weight: bold;
 }
 
 input.no-decoration {
