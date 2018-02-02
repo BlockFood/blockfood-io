@@ -1,0 +1,86 @@
+<div class='container pre-sale-admin'>
+    <div class='row row-bottom-padded-md'>
+        <div class='col-lg-12'>
+
+
+            <div class='referral'>
+                <h1>Referral statistics for <span class="name"></span></h1>
+
+                <div class='p-like estimates'>
+                    <ul>
+                        <li>Gas price ⛽
+                            <ul>
+                                <li class='slow'>Slow: <code><span class='gwei'>30</span> gwei</code> (~<span
+                                        class='duration'>20</span> minutes)
+                                </li>
+                                <li class='normal'>Normal: <code><span class='gwei'>50</span> gwei</code> (~<span
+                                        class='duration'>2</span> minutes)
+                                </li>
+                                <li class='fast'>Faster: <code><span class='gwei'>70</span> gwei</code> (~<span
+                                        class='duration'>0.5</span> minute)
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class='p-like smart-contract'>
+                    <h2>Smart contract state</h2>
+
+                    <div class='p-like text-center'>
+                        Total: <code class='amount-raised'>
+                        <div class='bfio-loader'></div>
+                    </code> Ether <br>
+
+                        (💡 <code class='amount-pending'></code>,
+                        📗 <code class='amount-accepted'></code>,
+                        📕 <code class='amount-rejected'></code>)<br>
+
+                        <a
+                                href='https://etherscan.io/address/0x762c128a5bac6553e66fb2c07bee864576966c26'
+                                target='_blank'>EtherScan 📈</a>
+                    </div>
+
+                </div>
+
+                <div class='p-like progress-container'>
+                    <div class='progress-baaar'></div>
+                    <div class='progress-text'></div>
+                </div>
+
+                <div class='p-like workflow'>
+                    <h2>Workflow state</h2>
+                    <div class='bfio-loader application-loader'></div>
+                    <table class='applications' style='display:none;'>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>date</th>
+                            <th>publicId<br>privateId<br>email<br>country</th>
+                            <th>First name</th>
+                            <th>Last Name</th>
+                            <th>Contribution</th>
+                            <th>Ethereum address</th>
+                            <th>TX</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<link rel='stylesheet' href='css/admin.css'>
+
+<script src='js/ethjs-contract.min.js'></script>
+<script src='js/ethjs-query.min.js'></script>
+<script src='js/pre-sale-abi.js'></script>
+<script src='js/pre-sale-admin.js'></script>
