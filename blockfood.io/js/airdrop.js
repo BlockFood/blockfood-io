@@ -74,10 +74,6 @@ window.init_page = function ($) {
                             $('.status').text('Pending')
                         }
 
-                        if (!airDrop.ethAddress) {
-                            $('#airdrop-form').show()
-                        }
-
                         $('.email').text(airDrop.email)
                         $('#airdrop-form .email').val(airDrop.email)
                         $('#airdrop-form .ethAddress').val(airDrop.ethAddress)
@@ -92,7 +88,7 @@ window.init_page = function ($) {
                         var totalConfirmed = 0
                         var totalPending = 0
 
-                        if (!airDrop.validated) {
+                        if (!airDrop.ethAddress) {
                             totalPending += rewards.confirmedActions
                             $('.confirmed-personal-tokens').text(0)
                         } else {
