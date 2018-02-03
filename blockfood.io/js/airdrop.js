@@ -41,7 +41,7 @@ window.init_page = function ($) {
     }
 
     Object.keys(rewards).forEach(function (key) {
-        $('code.' + key).text(rewards[key])
+        $('.' + key).text(rewards[key])
     })
 
     var step1 = function () {
@@ -49,7 +49,7 @@ window.init_page = function ($) {
 
         if (!privateId) {
             $('.no-privateId').show()
-            $('.pre-sale .loading').hide()
+            $('.air-drop .loading').hide()
             return
         }
 
@@ -60,7 +60,15 @@ window.init_page = function ($) {
                     .then(function (airDrop) {
                         var referralLink = 'https://blockfood.io/airdrop-register#ref=' + airDrop.publicId
 
-                        $('.referral-link').attr('href', referralLink).text(referralLink)
+                        $('.referral-link').val(referralLink)
+
+                        var abiClipboard = new Clipboard('.referral-link-to-clipboard', {
+                            target: function (trigger) {
+                                return $('.referral-link')[0]
+                            }
+                        })
+
+
 
                         if (airDrop.validated) {
                             $('.status').text('Confirmed')
@@ -80,7 +88,7 @@ window.init_page = function ($) {
                         $('#airdrop-form .publicReferral').val(airDrop.publicReferral)
                         $('#airdrop-form .publicBlockfood').val(airDrop.publicBlockfood)
                         $('.privateId').show()
-                        $('.pre-sale .loading').hide()
+                        $('.air-drop .loading').hide()
 
 
                         var total = 0
@@ -168,8 +176,11 @@ window.init_page = function ($) {
                 processData: false,
                 contentType: false
             }).then(function (response) {
-                $('.edit-airdrop').show()
-                $('#airdrop-form').hide()
+                var initialValue =  $('.airdrop-btn').attr('value')
+                $('.airdrop-btn').attr('value', 'Data saved')
+                setTimeout(function() {
+                    $('.airdrop-btn').attr('value', initialValue)
+                }, 4000)
             }).catch(function (response) {
                 $('.submit-error').show()
                 $('.submit-error').text(response.responseJSON.error)

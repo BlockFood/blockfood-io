@@ -1,20 +1,10 @@
-<div class='container pre-sale'>
+<div class='container air-drop'>
     <div class='row row-bottom-padded-md'>
         <div class='col-lg-12'>
-            <div id='animation_01_container' style='width:400px; height:300px'>
-                <canvas id='animation_01' width='400' height='300'
-                        style='position: absolute; display: block;'></canvas>
-                <div id='animation_01_overlay'
-                     style='pointer-events:none; overflow:hidden; width:400px; height:300px; position: absolute; left: 0px; top: 0px; display: block;'>
-                </div>
-            </div>
-
             <div>
-                <h1>BlockFood Air Drop Program</h1>
+                <h2>BlockFood Airdrop Program</h2>
 
-                <div class="p-like">
-                    Welcome <code class="email"></code>
-                </div>
+                    <h1>Welcome <span class="email"></span></h1>
 
                 <div class='loading'>Loading...
                     <div class='bfio-loader'></div>
@@ -25,160 +15,179 @@
                 </div>
 
                 <div class='p-like privateId' style="display:none">
+                    <h3>Referral Code</h3>
 
-                    <div class="p-like">
-                        <h2>Your statistics</h2>
-                        <div class="p-like">
-                            Airdrop status: <code class="status"></code>
+                    <input type="text" class="referral-link"><br>
+
+                    <a href="javascript:;" class="btn btn-primary referral-link-to-clipboard">Copy to clipboard</a>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Total BFT earned
+                                </div>
+                                <div class="card-content">
+                                     <span class="total"></span> BFT
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-like">
-                            <strong>Total</strong>: <code class="total"></code> BFT (including <span
-                                class="totalPending"></span> BFT unconfirmed)<br>
-                            Details:
-                            <ul>
-                                <li>Confirmed actions: <code class="confirmedActions"></code> BFT</li>
-                                <li>1st level children (<span class="1stLevelLength"></span>):
-                                    <ul>
-                                        <li>Total: <code class="1stLevelTotal"></code> BFT (including <span
-                                                class="1stLevelTotalPending"></span> BFT unconfirmed)
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>2nd level children (<span class="2ndLevelLength"></span>):
-                                    <ul>
-                                        <li>Total: <code class="2ndLevelTotal"></code> BFT (including <span
-                                                class="2ndLevelTotalPending"></span> BFT unconfirmed)
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>3rd level children (<span class="3rdLevelLength"></span>):
-                                    <ul>
-                                        <li>Total: <code class="3rdLevelTotal"></code> BFT (including <span
-                                                class="3rdLevelTotalPending"></span> BFT unconfirmed)
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>4th level children (<span class="4thLevelLength"></span>):
-                                    <ul>
-                                        <li>Total: <code class="4thLevelTotal"></code> BFT (including <span
-                                                class="4thLevelTotalPending"></span> BFT unconfirmed)
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    Your Airdrop Tokens
+                                </div>
+                                <div class="card-content">
+                                    <span class="confirmedActions"></span> BFT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Referral Level 1 @ <span class="1LevelReward"></span> BFT
+                                </div>
+                                <div class="card-content">
+                                    <span class="1stLevelTotal"></span> BFT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Referral Level 2 @ <span class="2LevelReward"></span> BFT
+                                </div>
+                                <div class="card-content">
+                                    <span class="2ndLevelTotal"></span> BFT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Referral Level 3 @ <span class="3LevelReward"></span> BFT
+                                </div>
+                                <div class="card-content">
+                                    <span class="3rdLevelTotal"></span> BFT
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    Referral Level 4 @ <span class="4LevelReward"></span> BFT
+                                </div>
+                                <div class="card-content">
+                                    <span class="4thLevelTotal"></span> BFT
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="p-like">
-                        <h2>Your airdrop referral link</h2>
-                        Here is your airdrop referral link:
-                        <ul>
-                            <li><a href="" class="referral-link"></a></li>
-                        </ul>
+
+                    <div class="card">
+                        <div class="card-header">
+                            Activities to be done to claim your Airdrop
+                        </div>
+                        <div class="card-content">
+                            <strong style="padding:20px;border:1px solid red;margin-bottom:20px;">The activity will be manually screened. Stay away from meaningless bots and fake accounts.</strong><br>
+                            <div class="card-content-item" style="margin-top: 20px;">
+                                Have more than 200 followers and follow <a href="https://twitter.com/BlockFood" target='_blank'><span class="blockfood">@BLOCKFOOD</span> on Twitter</a>
+                            </div>
+                            <div class="card-content-item">
+                                Join <a href="https://t.me/blockfood" target="_blank"><span class="blockfood">@BLOCKFOOD</span> on Telegram</a> and stay at least until April 12th 2018
+                            </div>
+                            <div class="card-content-item">
+                                Share your airdrop referral link on a public social medium post (Twitter, Reddit, Facebook, ...)
+                            </div>
+                            <div class="card-content-item">
+                                Share the BlockFood website on a public social medium post (Twitter, Reddit, Facebook, ...)
+                            </div>
+                            <div class="card-content-item">
+                                COMING UP Share the BlockFood explainer video from Anthony Scarpulla on a public social medium post (Twitter, Reddit, Facebook, ...)
+                            </div>
+                            <div class="card-content-item">
+                                Complete the form below
+                            </div>
+                            <div class="card-content-item">
+                                First level of referral you earn
+                                <span class="1LevelReward"></span> BFT, second level
+                                <span class="2LevelReward"></span> BFT, third level
+                                <span class="3LevelReward"></span> BFT and fourth level
+                                <span class="4LevelReward"></span> BFT
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="p-like">
-                        <h2>Conditions to validate your airdrop</h2>
-                        In order to be able to collect your airdrop, you have to meet the following conditions:
-                        <ol>
-                            <li>Follow <a href="https://twitter.com/BlockFood" target='_blank'>@BlockFood on Twitter</a>
-                            </li>
-                            <li>Join <a href="https://t.me/blockfood" target="_blank">@BlockFood on Telegram</a></li>
-                            <li>Share your airdrop referral link on a public social medium post (Twitter, Reddit,
-                                Facebook, ...)
-                            </li>
-                            <li>Share the BlockFood website on a public social medium post (Twitter, Reddit, Facebook,
-                                ...)
-                            </li>
-                            <li>Complete the form below</li>
-                        </ol>
-                    </div>
 
-                    <div class="p-like edit-airdrop">
-                        <a href="javascript:;" class="btn btn-default">Edit information</a>
-                    </div>
-
-                    <form id='airdrop-form' method='post' enctype='multipart/form-data' style="display:none">
-                        <div class='p-like'>
-                            <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>* Email</div>
-                                <input type='text' class='form-control email' disabled placeholder='email'
-                                       name='email'/>
-                            </div>
+                    <div class="card">
+                        <div class="card-header">
+                            Fill this form to claim your reward
                         </div>
+                        <div class="card-content">
+                            <form id='airdrop-form' method='post' enctype='multipart/form-data'">
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Email</div>
+                                        <input type='text' class='form-control email' disabled placeholder='email'
+                                               name='email'/>
+                                    </div>
+                                </div>
 
-                        <div class='p-like'>
-                            <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>* Ethereum address</div>
-                                <input type='text' class='form-control ethAddress' name='ethAddress'
-                                       placeholder='Ethereum address (e.g: 0x4213123..2312)'/>
-                            </div>
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Ethereum address</div>
+                                        <input type='text' class='form-control ethAddress' name='ethAddress'
+                                               placeholder='Ethereum address (e.g: 0x4213123..2312)'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Telegram username</div>
+                                        <input type='text' class='form-control telegram' name='telegram'
+                                               placeholder='Telegram username (e.g: @blockfood)'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Twitter account</div>
+                                        <input type='text' class='form-control twitter' name='twitter'
+                                               placeholder='Twitter account (e.g: @blockfood)'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Public post with your referral URL</div>
+                                        <input type='text' class='form-control publicReferral' name='publicReferral'
+                                               placeholder='Public post (e.g: https://facebook.com/.... )'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Public post with https://blockfood.io</div>
+                                        <input type='text' class='form-control publicBlockfood' name='publicBlockfood'
+                                               placeholder='Public post (e.g: https://facebook.com/.... )'/>
+                                    </div>
+                                </div>
+
+
+                                <div class='p-like'>Fields marked with an asterisk (*) are mandatory.</div>
+
+                                <div class='text-right'>
+                                    <div class='submit-error' style='display:none'></div>
+                                    <input value='Validate my airdrop activity' class='btn btn-primary airdrop-btn' type='submit'/>
+                                </div>
+
+
+                            </form>
                         </div>
-
-                        <div class='p-like'>
-                            <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>* Telegram username</div>
-                                <input type='text' class='form-control telegram' name='telegram'
-                                       placeholder='Telegram username (e.g: @blockfood)'/>
-                            </div>
-                        </div>
-
-                        <div class='p-like'>
-                            <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>* Twitter account</div>
-                                <input type='text' class='form-control twitter' name='twitter'
-                                       placeholder='Twitter account (e.g: @blockfood)'/>
-                            </div>
-                        </div>
-
-                        <div class='p-like'>
-                            <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>* Public post with your referral URL</div>
-                                <input type='text' class='form-control publicReferral' name='publicReferral'
-                                       placeholder='Public post (e.g: https://facebook.com/.... )'/>
-                            </div>
-                        </div>
-
-                        <div class='p-like'>
-                            <div class='input-group mb-2 mb-sm-0'>
-                                <div class='input-group-addon'>* Public post with https://blockfood.io</div>
-                                <input type='text' class='form-control publicBlockfood' name='publicBlockfood'
-                                       placeholder='Public post (e.g: https://facebook.com/.... )'/>
-                            </div>
-                        </div>
-
-
-                        <div class='p-like'>Fields marked with an asterisk (*) are mandatory.</div>
-
-                        <div class='text-right'>
-                            <div class='submit-error' style='display:none'></div>
-                            <input value='Validate' class='btn btn-primary airdrop-btn' type='submit'/>
-                        </div>
-
-
-                    </form>
-
-                    <div class="p-like">
-                        <h2>Airdrop rewards</h2>
-                        Your reward will be computed using the following formula:<br>
-                        <code>AIRDROP = CONFIRMED_ACTIONS +<br>
-                            1ST_LEVEL_REFERRENTS * 1ST_LEVEL_REWARD +
-                            2ND_LEVEL_REFERRENTS * 2ND_LEVEL_REWARD +
-                            3RD_LEVEL_REFERRENTS * 3RD_LEVEL_REWARD +
-                            4TH_LEVEL_REFERRENTS * 4TH_LEVEL_REWARD
-                        </code><br>
-                        With the following values
-                        <ul>
-                            <li>CONFIRMED_ACTIONS: <code class="confirmedActions"></code> BFT</li>
-                            <li>1ST_LEVEL_REWARD: <code class="1LevelReward"></code> BFT</li>
-                            <li>2ND_LEVEL_REWARD: <code class="2LevelReward"></code> BFT</li>
-                            <li>3RD_LEVEL_REWARD: <code class="3LevelReward"></code> BFT</li>
-                            <li>4TH_LEVEL_REWARD: <code class="4LevelReward"></code> BFT</li>
-                        </ul>
                     </div>
                 </div>
-
-
             </div>
 
         </div>
