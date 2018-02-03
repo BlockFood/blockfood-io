@@ -68,8 +68,6 @@ window.init_page = function ($) {
                             }
                         })
 
-
-
                         if (airDrop.validated) {
                             $('.status').text('Confirmed')
                         } else {
@@ -91,12 +89,15 @@ window.init_page = function ($) {
                         $('.air-drop .loading').hide()
 
 
-                        var total = 0
+                        var totalConfirmed = 0
                         var totalPending = 0
 
-                        total += rewards.confirmedActions
                         if (!airDrop.validated) {
                             totalPending += rewards.confirmedActions
+                            $('.confirmed-personal-tokens').text(0)
+                        } else {
+                            totalConfirmed += rewards.confirmedActions
+                            $('.confirmed-personal-tokens').text(rewards.confirmedActions)
                         }
 
                         var firstLevelReferrents = airDrop.referrents
@@ -117,11 +118,18 @@ window.init_page = function ($) {
                         gatherChildren(thirdLevelReferrents, fourthLevelReferrents)
 
                         function countReward(referrents, reward) {
+                            const total = referrents.length * reward
+                            const totalPending = referrents.filter(function (ref) {
+                                return !ref.validated
+                            }).length * reward
+                            const totalConfirmed = referrents.filter(function (ref) {
+                                return ref.validated
+                            }).length * reward
+
                             return {
-                                total: referrents.length * reward,
-                                totalPending: referrents.filter(function (ref) {
-                                    return !ref.validated
-                                }).length * reward
+                                total: total,
+                                totalPending: totalPending,
+                                totalConfirmed: totalConfirmed
                             }
                         }
 
@@ -130,17 +138,17 @@ window.init_page = function ($) {
                         var thirdLevelReward = countReward(thirdLevelReferrents, rewards["3LevelReward"])
                         var fourthLevelReward = countReward(fourthLevelReferrents, rewards["4LevelReward"])
 
-                        total += firstLevelReward.total
-                        total += secondLevelReward.total
-                        total += thirdLevelReward.total
-                        total += fourthLevelReward.total
+                        totalConfirmed += firstLevelReward.totalConfirmed
+                        totalConfirmed += secondLevelReward.totalConfirmed
+                        totalConfirmed += thirdLevelReward.totalConfirmed
+                        totalConfirmed += fourthLevelReward.totalConfirmed
 
                         totalPending += firstLevelReward.totalPending
                         totalPending += secondLevelReward.totalPending
                         totalPending += thirdLevelReward.totalPending
                         totalPending += fourthLevelReward.totalPending
 
-                        $('.total').text(total)
+                        $('.total').text(totalConfirmed)
                         $('.totalPending').text(totalPending)
 
                         function displayLevelInfo(prefix, referrents, rewards) {

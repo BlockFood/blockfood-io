@@ -1625,3 +1625,8 @@ span.blockfood {
   margin-top: 0;
   margin-bottom: 20px;
 }
+.air-drop .BFTs {
+  font-size: 32px;
+  font-weight: bold;
+  padding: 20px;
+}

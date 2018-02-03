@@ -26,10 +26,10 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    Total BFT earned (pending validation)
+                                    Total BFT earned
                                 </div>
-                                <div class="card-content">
-                                    <span class="total"></span> BFT
+                                <div class="card-content BFTs ">
+                                    <span class="total"></span> BFTs
                                 </div>
                             </div>
                         </div>
@@ -38,8 +38,8 @@
                                 <div class="card-header">
                                     Your Airdrop Tokens
                                 </div>
-                                <div class="card-content">
-                                    <span class="confirmedActions"></span> BFT
+                                <div class="card-content BFTs ">
+                                    <span class="confirmed-personal-tokens"></span> BFTs
                                 </div>
                             </div>
                         </div>
@@ -48,8 +48,8 @@
                                 <div class="card-header">
                                     Referral Level 1 @ <span class="1LevelReward"></span> BFT
                                 </div>
-                                <div class="card-content">
-                                    <span class="1stLevelTotal"></span> BFT
+                                <div class="card-content BFTs ">
+                                    <span class="1stLevelTotal"></span> BFTs
                                 </div>
                             </div>
                         </div>
@@ -58,8 +58,8 @@
                                 <div class="card-header">
                                     Referral Level 2 @ <span class="2LevelReward"></span> BFT
                                 </div>
-                                <div class="card-content">
-                                    <span class="2ndLevelTotal"></span> BFT
+                                <div class="card-content BFTs ">
+                                    <span class="2ndLevelTotal"></span> BFTs
                                 </div>
                             </div>
                         </div>
@@ -68,8 +68,8 @@
                                 <div class="card-header">
                                     Referral Level 3 @ <span class="3LevelReward"></span> BFT
                                 </div>
-                                <div class="card-content">
-                                    <span class="3rdLevelTotal"></span> BFT
+                                <div class="card-content BFTs ">
+                                    <span class="3rdLevelTotal"></span> BFTs
                                 </div>
                             </div>
                         </div>
@@ -78,8 +78,8 @@
                                 <div class="card-header">
                                     Referral Level 4 @ <span class="4LevelReward"></span> BFT
                                 </div>
-                                <div class="card-content">
-                                    <span class="4thLevelTotal"></span> BFT
+                                <div class="card-content BFTs ">
+                                    <span class="4thLevelTotal"></span> BFTs
                                 </div>
                             </div>
                         </div>
@@ -133,65 +133,64 @@
                             Fill this form to claim your reward
                         </div>
                         <div class="card-content">
-                            <form id='airdrop-form' method='post' enctype='multipart/form-data'
-                            ">
-                            <div class='p-like'>
-                                <div class='input-group mb-2 mb-sm-0'>
-                                    <div class='input-group-addon'>* Email</div>
-                                    <input type='text' class='form-control email' disabled placeholder='email'
-                                           name='email'/>
-                                </div>
-                            </div>
-
-                            <div class='p-like'>
-                                <div class='input-group mb-2 mb-sm-0'>
-                                    <div class='input-group-addon'>* Ethereum address</div>
-                                    <input type='text' class='form-control ethAddress' name='ethAddress'
-                                           placeholder='Ethereum address (e.g: 0x4213123..2312)'/>
-                                </div>
-                            </div>
-
-                            <div class='p-like'>
-                                <div class='input-group mb-2 mb-sm-0'>
-                                    <div class='input-group-addon'>* Telegram username</div>
-                                    <input type='text' class='form-control telegram' name='telegram'
-                                           placeholder='Telegram username (e.g: @blockfood)'/>
-                                </div>
-                            </div>
-
-                            <div class='p-like'>
-                                <div class='input-group mb-2 mb-sm-0'>
-                                    <div class='input-group-addon'>* Twitter account</div>
-                                    <input type='text' class='form-control twitter' name='twitter'
-                                           placeholder='Twitter account (e.g: @blockfood)'/>
-                                </div>
-                            </div>
-
-                            <div class='p-like'>
-                                <div class='input-group mb-2 mb-sm-0'>
-                                    <div class='input-group-addon'>* Public post with your referral URL</div>
-                                    <input type='text' class='form-control publicReferral' name='publicReferral'
-                                           placeholder='Public post (e.g: https://facebook.com/.... )'/>
-                                </div>
-                            </div>
-
-                            <div class='p-like'>
-                                <div class='input-group mb-2 mb-sm-0'>
-                                    <div class='input-group-addon'>* Public post with https://blockfood.io/pre-sale
+                            <form id='airdrop-form' method='post' enctype='multipart/form-data'>
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Email</div>
+                                        <input type='text' class='form-control email' disabled placeholder='email'
+                                               name='email'/>
                                     </div>
-                                    <input type='text' class='form-control publicBlockfood' name='publicBlockfood'
-                                           placeholder='Public post (e.g: https://facebook.com/.... )'/>
                                 </div>
-                            </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Ethereum address</div>
+                                        <input type='text' class='form-control ethAddress' name='ethAddress'
+                                               placeholder='Ethereum address (e.g: 0x4213123..2312)'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Telegram username</div>
+                                        <input type='text' class='form-control telegram' name='telegram'
+                                               placeholder='Telegram username (e.g: @blockfood)'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Twitter account</div>
+                                        <input type='text' class='form-control twitter' name='twitter'
+                                               placeholder='Twitter account (e.g: @blockfood)'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Public post with your referral URL</div>
+                                        <input type='text' class='form-control publicReferral' name='publicReferral'
+                                               placeholder='Public post (e.g: https://facebook.com/.... )'/>
+                                    </div>
+                                </div>
+
+                                <div class='p-like'>
+                                    <div class='input-group mb-2 mb-sm-0'>
+                                        <div class='input-group-addon'>* Public post with https://blockfood.io/pre-sale
+                                        </div>
+                                        <input type='text' class='form-control publicBlockfood' name='publicBlockfood'
+                                               placeholder='Public post (e.g: https://facebook.com/.... )'/>
+                                    </div>
+                                </div>
 
 
-                            <div class='p-like'>Fields marked with an asterisk (*) are mandatory.</div>
+                                <div class='p-like'>Fields marked with an asterisk (*) are mandatory.</div>
 
-                            <div class='text-right'>
-                                <div class='submit-error' style='display:none'></div>
-                                <input value='Validate my airdrop activity' class='btn btn-primary airdrop-btn'
-                                       type='submit'/>
-                            </div>
+                                <div class='text-right'>
+                                    <div class='submit-error' style='display:none'></div>
+                                    <input value='Validate my airdrop activity' class='btn btn-primary airdrop-btn'
+                                           type='submit'/>
+                                </div>
 
 
                             </form>
