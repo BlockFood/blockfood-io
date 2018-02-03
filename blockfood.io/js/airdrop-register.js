@@ -31,10 +31,6 @@ window.init_page = function ($) {
         return values[key]
     }
 
-    /*
-    Pre-sale workflow
-     */
-
 
     var step1 = function () {
         $('.pre-sale .loading').hide()

@@ -98,7 +98,7 @@ window.init_page = function ($) {
 
                         function gatherChildren(nLevelReferrents, nPlusOneLevelReferrents) {
                             nLevelReferrents.forEach(function (ref) {
-                                ref.referrents(function (secondLevelReferrent) {
+                                ref.referrents.forEach(function (secondLevelReferrent) {
                                     nPlusOneLevelReferrents.push(secondLevelReferrent)
                                 })
                             })
