@@ -33,7 +33,7 @@ window.init_page = function ($) {
 
 
     var rewards = {
-        confirmedActions: 500,
+        confirmedActions: 300,
         '1LevelReward': 100,
         '2LevelReward': 25,
         '3LevelReward': 12,
