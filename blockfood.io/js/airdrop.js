@@ -31,83 +31,150 @@ window.init_page = function ($) {
         return values[key]
     }
 
-    /*
-    Pre-sale workflow
-     */
 
+    var rewards = {
+        confirmedActions: 500,
+        '1LevelReward': 100,
+        '2LevelReward': 25,
+        '3LevelReward': 12,
+        '4LevelReward': 6,
+    }
+
+    Object.keys(rewards).forEach(function (key) {
+        $('code.' + key).text(rewards[key])
+    })
 
     var step1 = function () {
         var privateId = getValueFromHash('privateId')
 
         if (!privateId) {
             $('.no-privateId').show()
+            $('.pre-sale .loading').hide()
             return
         }
 
-        $('.privateId').show()
 
         $.get(window.bfio.api + '/air-drop/review/' + privateId)
             .then(function (airDrop) {
-                $('.pre-sale .loading').hide()
+                $.get(window.bfio.api + '/air-drop/referrents/' + airDrop.publicId)
+                    .then(function (airDrop) {
+                        var referralLink = 'https://blockfood.io/airdrop-register#ref=' + airDrop.publicId
 
-                var referralLink = 'https://blockfood.io/airdrop-register#ref=' + airDrop.publicId
+                        $('.referral-link').attr('href', referralLink).text(referralLink)
 
-                $('.referral-link').attr('href', referralLink).text(referralLink)
+                        if (airDrop.validated) {
+                            $('.status').text('Confirmed')
+                        } else {
+                            $('.status').text('Pending')
+                        }
 
-                $('#airdrop-form .email').val(airDrop.email)
+                        if (!airDrop.ethAddress) {
+                            $('#airdrop-form').show()
+                        }
+
+                        $('.email').text(airDrop.email)
+                        $('#airdrop-form .email').val(airDrop.email)
+                        $('#airdrop-form .ethAddress').val(airDrop.ethAddress)
+                        $('#airdrop-form .telegram').val(airDrop.telegram)
+                        $('#airdrop-form .twitter').val(airDrop.twitter)
+                        $('#airdrop-form .publicReferral').val(airDrop.publicReferral)
+                        $('#airdrop-form .publicBlockfood').val(airDrop.publicBlockfood)
+                        $('.privateId').show()
+                        $('.pre-sale .loading').hide()
+
+
+                        var total = 0
+                        var totalPending = 0
+
+                        total += rewards.confirmedActions
+                        if (!airDrop.validated) {
+                            totalPending += rewards.confirmedActions
+                        }
+
+                        var firstLevelReferrents = airDrop.referrents
+                        var secondLevelReferrents = []
+                        var thirdLevelReferrents = []
+                        var fourthLevelReferrents = []
+
+                        function gatherChildren(nLevelReferrents, nPlusOneLevelReferrents) {
+                            nLevelReferrents.forEach(function (ref) {
+                                ref.referrents(function (secondLevelReferrent) {
+                                    nPlusOneLevelReferrents.push(secondLevelReferrent)
+                                })
+                            })
+                        }
+
+                        gatherChildren(firstLevelReferrents, secondLevelReferrents)
+                        gatherChildren(secondLevelReferrents, thirdLevelReferrents)
+                        gatherChildren(thirdLevelReferrents, fourthLevelReferrents)
+
+                        function countReward(referrents, reward) {
+                            return {
+                                total: referrents.length * reward,
+                                totalPending: referrents.filter(function (ref) {
+                                    return !ref.validated
+                                }).length * reward
+                            }
+                        }
+
+                        var firstLevelReward = countReward(firstLevelReferrents, rewards["1LevelReward"])
+                        var secondLevelReward = countReward(secondLevelReferrents, rewards["2LevelReward"])
+                        var thirdLevelReward = countReward(thirdLevelReferrents, rewards["3LevelReward"])
+                        var fourthLevelReward = countReward(fourthLevelReferrents, rewards["4LevelReward"])
+
+                        total += firstLevelReward.total
+                        total += secondLevelReward.total
+                        total += thirdLevelReward.total
+                        total += fourthLevelReward.total
+
+                        totalPending += firstLevelReward.totalPending
+                        totalPending += secondLevelReward.totalPending
+                        totalPending += thirdLevelReward.totalPending
+                        totalPending += fourthLevelReward.totalPending
+
+                        $('.total').text(total)
+                        $('.totalPending').text(totalPending)
+
+                        function displayLevelInfo(prefix, referrents, rewards) {
+                            $('.' + prefix + 'LevelLength').text(referrents.length)
+                            $('.' + prefix + 'LevelTotal').text(rewards.total)
+                            $('.' + prefix + 'LevelTotalPending').text(rewards.totalPending)
+                        }
+
+                        displayLevelInfo('1st', firstLevelReferrents, firstLevelReward)
+                        displayLevelInfo('2nd', secondLevelReferrents, secondLevelReward)
+                        displayLevelInfo('3rd', thirdLevelReferrents, thirdLevelReward)
+                        displayLevelInfo('4th', fourthLevelReferrents, fourthLevelReward)
+                    })
             })
 
-        $('.apply-email').on('keydown', function (e) {
-            if (e.key === 'Enter') {
-                tryStep1()
-            }
+        $('.edit-airdrop .btn').on('click', function () {
+            $('#airdrop-form').toggle()
         })
 
-        $('.apply-form .apply-btn').on('click', function (e) {
-            e.preventDefault()
-            tryStep1()
+
+        $('#airdrop-form').submit(function (event) {
+            event.preventDefault()
+            var form = $('#airdrop-form').get(0)
+            var formData = new FormData(form)
+
+            $('.submit-error').hide()
+
+            $.ajax({
+                type: 'POST',
+                url: window.bfio.api + '/air-drop/edit/' + privateId, // the url where we want to POST
+                data: formData, // our data object
+                dataType: 'json', // what type of data do we expect back from the server
+                processData: false,
+                contentType: false
+            }).then(function (response) {
+                $('.edit-airdrop').show()
+                $('#airdrop-form').hide()
+            }).catch(function (response) {
+                $('.submit-error').show()
+                $('.submit-error').text(response.responseJSON.error)
+            })
         })
-
-        function tryStep1() {
-            var email = $('.apply-email').val().replace(/&/g, '')
-
-            $('.apply-email').attr('disabled', true)
-
-            $('.apply-form .apply-btn')
-                .val('In progress...')
-                .attr('disabled', true)
-
-            $('.apply-form-error').hide()
-            $('.apply-form-success').hide()
-            $('.apply-form-success .email').html(email)
-
-            $.get(window.bfio.api + '/air-drop/new?email=' + email + '&sponsor=' + ref)
-                .done(function (response) {
-                    if (/^KO/.test(response)) {
-                        onFailure()
-                    } else {
-                        onSuccess()
-                    }
-                })
-                .fail(function () {
-                    onFailure()
-                })
-        }
-
-        function onSuccess() {
-            $('.apply-form-intro').hide()
-            $('.apply-form').hide()
-            $('.apply-form-advice').hide()
-            $('.apply-form-success').show()
-        }
-
-        function onFailure() {
-            $('.apply-email').attr('disabled', false)
-            $('.apply-form .apply-btn')
-                .val('Retry')
-                .attr('disabled', false)
-            $('.apply-form-error').show()
-        }
 
     }
 
