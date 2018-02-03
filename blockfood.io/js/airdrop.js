@@ -120,10 +120,10 @@ window.init_page = function ($) {
                         function countReward(referrents, reward) {
                             const total = referrents.length * reward
                             const totalPending = referrents.filter(function (ref) {
-                                return !ref.validated
+                                return !ref.ethAddress
                             }).length * reward
                             const totalConfirmed = referrents.filter(function (ref) {
-                                return ref.validated
+                                return ref.ethAddress
                             }).length * reward
 
                             return {
