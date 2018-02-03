@@ -1623,10 +1623,14 @@ span.blockfood {
 .air-drop .referral-link {
   width: 100%;
   margin-top: 0;
-  margin-bottom: 20px;
+  color: #4b3f80;
+  font-weight: bold;
 }
 .air-drop .BFTs {
   font-size: 32px;
   font-weight: bold;
   padding: 20px;
+}
+.referral-link-to-clipboard {
+  margin-bottom: 20px;
 }
