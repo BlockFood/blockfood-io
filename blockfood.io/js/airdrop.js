@@ -149,8 +149,8 @@ window.init_page = function ($) {
 
                         function displayLevelInfo(prefix, referrents, rewards) {
                             $('.' + prefix + 'LevelLength').text(referrents.length)
-                            $('.' + prefix + 'LevelTotal').text(rewards.total)
-                            $('.' + prefix + 'LevelTotalPending').text(rewards.totalConfirmed)
+                            $('.' + prefix + 'LevelTotal').text(rewards.totalConfirmed)
+                            $('.' + prefix + 'LevelTotalPending').text(rewards.totalPending)
                         }
 
                         displayLevelInfo('1st', firstLevelReferrents, firstLevelReward)
