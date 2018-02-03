@@ -55,8 +55,8 @@ window.init_page = function ($) {
 
 
         $.get(window.bfio.api + '/air-drop/review/' + privateId)
-            .then(function (airDrop) {
-                $.get(window.bfio.api + '/air-drop/referrents/' + airDrop.publicId)
+            .then(function (completeAirDrop) {
+                $.get(window.bfio.api + '/air-drop/referrents/' + completeAirDrop.publicId)
                     .then(function (airDrop) {
                         var referralLink = 'https://blockfood.io/airdrop-register#ref=' + airDrop.publicId
 
@@ -74,13 +74,13 @@ window.init_page = function ($) {
                             $('.status').text('Pending')
                         }
 
-                        $('.email').text(airDrop.email)
-                        $('#airdrop-form .email').val(airDrop.email)
-                        $('#airdrop-form .ethAddress').val(airDrop.ethAddress)
-                        $('#airdrop-form .telegram').val(airDrop.telegram)
-                        $('#airdrop-form .twitter').val(airDrop.twitter)
-                        $('#airdrop-form .publicReferral').val(airDrop.publicReferral)
-                        $('#airdrop-form .publicBlockfood').val(airDrop.publicBlockfood)
+                        $('.email').text(completeAirDrop.email)
+                        $('#airdrop-form .email').val(completeAirDrop.email)
+                        $('#airdrop-form .ethAddress').val(completeAirDrop.ethAddress)
+                        $('#airdrop-form .telegram').val(completeAirDrop.telegram)
+                        $('#airdrop-form .twitter').val(completeAirDrop.twitter)
+                        $('#airdrop-form .publicReferral').val(completeAirDrop.publicReferral)
+                        $('#airdrop-form .publicBlockfood').val(completeAirDrop.publicBlockfood)
                         $('.privateId').show()
                         $('.air-drop .loading').hide()
 
