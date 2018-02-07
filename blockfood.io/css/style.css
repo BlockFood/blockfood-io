@@ -1634,3 +1634,12 @@ span.blockfood {
 .referral-link-to-clipboard {
   margin-bottom: 20px;
 }
+
+
+.pre-sale-countdown{
+  color: #E6501E;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: "Poppins";
+  text-align: right;
+}

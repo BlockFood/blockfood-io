@@ -76,4 +76,13 @@ window.init_page = function($) {
     toggleDescription()
     handleSubscribe()
     timeline()
+
+    var preSaleEnd = new Date('2018-02-08T16:00:00.000Z')
+
+    $(".pre-sale-countdown")
+        .countdown(preSaleEnd.getTime(), function(event) {
+            $(this).text(
+                event.strftime('%I:%M:%S')
+            );
+        })
 }
