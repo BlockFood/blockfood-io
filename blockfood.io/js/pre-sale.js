@@ -2,7 +2,7 @@ window.init_page = function ($) {
     // hash utility functions
 
     var updateHash = function (key, newValue) {
-        var hash = (window.location.href.split("#")[1] || "")
+        var hash = (window.location.href.split('#')[1] || '')
         var keyFound = false
         var updatedHash = hash.split('&').reduce(function (hash, value, i) {
             var currentKey = value.split('=')[0]
@@ -22,7 +22,7 @@ window.init_page = function ($) {
     }
 
     var getValueFromHash = function (key) {
-        var hash = (window.location.href.split("#")[1] || "")
+        var hash = (window.location.href.split('#')[1] || '')
         var values = hash.split('&').reduce(function (values, value) {
             values[value.split('=')[0]] = value.split('=')[1]
             return values
@@ -53,25 +53,25 @@ window.init_page = function ($) {
             var step = getValueFromHash('forceStep')
 
             switch (step) {
-                case '1':
-                    step1()
-                    break
-                case '2A':
-                    step2A(fakeApplication)
-                    break
-                case '2B':
-                    step2B(fakeApplication)
-                    break
-                case '3':
-                    step3(fakeApplication)
-                    break
-                case '4':
-                    step4({
-                        state: applicationState.ACCEPTED,
-                        contribution: '0.1',
-                        publicId: 'public id'
-                    })
-                    break
+            case '1':
+                step1()
+                break
+            case '2A':
+                step2A(fakeApplication)
+                break
+            case '2B':
+                step2B(fakeApplication)
+                break
+            case '3':
+                step3(fakeApplication)
+                break
+            case '4':
+                step4({
+                    state: applicationState.ACCEPTED,
+                    contribution: '0.1',
+                    publicId: 'public id'
+                })
+                break
             }
             return
         }
@@ -302,14 +302,14 @@ window.init_page = function ($) {
 
     var numberToState = function (number) {
         switch (number) {
-            case 1:
-                return applicationState.PENDING
-            case 2:
-                return applicationState.REFUSED
-            case 3:
-                return applicationState.ACCEPTED
-            default:
-                return applicationState.UNKNOWN
+        case 1:
+            return applicationState.PENDING
+        case 2:
+            return applicationState.REFUSED
+        case 3:
+            return applicationState.ACCEPTED
+        default:
+            return applicationState.UNKNOWN
         }
     }
 
@@ -326,7 +326,7 @@ window.init_page = function ($) {
 
     updateGasAdvice()
 
-    var useMetamask = function(application) {
+    var useMetamask = function (application) {
         if (!window.web3) {
             $('.step3 .metamask-required').show()
             $('.pre-sale .loading').hide()
@@ -464,7 +464,12 @@ window.init_page = function ($) {
         }
     }
 
-    var useMyEtherWallet = function() {
+    var useMyEtherWallet = function () {
+        $('.pre-sale .loading').hide()
+        getSmartContractAddress()
+    }
+
+    var useSendEther = function () {
         $('.pre-sale .loading').hide()
         getSmartContractAddress()
     }
@@ -479,37 +484,53 @@ window.init_page = function ($) {
 
         $('.publicId').text(application.publicId)
 
-
         // check if hash contains #use=?
         $('.btn.use-metamask').unbind()
-        $('.btn.use-metamask').on('click', function() {
+        $('.btn.use-metamask').on('click', function () {
             updateHash('use', 'metamask')
             step3(application)
         })
         $('.btn.use-myetherwallet').unbind()
-        $('.btn.use-myetherwallet').on('click', function() {
+        $('.btn.use-myetherwallet').on('click', function () {
             updateHash('use', 'myetherwallet')
+            step3(application)
+        })
+        $('.btn.use-sendether').unbind()
+        $('.btn.use-sendether').on('click', function () {
+            updateHash('use', 'sendether')
             step3(application)
         })
 
         var use = getValueFromHash('use')
 
-        console.log("???", use)
+        console.log('???', use)
 
         if (!use) {
             $('.pre-sale .loading').hide()
-        } else if (use === 'metamask' ) {
+        } else if (use === 'metamask') {
             $('.metamask').show()
+            $('.sendether').hide()
             $('.myetherwallet').hide()
             $('.btn.use-metamask').addClass('active')
             $('.btn.use-myetherwallet').removeClass('active')
+            $('.btn.use-sendether').removeClass('active')
             useMetamask(application)
         } else if (use === 'myetherwallet') {
             $('.myetherwallet').show()
+            $('.sendether').hide()
             $('.metamask').hide()
             $('.btn.use-myetherwallet').addClass('active')
             $('.btn.use-metamask').removeClass('active')
+            $('.btn.use-sendether').removeClass('active')
             useMyEtherWallet()
+        } else if (use === 'sendether') {
+            $('.sendether').show()
+            $('.myetherwallet').hide()
+            $('.metamask').hide()
+            $('.btn.use-myetherwallet').removeClass('active')
+            $('.btn.use-metamask').removeClass('active')
+            $('.btn.use-sendether').addClass('active')
+            useSendEther()
         }
     }
 
