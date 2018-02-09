@@ -76,6 +76,9 @@ window.init_page = function ($) {
             return
         }
 
+        step1()
+        /*
+
         if (!/privateId=.+$/.test(hash)) {
             step1()
         } else {
@@ -96,7 +99,7 @@ window.init_page = function ($) {
                     .show()
                     .append(error.responseJSON.error)
             })
-        }
+        }*/
     }
 
     var step1 = function () {
