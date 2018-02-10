@@ -1,0 +1,94 @@
+<div class='container pre-sale'>
+    <div class='row row-bottom-padded-md'>
+        <div class='col-lg-12'>
+            <div id='animation_01_container' style='width:400px; height:300px'>
+                <canvas id='animation_01' width='400' height='300'
+                        style='position: absolute; display: block;'></canvas>
+                <div id='animation_01_overlay'
+                     style='pointer-events:none; overflow:hidden; width:400px; height:300px; position: absolute; left: 0px; top: 0px; display: block;'>
+                </div>
+            </div>
+
+            <div class='loading'>Loading...
+                <div class='bfio-loader'></div>
+            </div>
+
+            <div class='step1' style='display: none'>
+                <h1>Pre-Sale Refund</h1>
+
+                <div class='p-like'>
+                    Dear early supporter,<br><br>
+                    Unfortunately, we were not able to reach our pre-sale goal in time.<br>
+                    This means two things:
+                    <ol>
+                        <li>You can now withdraw your initial participation</li>
+                        <li>We will come back <strong>better & stronger</strong></li>
+                    </ol>
+                    We apologize for the inconvenience and hope you will continue to follow us in the upcoming
+                    months.<br><br>
+                    Read more about it in our blog: <a
+                        href='https://medium.com/blockfood/blockfood-false-start-lets-rewind-5aee76b4d04'
+                        target='_blank'>"BlockFood: false-start. Let’s rewind" <i
+                        class='icon-external-link'></i></a>
+                </div>
+
+
+                <div class='loading'>Loading...
+                    <div class='bfio-loader'></div>
+                </div>
+
+                <div class='metamask-required' style='display:none'>
+                    <div class='p-like'>
+                        This step of the pre-sale process requires to have <a
+                            href='https://metamask.io/'>MetaMask</a>
+                        installed. If you don't have MetaMask, go to <a
+                            href='https://metamask.io/' target='_blank'>https://metamask.io/ <i
+                            class='icon-external-link'></i></a>
+                        and follow the instructions.
+                    </div>
+                </div>
+
+                <div class='metamask-unlock' style='display: none'>
+                    <h2>Unlock your MetaMask</h2>
+                    <div class='p-like'>
+                        It seems your MetaMask is not unlocked.<br><br>
+                        In order to unlock your MetaMask plugin, click on the icon and enter your password.<br><br>
+                        Once your MetaMask plugin is unlocked, simply reload this page or use the button below.
+                    </div>
+                    <div class='p-like text-center'>
+                        <img src='images/pre-sale/unlock-metamask.png' style='max-width: 200px;'>
+                    </div>
+                    <div class='p-like text-center'>
+                        <a class='btn btn-primary reloadBtn' href='javascript:;'>I've unlocked my
+                            MetaMask plugin</a>
+                    </div>
+                </div>
+
+                <div class='refund-summary' style='display:none'>
+                    <div class='p-like'>
+                        Participation summary:
+                        <ul>
+                            <li>Address: <code class='address'></code></li>
+                            <li>State: <code class='state'></code></li>
+                            <li>Contribution: <code class='contribution'></code> Eth</li>
+                        </ul>
+                    </div>
+
+
+                    <div class='p-like text-center'>
+                        <input value='Refund' class='btn btn-primary step3-btn' type='submit'/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src='js/ethjs-contract.min.js'></script>
+<script src='js/ethjs-query.min.js'></script>
+<script src='js/pre-sale-abi.js'></script>
+<script src='js/pre-sale-refund.js'></script>
