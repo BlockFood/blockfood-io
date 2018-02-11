@@ -51,6 +51,7 @@ window.init_page = function ($) {
             return response.address
         })
     }
+    getSmartContractAddress()
 
     var getBlockFoodPreSaleSmartContract = function (eth) {
         var contract = new EthContract(eth)
@@ -185,6 +186,31 @@ window.init_page = function ($) {
             }
         })
     }
+
+
+    var contractAddressClipboard = new Clipboard('.copy-pre-sale-address', {
+        target: function (trigger) {
+            return $('.pre-sale-smart-contract-address')[0]
+        }
+    })
+    contractAddressClipboard.on('success', function () {
+        $('.pre-sale-address-copied').show()
+        setTimeout(function () {
+            $('.pre-sale-address-copied').hide()
+        }, 5000)
+    })
+
+    var abiClipboard = new Clipboard('.copy-pre-sale-abi', {
+        target: function (trigger) {
+            return $('.pre-sale-abi')[0]
+        }
+    })
+    abiClipboard.on('success', function () {
+        $('.abi-copied').show()
+        setTimeout(function () {
+            $('.abi-copied').hide()
+        }, 5000)
+    })
 
     preSaleRouter()
 }

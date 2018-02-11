@@ -219,6 +219,8 @@ window.init_page = function ($) {
                     })
                 }
 
+                console.log(step4.map(a => a.email))
+
                 Promise.all(step4.map(function (application) {
                     return preSale.applications(application.address).then(function (smartContractApplication) {
                         application.contribution = web3.fromWei(smartContractApplication.contribution, 'ether')
