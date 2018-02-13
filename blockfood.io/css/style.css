@@ -113,7 +113,7 @@ section {
 .form-control {
   box-shadow:  none;
   background:  transparent;
-  border:      2px solid rgba(0, 0, 0, 0.1);
+  border:      1px solid #ccc;
   height:      54px;
   font-size:   18px;
   font-weight: 300;
@@ -571,54 +571,6 @@ body.scrolled #bfio-header #bfio-logo a {
   }
 }
 
-#bfio-hero .bfio-intro > div .btn-primary {
-  min-width: 200px;
-  font-size: 18px;
-}
-
-@media screen and (max-width: 480px) {
-  #bfio-hero .bfio-intro > div .btn-primary {
-    padding: 10px 30px !important;
-    width:   100%;
-  }
-}
-
-#bfio-hero .bfio-learn-more {
-  position:   absolute;
-  bottom:     -25px;
-  left:       50%;
-  z-index:    11;
-  text-align: center;
-}
-
-#bfio-hero .bfio-learn-more a {
-  display: block;
-}
-
-#bfio-hero .bfio-learn-more a .text {
-  display:       block;
-  color:         rgba(255, 255, 255, 0.5);
-  margin-bottom: 20px;
-}
-
-#bfio-hero .bfio-learn-more a .arrow {
-  display:               block;
-  width:                 50px;
-  height:                50px;
-  margin:                0 auto;
-  background:            #4b3f80;
-  -webkit-border-radius: 50%;
-  -moz-border-radius:    50%;
-  -ms-border-radius:     50%;
-  border-radius:         50%;
-}
-
-#bfio-hero .bfio-learn-more a .arrow i {
-  top:            10px;
-  position:       relative;
-  color:          #fff;
-  vertical-align: middle;
-}
 
 .no-js-fullheight {
   height: 620px;
@@ -636,6 +588,10 @@ body.scrolled #bfio-header #bfio-logo a {
   font-weight:   300;
   color:         #e6501e;
   margin-bottom: 50px;
+}
+
+.bfio-sublead {
+  color:         #e6501e;
 }
 
 .bfio-second-lead {
