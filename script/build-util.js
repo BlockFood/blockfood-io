@@ -22,13 +22,13 @@ const templateHtmlFile = (content,
                               privacy: 'https://blockfood.io/privacy',
                               disclaimer: 'https://blockfood.io/disclaimer',
                               presale: 'https://blockfood.io/pre-sale',
-                              whitepaper: 'https://whitepaper.blockfood.io',
+                              whitepaper: 'https://funcorp.gitlab.io/blockfood-whitepaper',
                               api: 'https://api.blockfood.io'
                           },
                           social = {
                               url: 'https://blockfood.io/',
                               name: 'BlockFood - Decentralized Food Ordering & Delivery Platform',
-                              description: 'Decentralized Food Ordering & Delivery Platform built on Smart Contracts and Ethereum.',
+                              description: 'Decentralized Food Ordering & Delivery Platform built on smart contracts.',
                           },
                           template = htmlTemplate) => {
 
