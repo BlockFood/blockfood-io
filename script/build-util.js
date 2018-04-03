@@ -22,7 +22,7 @@ const templateHtmlFile = (content,
                               privacy: 'https://blockfood.io/privacy',
                               disclaimer: 'https://blockfood.io/disclaimer',
                               presale: 'https://blockfood.io/pre-sale',
-                              whitepaper: 'https://funcorp.gitlab.io/blockfood-whitepaper',
+                              whitepaper: 'https://whitepaper.blockfood.io/',
                               api: 'https://api.blockfood.io'
                           },
                           social = {
